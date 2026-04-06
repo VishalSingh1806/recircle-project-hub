@@ -6,7 +6,7 @@ Static-exported Next.js 14 portal for internal ReCircle tools.
 
 ```bash
 npm install
-npm run build
+npm run build.
 ```
 
 ## Development
