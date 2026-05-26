@@ -103,19 +103,22 @@ export const overviewTools = [
     statusTone: "live" as const,
     href: "/climaone-v1/",
     ctaLabel: "Open tool",
-    mockup: "v1" as const
+    mockup: "v1" as const,
+    category: "EPR Compliance",
+    icon: LayoutDashboard
   },
   {
     number: "02",
     name: "ClimaOne V2",
     tagline:
       "Full material traceability built for BIS regulations - from collection all the way to compliance report.",
-    status: "Coming Soon",
-    statusTone: "comingSoon" as const,
-    href: "mailto:[INSERT EMAIL]",
-    ctaLabel: "Notify me when live",
+    status: "Live",
+    statusTone: "live" as const,
+    href: "/climaone-v2/",
+    ctaLabel: "Open tool",
     mockup: "v2" as const,
-    mailto: true
+    category: "EPR Compliance",
+    icon: Package
   },
   {
     number: "03",
@@ -126,7 +129,9 @@ export const overviewTools = [
     statusTone: "live" as const,
     href: "/ocr-epr/",
     ctaLabel: "Open tool",
-    mockup: "ocrEpr" as const
+    mockup: "ocrEpr" as const,
+    category: "Document OCR",
+    icon: FileText
   },
   {
     number: "04",
@@ -137,7 +142,9 @@ export const overviewTools = [
     statusTone: "live" as const,
     href: "/ocr-bizcard/",
     ctaLabel: "Open tool",
-    mockup: "ocrBiz" as const
+    mockup: "ocrBiz" as const,
+    category: "Document OCR",
+    icon: UserCircle
   },
   {
     number: "05",
@@ -148,7 +155,9 @@ export const overviewTools = [
     statusTone: "live" as const,
     href: "/route-optimizer/",
     ctaLabel: "Open tool",
-    mockup: "route" as const
+    mockup: "route" as const,
+    category: "Logistics",
+    icon: MapPin
   },
   {
     number: "06",
@@ -159,7 +168,9 @@ export const overviewTools = [
     statusTone: "live" as const,
     href: "/chatbot/",
     ctaLabel: "Open tool",
-    mockup: "chat" as const
+    mockup: "chat" as const,
+    category: "AI Assistant",
+    icon: MessageCircle
   },
   {
     number: "07",
@@ -170,44 +181,316 @@ export const overviewTools = [
     statusTone: "live" as const,
     href: "/drive-automation/",
     ctaLabel: "Open tool",
-    mockup: "drive" as const
+    mockup: "drive" as const,
+    category: "Automation",
+    icon: FolderSync
   }
 ];
 
-const placeholderRoles: RoleItem[] = [
-  { icon: Users, name: "[INSERT ROLE]", description: "[INSERT ROLE DESCRIPTION]" },
-  { icon: Activity, name: "[INSERT ROLE]", description: "[INSERT ROLE DESCRIPTION]" },
-  { icon: LayoutDashboard, name: "[INSERT ROLE]", description: "[INSERT ROLE DESCRIPTION]" },
-  { icon: FileText, name: "[INSERT ROLE]", description: "[INSERT ROLE DESCRIPTION]" }
+export type OverviewTool = (typeof overviewTools)[number];
+
+// ── OCR for EPR ──────────────────────────────────────────────────────────────
+
+const ocrEprRoles: RoleItem[] = [
+  {
+    icon: LayoutDashboard,
+    name: "Compliance Manager",
+    description: "Upload and validate EPR documents for CPCB filings and audit trails"
+  },
+  {
+    icon: Activity,
+    name: "Data Entry Operator",
+    description: "Process incoming documents, correct OCR output, and export structured data"
+  },
+  {
+    icon: Users,
+    name: "Admin",
+    description: "Configure document templates, manage team access, and review processing history"
+  },
+  {
+    icon: Truck,
+    name: "Operations",
+    description: "Upload weightbridge slips, collection receipts, and manifests from the field"
+  }
 ];
 
-const placeholderSteps: JourneyItem[] = [
+const ocrEprSteps: JourneyItem[] = [
   {
     number: "01",
-    title: "[INSERT STEP TITLE]",
-    description: "[INSERT STEP DESCRIPTION]",
-    capturedItems: ["[INSERT CAPTURED DATA]", "[INSERT CAPTURED DATA]"],
+    title: "Upload your document",
+    description:
+      "Drag and drop or photograph any EPR compliance document — waste manifests, CPCB forms, weightbridge slips, or collection receipts.",
+    capturedItems: ["Accepted: JPG, PNG, PDF", "Batch upload supported"],
     icon: Upload
   },
   {
     number: "02",
-    title: "[INSERT STEP TITLE]",
-    description: "[INSERT STEP DESCRIPTION]",
-    capturedItems: ["[INSERT CAPTURED DATA]", "[INSERT CAPTURED DATA]"],
+    title: "OCR extracts the data",
+    description:
+      "The tool reads the document and pulls out all key fields — dates, quantities, vehicle numbers, partner names — instantly.",
+    capturedItems: ["Quantity (kg / MT)", "Date, vehicle number, partner name"],
     icon: FileText
   },
   {
     number: "03",
-    title: "[INSERT STEP TITLE]",
-    description: "[INSERT STEP DESCRIPTION]",
-    capturedItems: ["[INSERT CAPTURED DATA]", "[INSERT CAPTURED DATA]"],
+    title: "Review and correct",
+    description:
+      "Check the extracted output side-by-side with the original. Fix any misread fields before saving — takes seconds, not minutes.",
+    capturedItems: ["Highlighted low-confidence fields", "Original image alongside extracted data"],
     icon: Activity
   },
   {
     number: "04",
-    title: "[INSERT STEP TITLE]",
-    description: "[INSERT STEP DESCRIPTION]",
-    capturedItems: ["[INSERT CAPTURED DATA]", "[INSERT CAPTURED DATA]"],
+    title: "Export or save",
+    description:
+      "Download as CSV or Excel, or push the structured data directly to ClimaOne for compliance reporting and record keeping.",
+    capturedItems: ["Export to CSV / Excel", "Sync to ClimaOne"],
+    icon: Bell
+  }
+];
+
+// ── OCR for Business Cards ────────────────────────────────────────────────────
+
+const ocrBizcardRoles: RoleItem[] = [
+  {
+    icon: Users,
+    name: "Account Manager",
+    description: "Scan cards from brand partners and recyclers straight into your contact directory"
+  },
+  {
+    icon: MapPin,
+    name: "Field Staff",
+    description: "Capture collector and aggregator contacts on-site without typing a single digit"
+  },
+  {
+    icon: LayoutDashboard,
+    name: "Admin",
+    description: "Review, merge, and export the team's growing partner contact database"
+  },
+  {
+    icon: Activity,
+    name: "Sales Team",
+    description:
+      "Build your partner pipeline faster by digitising every card from events and site visits"
+  }
+];
+
+const ocrBizcardSteps: JourneyItem[] = [
+  {
+    number: "01",
+    title: "Photograph the card",
+    description:
+      "Use your phone camera or upload an existing photo of any business card — from partners, recyclers, collectors, or event contacts.",
+    capturedItems: ["JPG or PNG", "Works with worn or hand-written cards"],
+    icon: Upload
+  },
+  {
+    number: "02",
+    title: "Extract contact details",
+    description:
+      "The OCR engine reads the card and pulls out name, phone, email, company, job title, and address automatically.",
+    capturedItems: ["Name, title, company", "Phone, email, address"],
+    icon: FileText
+  },
+  {
+    number: "03",
+    title: "Review and edit",
+    description:
+      "Check the extracted fields against the original card. Edit anything that was misread before saving.",
+    capturedItems: ["Side-by-side card view", "Quick inline edit"],
+    icon: Activity
+  },
+  {
+    number: "04",
+    title: "Save to directory",
+    description:
+      "Save the contact to your team's shared directory. Export as CSV or VCard to import into your phone or CRM.",
+    capturedItems: ["Export as CSV or VCard", "Shared team directory"],
+    icon: Bell
+  }
+];
+
+// ── Route Optimizer ───────────────────────────────────────────────────────────
+
+const routeRoles: RoleItem[] = [
+  {
+    icon: LayoutDashboard,
+    name: "Logistics Manager",
+    description: "Plan optimised collection runs for the day and monitor route progress in real time"
+  },
+  {
+    icon: Activity,
+    name: "Field Supervisor",
+    description: "Assign routes to drivers and track completion of each pickup point"
+  },
+  {
+    icon: Truck,
+    name: "Driver / Collector",
+    description: "Follow a clear, turn-by-turn route with all pickup details and contact numbers"
+  },
+  {
+    icon: Users,
+    name: "Operations",
+    description: "Review route efficiency, coverage gaps, and fuel usage across the network"
+  }
+];
+
+const routeSteps: JourneyItem[] = [
+  {
+    number: "01",
+    title: "Add collection points",
+    description:
+      "Enter or import the list of pickup locations for the day — addresses, contact names, and expected quantities.",
+    capturedItems: ["Address or GPS coordinates", "Contact name and expected weight"],
+    icon: Upload
+  },
+  {
+    number: "02",
+    title: "Set vehicle constraints",
+    description:
+      "Specify the vehicle capacity, available hours, and starting depot so the optimizer can generate a feasible route.",
+    capturedItems: ["Vehicle capacity (kg / MT)", "Start location and time window"],
+    icon: FileText
+  },
+  {
+    number: "03",
+    title: "Generate optimised route",
+    description:
+      "The optimizer calculates the most efficient sequence and path across all pickup points, minimising travel time and fuel.",
+    capturedItems: ["Optimal pickup sequence", "Estimated distance and time"],
+    icon: Activity
+  },
+  {
+    number: "04",
+    title: "Export and share",
+    description:
+      "Send the finalised route to the driver via SMS or WhatsApp, or export as a Google Maps link they can open instantly.",
+    capturedItems: ["Google Maps link", "SMS / WhatsApp share"],
+    icon: Bell
+  }
+];
+
+// ── Chatbot ───────────────────────────────────────────────────────────────────
+
+const chatbotRoles: RoleItem[] = [
+  {
+    icon: LayoutDashboard,
+    name: "Compliance Manager",
+    description:
+      "Get instant answers on CPCB filing requirements, deadlines, and documentation without waiting for a call"
+  },
+  {
+    icon: Users,
+    name: "Brand / Producer Team",
+    description:
+      "Understand your EPR obligations and what actions are due without waiting for a colleague to reply"
+  },
+  {
+    icon: Activity,
+    name: "Operations",
+    description: "Quick reference for process queries, material codes, and partner categorisation"
+  },
+  {
+    icon: UserCircle,
+    name: "New Joinee",
+    description:
+      "Learn how ReCircle's processes and tools work through guided, conversational answers"
+  }
+];
+
+const chatbotSteps: JourneyItem[] = [
+  {
+    number: "01",
+    title: "Ask your question",
+    description:
+      "Type any EPR compliance or internal process question in plain English. No special formatting or jargon needed.",
+    capturedItems: ["Free-text question input", "Voice input supported on mobile"],
+    icon: MessageCircle
+  },
+  {
+    number: "02",
+    title: "AI finds the answer",
+    description:
+      "The chatbot searches across India's EPR regulations, CPCB guidelines, and ReCircle's internal knowledge base to form a response.",
+    capturedItems: ["Answer with source reference", "Confidence level shown"],
+    icon: FileText
+  },
+  {
+    number: "03",
+    title: "Follow up or dig deeper",
+    description:
+      "Ask follow-up questions to refine the answer, explore related rules, or get step-by-step guidance on a specific process.",
+    capturedItems: ["Context-aware follow-ups", "Related question suggestions"],
+    icon: Activity
+  },
+  {
+    number: "04",
+    title: "Save or share",
+    description:
+      "Copy the answer, export the conversation as PDF, or share a summary with your team — directly from the chat window.",
+    capturedItems: ["Copy to clipboard", "Export as PDF"],
+    icon: Bell
+  }
+];
+
+// ── Drive Automation ──────────────────────────────────────────────────────────
+
+const driveRoles: RoleItem[] = [
+  {
+    icon: Users,
+    name: "HR Manager",
+    description:
+      "Configure automation rules and monitor which files were processed, sorted, and shared"
+  },
+  {
+    icon: Activity,
+    name: "HR Admin",
+    description: "Upload documents and let the tool handle renaming, sorting, and notification"
+  },
+  {
+    icon: LayoutDashboard,
+    name: "Team Lead",
+    description: "Receive automated file notifications without chasing HR for every document"
+  },
+  {
+    icon: UserCircle,
+    name: "Employee",
+    description:
+      "Submit documents once and trust they land in the right place with the right person notified"
+  }
+];
+
+const driveSteps: JourneyItem[] = [
+  {
+    number: "01",
+    title: "Upload to the trigger folder",
+    description:
+      "Drop any HR document — offer letter, payslip, policy, or ID proof — into the designated Google Drive trigger folder.",
+    capturedItems: ["Google Drive folder (set by admin)", "PDF, DOCX, or image formats"],
+    icon: Upload
+  },
+  {
+    number: "02",
+    title: "System detects and classifies",
+    description:
+      "The automation detects the new file and classifies it by type — payslip, contract, ID, or policy — based on name or content.",
+    capturedItems: ["File type detected automatically", "Employee name extracted from filename"],
+    icon: FileText
+  },
+  {
+    number: "03",
+    title: "Rename, sort, and archive",
+    description:
+      "The file is automatically renamed to a standard format and moved to the correct subfolder — no manual action needed.",
+    capturedItems: ["Renamed to standard convention", "Moved to correct subfolder"],
+    icon: FolderSync
+  },
+  {
+    number: "04",
+    title: "Notify the right person",
+    description:
+      "An automatic email notification is sent to the relevant team member with a direct Drive link — and a timestamp is logged.",
+    capturedItems: ["Email notification with Drive link", "Processing timestamp logged"],
     icon: Bell
   }
 ];
@@ -242,7 +525,7 @@ export const climaOneV1Page: BaseToolPage & {
     "ClimaOne V1 manages the full plastic recovery lifecycle - from purchase order creation to certificate issuance - across every partner, facility, and vehicle in your network.",
   primaryAction: {
     label: "Open ClimaOne V1",
-    href: "[INSERT URL]",
+    href: "https://admin.climaone.in/",
     tone: "primary"
   },
   secondaryAction: {
@@ -362,13 +645,9 @@ export const climaOneV2Page: BaseToolPage & {
   subheading:
     "Before this, material moved. But nobody could prove where it came from, what happened to it, or whether the evidence would hold up. ClimaOne V2 changes that - end to end, across every partner, plant, and processor in your network.",
   primaryAction: {
-    label: "Notify me when live",
-    href: "mailto:[INSERT EMAIL]",
-    tone: "ghostAmber"
-  },
-  statusBadge: {
-    label: "Coming Soon",
-    tone: "comingSoon"
+    label: "Open ClimaOne V2",
+    href: "https://v2.climaone.in/login",
+    tone: "primary"
   },
   accessNote: "Full deployment in progress | Contact the tech team to get early access",
   rolesEyebrow: "Who is this for",
@@ -581,156 +860,161 @@ export const placeholderToolPages = {
   "ocr-epr": {
     name: "OCR for EPR",
     href: "/ocr-epr/",
-    productEyebrow: "[INSERT PRODUCT INDEX] | OCR for EPR",
+    productEyebrow: "Product 03 | OCR for EPR",
     heroTitle: {
-      before: "[INSERT HERO TITLE START] ",
-      highlight: "[INSERT HERO HIGHLIGHT]",
-      after: " [INSERT HERO TITLE END]"
+      before: "EPR documents, processed in ",
+      highlight: "seconds.",
+      after: " Zero manual entry."
     },
-    subheading: "[INSERT HERO SUBHEADING]",
+    subheading:
+      "Upload any compliance document — waste manifests, weightbridge slips, collection receipts, or CPCB forms — and get structured, exportable data instantly.",
     primaryAction: {
       label: "Open OCR for EPR",
-      href: "[INSERT URL]",
+      href: "#",
       tone: "primary" as const
     },
     secondaryAction: {
-      label: "[INSERT LEARN MORE LINK LABEL]",
-      href: "[INSERT LEARN MORE URL]"
+      label: "Learn more about EPR compliance",
+      href: "https://recircle.in/epr/"
     },
-    accessNote: "[INSERT ACCESS NOTE]",
+    accessNote: "Available on desktop and mobile | Login with your ReCircle account | Contact tech team for access",
     rolesEyebrow: "Who is this for",
-    rolesTitle: "[INSERT ROLE SECTION TITLE]",
-    roles: placeholderRoles,
-    steps: placeholderSteps,
+    rolesTitle: "Built for everyone who touches compliance documents",
+    roles: ocrEprRoles,
+    steps: ocrEprSteps,
     learnMore: {
-      eyebrow: "[INSERT LEARN MORE EYEBROW]",
-      title: "[INSERT LEARN MORE TITLE] ",
-      highlight: "[INSERT HIGHLIGHT]",
-      body: "[INSERT LEARN MORE BODY]",
-      ctaLabel: "[INSERT CTA LABEL]",
-      ctaHref: "[INSERT CTA URL]"
+      eyebrow: "Want to understand EPR better?",
+      title: "Everything about India's EPR regulations is on ",
+      highlight: "recircle.in.",
+      body: "Guides, compliance timelines, CPCB filing steps, and more — all on the ReCircle EPR resource page.",
+      ctaLabel: "Explore EPR resources",
+      ctaHref: "https://recircle.in/epr/"
     },
-    helpTitle: "[INSERT HELP TITLE]"
+    helpTitle: "Having trouble with a document?"
   },
   "ocr-bizcard": {
-    name: "OCR for Business Card",
+    name: "OCR for Business Cards",
     href: "/ocr-bizcard/",
-    productEyebrow: "[INSERT PRODUCT INDEX] | OCR for Business Card",
+    productEyebrow: "Product 04 | OCR for Business Cards",
     heroTitle: {
-      before: "[INSERT HERO TITLE START] ",
-      highlight: "[INSERT HERO HIGHLIGHT]",
-      after: " [INSERT HERO TITLE END]"
+      before: "Photograph a card, ",
+      highlight: "save the contact.",
+      after: " That's it."
     },
-    subheading: "[INSERT HERO SUBHEADING]",
+    subheading:
+      "Scan any business card from a recycler, collector, or partner and get a clean contact record in seconds — no typing required.",
     primaryAction: {
-      label: "Open OCR for Business Card",
-      href: "[INSERT URL]",
+      label: "Open OCR for Business Cards",
+      href: "#",
       tone: "primary" as const
     },
-    accessNote: "[INSERT ACCESS NOTE]",
+    accessNote: "Available on desktop and mobile | Works best with phone camera | Contact tech team for access",
     rolesEyebrow: "Who is this for",
-    rolesTitle: "[INSERT ROLE SECTION TITLE]",
-    roles: placeholderRoles,
-    steps: placeholderSteps,
+    rolesTitle: "For anyone who collects contacts in the field",
+    roles: ocrBizcardRoles,
+    steps: ocrBizcardSteps,
     learnMore: {
-      eyebrow: "[INSERT LEARN MORE EYEBROW]",
-      title: "[INSERT LEARN MORE TITLE] ",
-      highlight: "[INSERT HIGHLIGHT]",
-      body: "[INSERT LEARN MORE BODY]",
-      ctaLabel: "[INSERT CTA LABEL]",
-      ctaHref: "[INSERT CTA URL]"
+      eyebrow: "Working with partners?",
+      title: "ReCircle's network spans ",
+      highlight: "400+ locations.",
+      body: "Learn how ReCircle connects producers, collectors, and recyclers across India's reverse supply chain.",
+      ctaLabel: "Explore our network",
+      ctaHref: "https://recircle.in/"
     },
-    helpTitle: "[INSERT HELP TITLE]"
+    helpTitle: "Card not scanning correctly?"
   },
   "route-optimizer": {
     name: "Route Optimizer",
     href: "/route-optimizer/",
-    productEyebrow: "[INSERT PRODUCT INDEX] | Route Optimizer",
+    productEyebrow: "Product 05 | Route Optimizer",
     heroTitle: {
-      before: "[INSERT HERO TITLE START] ",
-      highlight: "[INSERT HERO HIGHLIGHT]",
-      after: " [INSERT HERO TITLE END]"
+      before: "Smarter routes. ",
+      highlight: "More pickups,",
+      after: " less fuel."
     },
-    subheading: "[INSERT HERO SUBHEADING]",
+    subheading:
+      "Plan and optimise waste collection routes across hundreds of pickup points in seconds. Less time on the road, more material recovered every day.",
     primaryAction: {
       label: "Open Route Optimizer",
-      href: "[INSERT URL]",
+      href: "#",
       tone: "primary" as const
     },
-    accessNote: "[INSERT ACCESS NOTE]",
+    accessNote: "Available on desktop and mobile | Login with your ReCircle account | Contact tech team for access",
     rolesEyebrow: "Who is this for",
-    rolesTitle: "[INSERT ROLE SECTION TITLE]",
-    roles: placeholderRoles,
-    steps: placeholderSteps,
+    rolesTitle: "Built for the teams that move material every day",
+    roles: routeRoles,
+    steps: routeSteps,
     learnMore: {
-      eyebrow: "[INSERT LEARN MORE EYEBROW]",
-      title: "[INSERT LEARN MORE TITLE] ",
-      highlight: "[INSERT HIGHLIGHT]",
-      body: "[INSERT LEARN MORE BODY]",
-      ctaLabel: "[INSERT CTA LABEL]",
-      ctaHref: "[INSERT CTA URL]"
+      eyebrow: "How does collection work?",
+      title: "ReCircle's reverse supply chain runs across ",
+      highlight: "45+ processing partners.",
+      body: "See how waste moves from collection points through aggregation to certified recycling facilities.",
+      ctaLabel: "Explore our operations",
+      ctaHref: "https://recircle.in/"
     },
-    helpTitle: "[INSERT HELP TITLE]"
+    helpTitle: "Route not generating correctly?"
   },
   chatbot: {
-    name: "Chatbot",
+    name: "EPR Chatbot",
     href: "/chatbot/",
-    productEyebrow: "[INSERT PRODUCT INDEX] | Chatbot",
+    productEyebrow: "Product 06 | EPR Chatbot",
     heroTitle: {
-      before: "[INSERT HERO TITLE START] ",
-      highlight: "[INSERT HERO HIGHLIGHT]",
-      after: " [INSERT HERO TITLE END]"
+      before: "Ask any EPR question. ",
+      highlight: "Get an answer",
+      after: " now."
     },
-    subheading: "[INSERT HERO SUBHEADING]",
+    subheading:
+      "An AI assistant trained on India's EPR regulations and ReCircle's internal processes. Get instant, accurate answers to compliance questions — no waiting, no forwarding emails.",
     primaryAction: {
-      label: "Open Chatbot",
-      href: "[INSERT URL]",
+      label: "Open EPR Chatbot",
+      href: "#",
       tone: "primary" as const
     },
-    accessNote: "[INSERT ACCESS NOTE]",
+    accessNote: "Available on desktop and mobile | Login with your ReCircle account | Contact tech team for access",
     rolesEyebrow: "Who is this for",
-    rolesTitle: "[INSERT ROLE SECTION TITLE]",
-    roles: placeholderRoles,
-    steps: placeholderSteps,
+    rolesTitle: "For anyone with an EPR or process question",
+    roles: chatbotRoles,
+    steps: chatbotSteps,
     learnMore: {
-      eyebrow: "[INSERT LEARN MORE EYEBROW]",
-      title: "[INSERT LEARN MORE TITLE] ",
-      highlight: "[INSERT HIGHLIGHT]",
-      body: "[INSERT LEARN MORE BODY]",
-      ctaLabel: "[INSERT CTA LABEL]",
-      ctaHref: "[INSERT CTA URL]"
+      eyebrow: "Want deeper EPR knowledge?",
+      title: "ReCircle's EPR guides cover ",
+      highlight: "everything.",
+      body: "From CPCB registration to plastic credit trading — all the compliance context you need, in one place.",
+      ctaLabel: "Read EPR resources",
+      ctaHref: "https://recircle.in/epr/"
     },
-    helpTitle: "[INSERT HELP TITLE]"
+    helpTitle: "Getting unexpected answers?"
   },
   "drive-automation": {
     name: "Drive Automation",
     href: "/drive-automation/",
-    productEyebrow: "[INSERT PRODUCT INDEX] | Drive Automation",
+    productEyebrow: "Product 07 | Drive Automation",
     heroTitle: {
-      before: "[INSERT HERO TITLE START] ",
-      highlight: "[INSERT HERO HIGHLIGHT]",
-      after: " [INSERT HERO TITLE END]"
+      before: "Files in, sorted and ",
+      highlight: "shared automatically.",
+      after: ""
     },
-    subheading: "[INSERT HERO SUBHEADING]",
+    subheading:
+      "Drop files into the configured Google Drive folder and the tool handles the rest — renaming, sorting, and notifying the right people — without any manual handoff.",
     primaryAction: {
       label: "Open Drive Automation",
-      href: "[INSERT URL]",
+      href: "#",
       tone: "primary" as const
     },
-    accessNote: "[INSERT ACCESS NOTE]",
+    accessNote: "Available to HR team | Login with your ReCircle Google account | Contact tech team for access",
     rolesEyebrow: "Who is this for",
-    rolesTitle: "[INSERT ROLE SECTION TITLE]",
-    roles: placeholderRoles,
-    steps: placeholderSteps,
+    rolesTitle: "Built for the HR team and everyone they support",
+    roles: driveRoles,
+    steps: driveSteps,
     learnMore: {
-      eyebrow: "[INSERT LEARN MORE EYEBROW]",
-      title: "[INSERT LEARN MORE TITLE] ",
-      highlight: "[INSERT HIGHLIGHT]",
-      body: "[INSERT LEARN MORE BODY]",
-      ctaLabel: "[INSERT CTA LABEL]",
-      ctaHref: "[INSERT CTA URL]"
+      eyebrow: "Part of the ReCircle team?",
+      title: "Everything about working at ReCircle is on ",
+      highlight: "recircle.in.",
+      body: "Company overview, values, open roles, and the team behind India's leading EPR compliance platform.",
+      ctaLabel: "Meet the team",
+      ctaHref: "https://recircle.in/"
     },
-    helpTitle: "[INSERT HELP TITLE]"
+    helpTitle: "Files not moving as expected?"
   }
 } as const;
 
@@ -745,9 +1029,29 @@ export const toolNames = [
 ];
 
 export const faqItems = [
-  { question: "How do I get access to a tool?", answer: "[INSERT ANSWER]" },
-  { question: "I found a bug - who do I report it to?", answer: "[INSERT ANSWER]" },
-  { question: "Can I request a new feature or improvement?", answer: "[INSERT ANSWER]" },
-  { question: "Is my data secure when using these tools?", answer: "[INSERT ANSWER]" },
-  { question: "How do I get trained on a tool?", answer: "[INSERT ANSWER]" }
+  {
+    question: "How do I get access to a tool?",
+    answer:
+      "Each tool page lists access requirements in the hero section. Most tools require a login — reach out to the ReCircle tech team via the contact page and they will set up your account or grant the necessary permissions."
+  },
+  {
+    question: "I found a bug - who do I report it to?",
+    answer:
+      "Report bugs directly to the tech team using the contact details on this page. Include the tool name, what you were doing when the issue occurred, and a screenshot if possible. The team triages and fixes reported issues on an ongoing basis."
+  },
+  {
+    question: "Can I request a new feature or improvement?",
+    answer:
+      "Yes. The tech team welcomes feature requests and improvement suggestions from the team. Reach out via the contact page with a description of what you need and why. Requests are reviewed and prioritised based on business impact."
+  },
+  {
+    question: "Is my data secure when using these tools?",
+    answer:
+      "All tools are built and hosted by ReCircle's internal tech team. Data entered into these tools is stored securely and is only accessible to authorised ReCircle staff. None of the tools share data with third parties outside of the services they integrate with (such as Google Drive or Google Maps)."
+  },
+  {
+    question: "How do I get trained on a tool?",
+    answer:
+      "Each tool has a dedicated page on this hub with a full explanation of what it does, who it is for, and how to use it step by step. Start there. If you need a walkthrough or have questions after reading, contact the tech team — they can arrange a quick demo or a screen-share session."
+  }
 ];

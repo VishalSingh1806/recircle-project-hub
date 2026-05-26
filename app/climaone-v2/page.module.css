@@ -2,10 +2,10 @@
 .problemSection,
 .journeySection,
 .rolesSection,
+.capabilitiesSection,
 .automationSection,
 .outcomeSection,
-.dashboardSection,
-.helpSection {
+.dashboardSection {
   width: min(1280px, calc(100% - 96px));
   margin: 0 auto;
 }
@@ -46,28 +46,23 @@
   color: var(--color-primary);
 }
 
-.ghostAmber {
+.primaryButton {
   width: fit-content;
   min-height: 44px;
+  padding: 13px 26px;
+  border-radius: var(--radius-btn);
+  background: var(--color-primary);
+  color: #ffffff;
+  text-decoration: none;
   display: inline-flex;
   align-items: center;
-  color: var(--color-amber);
-  text-decoration: none;
-  border-bottom: 1.5px solid var(--color-amber);
+  justify-content: center;
   font-weight: 600;
+  transition: background 0.15s ease;
 }
 
-.statusPill {
-  width: fit-content;
-  min-height: 24px;
-  padding: 5px 10px;
-  border-radius: 999px;
-  background: var(--color-amber-light);
-  color: var(--color-amber-dark);
-  display: inline-flex;
-  align-items: center;
-  font-size: 11px;
-  font-weight: 600;
+.primaryButton:hover {
+  background: var(--color-primary-dark);
 }
 
 .accessNote {
@@ -161,10 +156,21 @@
 
 .problemSection,
 .journeySection,
+.capabilitiesSection,
 .automationSection,
-.dashboardSection,
-.helpSection {
+.dashboardSection {
   padding: 72px 48px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.capabilitiesGrid {
+  display: grid;
+  border-top: 1px solid var(--color-border);
+  border-left: 1px solid var(--color-border);
+}
+
+.capabilityCell {
+  border-right: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -216,6 +222,55 @@
   border-top: 1px solid var(--color-border);
 }
 
+.journeyStep {
+  display: grid;
+  gap: 40px;
+  padding: 56px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.stepText {
+  display: grid;
+  gap: 14px;
+  align-content: start;
+}
+
+.stepNumber {
+  font-size: 64px;
+  line-height: 0.95;
+  font-weight: 700;
+  color: #f0f0f0;
+  letter-spacing: -3px;
+  margin: 0;
+}
+
+.stepTitle {
+  font-size: 22px;
+  margin: 0;
+}
+
+.stepDescription {
+  font-size: 15px;
+  color: var(--color-text-body);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.stepVisual {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.stepImage {
+  width: 100%;
+  max-width: 720px;
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  display: block;
+}
+
 .automationList {
   margin-top: 28px;
 }
@@ -236,12 +291,39 @@
     grid-template-columns: 1fr 420px;
   }
 
+  .journeyStep {
+    grid-template-columns: 1fr 1.4fr;
+    gap: 64px;
+    align-items: center;
+  }
+
+  .reversed .stepText {
+    order: 2;
+  }
+
+  .reversed .stepVisual {
+    order: 1;
+  }
+
   .problemGrid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .rolesGrid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .capabilitiesGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .capabilityCell:nth-child(2n) {
+    border-right: 0;
+  }
+
+  .capabilityCell:nth-last-child(1),
+  .capabilityCell:nth-last-child(2) {
+    border-bottom: 0;
   }
 
   .outcomeGrid {

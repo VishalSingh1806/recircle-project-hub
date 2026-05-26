@@ -12,6 +12,21 @@
 .visualCol {
   padding: 48px;
   background: var(--color-surface-alt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconWrap {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: var(--color-primary-light, #eff6ff);
+  border: 1px solid var(--color-border-green, #bfdbfe);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
 }
 
 .number,

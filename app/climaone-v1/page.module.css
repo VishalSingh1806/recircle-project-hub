@@ -1,7 +1,6 @@
 .heroSection,
 .rolesSection,
-.capabilitiesSection,
-.helpSection {
+.capabilitiesSection {
   width: min(1280px, calc(100% - 96px));
   margin: 0 auto;
 }
@@ -106,9 +105,9 @@
   border-radius: 50%;
 }
 
-.red { background: #ff6b6b; }
+.red    { background: #ff6b6b; }
 .yellow { background: #ffd93d; }
-.green { background: #6bcb77; }
+.green  { background: #6bcb77; }
 
 .mockupBody {
   padding: 20px;
@@ -164,7 +163,7 @@
 
 .statusGreen { background: var(--color-primary); }
 .statusAmber { background: var(--color-amber); }
-.statusGray { background: #c8c8c8; }
+.statusGray  { background: #c8c8c8; }
 
 .statusLines {
   display: grid;
@@ -178,7 +177,7 @@
   background: #dddddd;
 }
 
-.lineLong { height: 10px; }
+.lineLong  { height: 10px; }
 .lineShort { width: 60%; height: 8px; }
 
 .miniBadge {
@@ -225,10 +224,6 @@
   border-bottom: 1px solid var(--color-border);
 }
 
-.helpSection {
-  padding: 72px 48px;
-}
-
 @media (min-width: 900px) {
   .heroSection {
     grid-template-columns: 1fr 420px;
@@ -249,5 +244,15 @@
   .capabilityCell:nth-last-child(1),
   .capabilityCell:nth-last-child(2) {
     border-bottom: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .heroSection,
+  .rolesSection,
+  .capabilitiesSection {
+    width: min(100%, calc(100% - 32px));
+    padding-left: 0;
+    padding-right: 0;
   }
 }

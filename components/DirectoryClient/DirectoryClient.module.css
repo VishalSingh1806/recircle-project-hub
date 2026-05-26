@@ -1,0 +1,90 @@
+.section {
+  width: min(1280px, calc(100% - 96px));
+  margin: 0 auto;
+  padding: 24px 0 80px;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.toggleWrap {
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.results {
+  animation: fadeUp 0.18s ease both;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.empty {
+  padding: 80px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.emptyIcon {
+  font-size: 40px;
+  line-height: 1;
+}
+
+.emptyTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-text-heading);
+  margin: 0;
+  font-family: var(--font-heading);
+}
+
+.emptyBody {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.resetBtn {
+  margin-top: 8px;
+  padding: 10px 22px;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-btn);
+  background: var(--color-surface);
+  color: var(--color-text-body);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.resetBtn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+@media (max-width: 767px) {
+  .section {
+    width: min(100%, calc(100% - 32px));
+    padding: 32px 0 72px;
+  }
+
+  .controls {
+    gap: 10px;
+  }
+}

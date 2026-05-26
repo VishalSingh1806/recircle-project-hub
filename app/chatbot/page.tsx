@@ -5,16 +5,13 @@ import {
   FileText,
   HelpCircle,
   Package,
-  Scale,
-  Upload
+  Scale
 } from "lucide-react";
 
 import { AccentBar } from "@/components/AccentBar/AccentBar";
-import { ContactCard } from "@/components/ContactCard/ContactCard";
+import { BackLink } from "@/components/BackLink/BackLink";
 import { FooterStrip } from "@/components/FooterStrip/FooterStrip";
-import { JourneyStep } from "@/components/JourneyStep/JourneyStep";
 import { RoleCard } from "@/components/RoleCard/RoleCard";
-import { contactDetails } from "@/lib/content";
 
 import styles from "./page.module.css";
 
@@ -129,6 +126,7 @@ export default function ChatbotPage() {
   return (
     <main>
       <AccentBar />
+      <BackLink />
 
       <section className={styles.heroSection}>
         <div className={styles.heroText}>
@@ -227,16 +225,23 @@ export default function ChatbotPage() {
         </div>
         <div className={styles.stepsList}>
           {steps.map((step, index) => (
-            <JourneyStep
+            <article
               key={step.number}
-              number={step.number}
-              title={step.title}
-              description={step.description}
-              capturedItems={[]}
-              capturedLabel=""
-              icon={Upload}
-              reversed={index % 2 === 1}
-            />
+              className={`${styles.step} ${index % 2 === 1 ? styles.reversed : ""}`}
+            >
+              <div className={styles.stepText}>
+                <div className={styles.stepNumber}>{step.number}</div>
+                <h3 className={styles.stepTitle}>{step.title}</h3>
+                <p className={styles.stepDescription}>{step.description}</p>
+              </div>
+              <div className={styles.stepVisual}>
+                <img
+                  src={`/screenshots/chatbot/step-${step.number}.png`}
+                  alt={step.title}
+                  className={styles.stepImage}
+                />
+              </div>
+            </article>
           ))}
         </div>
       </section>
@@ -254,14 +259,6 @@ export default function ChatbotPage() {
             </article>
           ))}
         </div>
-      </section>
-
-      <section className={styles.helpSection}>
-        <div className={styles.sectionHead}>
-          <p className={styles.sectionEyebrow}>Need help</p>
-          <h2>Questions about the chatbot? Talk to us.</h2>
-        </div>
-        <ContactCard {...contactDetails} />
       </section>
 
       <FooterStrip />

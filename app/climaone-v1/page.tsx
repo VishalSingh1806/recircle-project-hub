@@ -1,10 +1,10 @@
 import { AccentBar } from "@/components/AccentBar/AccentBar";
+import { BackLink } from "@/components/BackLink/BackLink";
 import { CapabilityBlock } from "@/components/CapabilityBlock/CapabilityBlock";
-import { ContactCard } from "@/components/ContactCard/ContactCard";
 import { FooterStrip } from "@/components/FooterStrip/FooterStrip";
 import { LearnMoreStrip } from "@/components/LearnMoreStrip/LearnMoreStrip";
 import { RoleCard } from "@/components/RoleCard/RoleCard";
-import { climaOneV1Page, contactDetails } from "@/lib/content";
+import { climaOneV1Page } from "@/lib/content";
 
 import styles from "./page.module.css";
 
@@ -12,6 +12,7 @@ export default function ClimaOneV1Page() {
   return (
     <main>
       <AccentBar />
+      <BackLink />
 
       <section className={styles.heroSection}>
         <div className={styles.heroText}>
@@ -23,7 +24,7 @@ export default function ClimaOneV1Page() {
           </h1>
           <p className={styles.body}>{climaOneV1Page.subheading}</p>
           <div className={styles.heroActions}>
-            <a className={styles.primaryButton} href={climaOneV1Page.primaryAction.href}>
+            <a className={styles.primaryButton} href={climaOneV1Page.primaryAction.href} target="_blank" rel="noreferrer">
               {climaOneV1Page.primaryAction.label}
             </a>
             <a
@@ -49,7 +50,7 @@ export default function ClimaOneV1Page() {
               {[
                 ["142", "Active POs"],
                 ["38", "Certificates"],
-                ["94%", "Fulfilment"]
+                ["94%", "Fulfilment"],
               ].map(([value, label]) => (
                 <div key={label} className={styles.statTile}>
                   <strong>{value}</strong>
@@ -62,7 +63,7 @@ export default function ClimaOneV1Page() {
                 [styles.statusGreen, "Issued"],
                 [styles.statusAmber, "In progress"],
                 [styles.statusGray, "Pending"],
-                [styles.statusGreen, "Issued"]
+                [styles.statusGreen, "Issued"],
               ].map(([tone, label], index) => (
                 <div key={`${label}-${index}`} className={styles.statusRow}>
                   <span className={`${styles.statusDot} ${tone}`} />
@@ -105,14 +106,6 @@ export default function ClimaOneV1Page() {
       </section>
 
       <LearnMoreStrip {...climaOneV1Page.learnMore} />
-
-      <section className={styles.helpSection}>
-        <div className={styles.sectionHead}>
-          <p className={styles.sectionEyebrow}>Need help</p>
-          <h2>{climaOneV1Page.helpTitle}</h2>
-        </div>
-        <ContactCard {...contactDetails} />
-      </section>
 
       <FooterStrip />
     </main>

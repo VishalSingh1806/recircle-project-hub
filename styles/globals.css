@@ -1,8 +1,8 @@
 :root {
-  --color-primary: #1d9e75;
-  --color-primary-dark: #0f6e56;
-  --color-primary-light: #e1f5ee;
-  --color-primary-deep: #085041;
+  --color-primary: #2563eb;
+  --color-primary-dark: #1d4ed8;
+  --color-primary-light: #eff6ff;
+  --color-primary-deep: #1e3a8a;
   --color-amber: #ba7517;
   --color-amber-light: #faeeda;
   --color-amber-dark: #854f0b;
@@ -12,9 +12,9 @@
   --color-surface: #ffffff;
   --color-surface-alt: #f9f9f7;
   --color-surface-warm: #fafaf8;
-  --color-surface-green: #e1f5ee;
+  --color-surface-green: #eff6ff;
   --color-border: #efefef;
-  --color-border-green: #c8eadc;
+  --color-border-green: #bfdbfe;
   --font-heading: "Plus Jakarta Sans", sans-serif;
   --font-body: "Inter", sans-serif;
   --radius-card: 12px;

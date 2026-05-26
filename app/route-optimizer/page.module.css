@@ -1,9 +1,8 @@
 .heroSection,
 .rolesSection,
-.stepsSection,
+.capabilitiesSection,
 .outputSection,
-.notesSection,
-.helpSection {
+.notesSection {
   width: min(1280px, calc(100% - 96px));
   margin: 0 auto;
 }
@@ -54,131 +53,26 @@
   font-weight: 600;
 }
 
+.githubButton {
+  min-height: 44px;
+  width: fit-content;
+  padding: 13px 26px;
+  border-radius: var(--radius-btn);
+  background: #24292f;
+  color: #ffffff;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  font-weight: 600;
+}
+
 .accessNote {
   font-size: 12px;
   color: var(--color-text-muted);
 }
 
-.browserFrame {
-  width: min(100%, 420px);
-  border: 1px solid #e8e8e8;
-  border-radius: 12px;
-  overflow: hidden;
-  background: var(--color-surface);
-}
-
-.browserTop {
-  height: 40px;
-  padding: 0 14px;
-  border-bottom: 1px solid var(--color-border);
-  background: #f4f4f2;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-}
-
-.red { background: #ff6b6b; }
-.yellow { background: #ffd93d; }
-.green { background: #6bcb77; }
-
-.browserBody {
-  padding: 20px;
-  display: grid;
-  gap: 16px;
-}
-
-.mapField {
-  position: relative;
-  min-height: 180px;
-  border-radius: 12px;
-  background:
-    radial-gradient(circle at 20% 22%, rgba(29, 158, 117, 0.08), transparent 20%),
-    radial-gradient(circle at 78% 68%, rgba(29, 158, 117, 0.08), transparent 24%),
-    #f8fbf9;
-  border: 1px solid #e5efe9;
-}
-
-.mapNode,
-.mapLine {
-  position: absolute;
-}
-
-.mapNode {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: var(--color-primary);
-}
-
-.nodeOne { top: 28px; left: 36px; }
-.nodeTwo { top: 82px; right: 52px; }
-.nodeThree { bottom: 40px; left: 110px; }
-.nodeFour { bottom: 62px; right: 118px; }
-.nodeFive { top: 52px; left: 180px; }
-
-.mapLine {
-  height: 3px;
-  background: #91d1ba;
-  transform-origin: left center;
-}
-
-.lineOne {
-  top: 34px;
-  left: 48px;
-  width: 150px;
-  transform: rotate(10deg);
-}
-
-.lineTwo {
-  top: 62px;
-  left: 188px;
-  width: 120px;
-  transform: rotate(18deg);
-}
-
-.lineThree {
-  top: 96px;
-  left: 120px;
-  width: 160px;
-  transform: rotate(-12deg);
-}
-
-.lineFour {
-  bottom: 66px;
-  left: 122px;
-  width: 118px;
-  transform: rotate(8deg);
-}
-
-.metricRow {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-}
-
-.metricTile {
-  padding: 14px 12px;
-  border-radius: 10px;
-  background: #f8fbf9;
-  border: 1px solid #e5efe9;
-  display: grid;
-  gap: 4px;
-}
-
-.metricTile strong {
-  color: var(--color-primary);
-}
-
-.metricTile span {
-  font-size: 12px;
-  color: #888888;
-}
 
 .rolesSection,
 .outputSection {
@@ -187,10 +81,20 @@
   background: var(--color-surface-warm);
 }
 
-.stepsSection,
-.notesSection,
-.helpSection {
+.capabilitiesSection,
+.notesSection {
   padding: 72px 48px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.capabilitiesGrid {
+  display: grid;
+  border-top: 1px solid var(--color-border);
+  border-left: 1px solid var(--color-border);
+}
+
+.capabilityCell {
+  border-right: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -199,11 +103,6 @@
 .notesGrid {
   display: grid;
   gap: 16px;
-}
-
-.stepsList {
-  margin-top: 28px;
-  border-top: 1px solid var(--color-border);
 }
 
 .metricInfoTile,
@@ -242,12 +141,21 @@
 }
 
 @media (min-width: 900px) {
-  .heroSection {
-    grid-template-columns: 1fr 420px;
-  }
-
   .rolesGrid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .capabilitiesGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .capabilityCell:nth-child(2n) {
+    border-right: 0;
+  }
+
+  .capabilityCell:nth-last-child(1),
+  .capabilityCell:nth-last-child(2) {
+    border-bottom: 0;
   }
 
   .metricsGrid {

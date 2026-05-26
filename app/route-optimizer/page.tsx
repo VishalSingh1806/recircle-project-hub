@@ -2,20 +2,21 @@ import {
   BarChart2,
   Calendar,
   Clock,
+  Github,
   Map,
   MapPin,
   Navigation,
+  Share2,
   TrendingDown,
   Upload,
   Users
 } from "lucide-react";
 
 import { AccentBar } from "@/components/AccentBar/AccentBar";
-import { ContactCard } from "@/components/ContactCard/ContactCard";
+import { BackLink } from "@/components/BackLink/BackLink";
+import { CapabilityBlock } from "@/components/CapabilityBlock/CapabilityBlock";
 import { FooterStrip } from "@/components/FooterStrip/FooterStrip";
-import { JourneyStep } from "@/components/JourneyStep/JourneyStep";
 import { RoleCard } from "@/components/RoleCard/RoleCard";
-import { contactDetails } from "@/lib/content";
 
 import styles from "./page.module.css";
 
@@ -40,38 +41,44 @@ const roles = [
   }
 ] as const;
 
-const steps = [
+const capabilities = [
   {
     number: "01",
-    title: "Set up your pickup list as a CSV",
-    description:
-      "Your CSV must include three columns: S.No, Customer, and Address. You can optionally add Email, Phone Number, Pincode, and City to help with geocoding accuracy. Keep addresses as complete as possible - incomplete addresses may be skipped. Maximum file size is 10MB."
+    title: "Upload your pickup list",
+    description: "Import stops as a CSV with S.No, Customer, and Address columns. Optionally include Email, Phone, Pincode, and City for better geocoding accuracy.",
+    icon: Upload
   },
   {
     number: "02",
-    title: "Upload your file",
-    description:
-      "Upload your CSV through the web interface. The system geocodes every address - converting it into a map location - and stores your pickup list ready for optimisation. Note: each new upload replaces the previous dataset, so make sure your file is complete before uploading."
+    title: "Auto-geocode all addresses",
+    description: "The system converts every address into a precise map location automatically. Addresses with pincodes and city names get the most accurate results.",
+    icon: MapPin
   },
   {
     number: "03",
-    title: "Run the optimisation",
-    description:
-      "The system automatically clusters your stops by geographic area and optimises the stop order within each cluster. It also analyses traffic patterns across weekdays to recommend the best day to run each area route. Each optimised route handles up to 23 stops."
+    title: "Cluster stops by area",
+    description: "Nearby stops are grouped into geographic clusters so each route covers a single area — reducing unnecessary cross-city travel.",
+    icon: Map
   },
   {
     number: "04",
-    title: "Review the results",
-    description:
-      "For each area cluster, you'll see the number of customers, estimated route duration, total distance, time savings, and the recommended best day. All routes are saved to the system automatically."
+    title: "Optimise stop order within clusters",
+    description: "Within each area cluster, stops are ordered for the shortest path. Each optimised route handles up to 23 stops.",
+    icon: Navigation
   },
   {
     number: "05",
-    title: "Send the route to your driver",
-    description:
-      "Each optimised route comes with a Google Maps link showing the full stop order. Share this link directly with your driver via WhatsApp or any messaging app. The driver opens it in Google Maps and follows the turn-by-turn directions."
+    title: "Find the best day per route",
+    description: "Traffic patterns are analysed across weekdays so each area route is assigned the day with the lightest expected traffic.",
+    icon: Calendar
+  },
+  {
+    number: "06",
+    title: "Send a ready-to-use driver link",
+    description: "Each optimised route generates a Google Maps link with the full stop order. Share directly with your driver via WhatsApp or any messaging app.",
+    icon: Share2
   }
-] as const;
+];
 
 const metrics = [
   {
@@ -128,6 +135,7 @@ export default function RouteOptimizerPage() {
   return (
     <main>
       <AccentBar />
+      <BackLink />
 
       <section className={styles.heroSection}>
         <div className={styles.heroText}>
@@ -140,45 +148,13 @@ export default function RouteOptimizerPage() {
             orders them efficiently, and tells you the best day to run each route - based on real
             traffic estimates. No manual planning. No guesswork.
           </p>
-          <a className={styles.primaryButton} href="[INSERT URL]">
-            Open Route Optimizer
+          <a className={styles.githubButton} href="[INSERT GITHUB URL]" target="_blank" rel="noreferrer">
+            <Github size={18} />
+            View on GitHub
           </a>
           <p className={styles.accessNote}>
             Available at route.recircle.in | Desktop | Upload a CSV to get started
           </p>
-        </div>
-
-        <div className={styles.browserFrame}>
-          <div className={styles.browserTop}>
-            <span className={`${styles.dot} ${styles.red}`} />
-            <span className={`${styles.dot} ${styles.yellow}`} />
-            <span className={`${styles.dot} ${styles.green}`} />
-          </div>
-          <div className={styles.browserBody}>
-            <div className={styles.mapField}>
-              <span className={`${styles.mapNode} ${styles.nodeOne}`} />
-              <span className={`${styles.mapNode} ${styles.nodeTwo}`} />
-              <span className={`${styles.mapNode} ${styles.nodeThree}`} />
-              <span className={`${styles.mapNode} ${styles.nodeFour}`} />
-              <span className={`${styles.mapNode} ${styles.nodeFive}`} />
-              <span className={`${styles.mapLine} ${styles.lineOne}`} />
-              <span className={`${styles.mapLine} ${styles.lineTwo}`} />
-              <span className={`${styles.mapLine} ${styles.lineThree}`} />
-              <span className={`${styles.mapLine} ${styles.lineFour}`} />
-            </div>
-            <div className={styles.metricRow}>
-              {[
-                ["3 hr 20 min", "Route duration"],
-                ["68 km", "Distance"],
-                ["Tuesday", "Best day"]
-              ].map(([value, label]) => (
-                <div key={label} className={styles.metricTile}>
-                  <strong>{value}</strong>
-                  <span>{label}</span>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 
@@ -194,23 +170,16 @@ export default function RouteOptimizerPage() {
         </div>
       </section>
 
-      <section className={styles.stepsSection}>
+      <section className={styles.capabilitiesSection}>
         <div className={styles.sectionHead}>
-          <p className={styles.sectionEyebrow}>How to use it</p>
-          <h2>Step by step</h2>
+          <p className={styles.sectionEyebrow}>Capabilities</p>
+          <h2>What you can do with Route Optimizer</h2>
         </div>
-        <div className={styles.stepsList}>
-          {steps.map((step, index) => (
-            <JourneyStep
-              key={step.number}
-              number={step.number}
-              title={step.title}
-              description={step.description}
-              capturedItems={[]}
-              capturedLabel=""
-              icon={Upload}
-              reversed={index % 2 === 1}
-            />
+        <div className={styles.capabilitiesGrid}>
+          {capabilities.map((cap) => (
+            <div key={cap.number} className={styles.capabilityCell}>
+              <CapabilityBlock {...cap} />
+            </div>
           ))}
         </div>
       </section>
@@ -249,14 +218,6 @@ export default function RouteOptimizerPage() {
             </article>
           ))}
         </div>
-      </section>
-
-      <section className={styles.helpSection}>
-        <div className={styles.sectionHead}>
-          <p className={styles.sectionEyebrow}>Need help</p>
-          <h2>Having trouble? We&apos;re here.</h2>
-        </div>
-        <ContactCard {...contactDetails} />
       </section>
 
       <FooterStrip />
