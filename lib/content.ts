@@ -496,10 +496,10 @@ const driveSteps: JourneyItem[] = [
 ];
 
 export const contactDetails = {
-  name: "[INSERT NAME]",
-  role: "[INSERT ROLE] | ReCircle Tech",
-  email: "[INSERT EMAIL]",
-  phone: "[INSERT PHONE]"
+  name: "Vishal Singh",
+  role: "Business Analyst Executive | ReCircle Tech",
+  email: "vishal.singh@recircle.in",
+  phone: "+91 878 992 0475"
 };
 
 export const climaOneV1Page: BaseToolPage & {

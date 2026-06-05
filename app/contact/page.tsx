@@ -1,7 +1,7 @@
 import { AccentBar } from "@/components/AccentBar/AccentBar";
 import { Accordion } from "@/components/Accordion/Accordion";
 import { ContactCard } from "@/components/ContactCard/ContactCard";
-import { contactDetails, faqItems, toolNames } from "@/lib/content";
+import { contactDetails, faqItems } from "@/lib/content";
 
 import styles from "./page.module.css";
 
@@ -26,32 +26,7 @@ export default function ContactPage() {
         <ContactCard {...contactDetails} />
       </section>
 
-      <section className={styles.section}>
-        <div className={styles.sectionHead}>
-          <p className={styles.eyebrow}>Tool contacts</p>
-          <h2>Point of contact by tool</h2>
-        </div>
-        <div className={styles.tableWrap}>
-          <table className={styles.table}>
-            <thead>
-              <tr>
-                <th>Tool Name</th>
-                <th>Point of Contact</th>
-              </tr>
-            </thead>
-            <tbody>
-              {toolNames.map((tool) => (
-                <tr key={tool}>
-                  <td>{tool}</td>
-                  <td>[INSERT NAME + EMAIL]</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <section className={styles.section}>
+<section className={styles.section}>
         <div className={styles.sectionHead}>
           <p className={styles.eyebrow}>FAQ</p>
           <h2>Common questions</h2>

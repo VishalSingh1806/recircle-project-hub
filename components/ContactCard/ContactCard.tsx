@@ -34,10 +34,7 @@ export function ContactCard({ name, role, email, phone }: ContactCardProps) {
         <Phone size={16} />
         <span>{phone}</span>
       </div>
-      <a className={styles.button} href={`mailto:${email}`}>
-        Send an email
-      </a>
-      <p className={styles.note}>You can also reach us on WhatsApp or drop by the tech desk.</p>
+<p className={styles.note}>You can also reach us on WhatsApp or drop by the tech desk.</p>
     </article>
   );
 }
