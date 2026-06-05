@@ -504,6 +504,12 @@ export const contactDetails = {
 
 export const climaOneV1Page: BaseToolPage & {
   capabilities: CapabilityItem[];
+  problemTiles: OutcomeItem[];
+  journeyIntro: string;
+  journey: JourneyItem[];
+  automation: AutomationListItem[];
+  outcomes: OutcomeItem[];
+  dashboardNote: string;
   learnMore: {
     eyebrow: string;
     title: string;
@@ -522,7 +528,7 @@ export const climaOneV1Page: BaseToolPage & {
     after: " In one platform."
   },
   subheading:
-    "ClimaOne V1 manages the full plastic recovery lifecycle - from purchase order creation to certificate issuance - across every partner, facility, and vehicle in your network.",
+    "ClimaOne V1 manages the full plastic recovery lifecycle — from purchase order creation to certificate issuance — across every partner, facility, and vehicle in your network.",
   primaryAction: {
     label: "Open ClimaOne V1",
     href: "https://admin.climaone.in/",
@@ -550,7 +556,7 @@ export const climaOneV1Page: BaseToolPage & {
     {
       icon: UserCircle,
       name: "Admin",
-      description: "Oversee the entire network - partners, approvals, reports, and master data"
+      description: "Oversee the entire network — partners, approvals, reports, and master data"
     },
     {
       icon: Activity,
@@ -563,12 +569,129 @@ export const climaOneV1Page: BaseToolPage & {
       description: "Track credits issued, certificate status, and material received at facility"
     }
   ],
+  problemTiles: [
+    {
+      title: "PO tracking lived in spreadsheets",
+      description:
+        "Purchase orders were assigned over WhatsApp and tracked in Excel — with no single source of truth across partners"
+    },
+    {
+      title: "Vehicle status required phone calls",
+      description:
+        "Getting a dispatch update meant calling the driver or partner directly. No visibility without manual follow-up"
+    },
+    {
+      title: "Certificates took days to produce",
+      description:
+        "Compliance certificates were manually assembled from data scattered across email threads, slips, and files"
+    }
+  ],
+  journeyIntro:
+    "Every purchase order in ClimaOne V1 moves through a defined lifecycle — from creation and allocation to vehicle dispatch, weight capture, and certificate issuance — with every step logged and auditable.",
+  journey: [
+    {
+      number: "01",
+      title: "Create a purchase order",
+      description:
+        "Admin or compliance manager creates a PO — setting the target weight, material type, and partner allocation. The PO is immediately visible to the assigned collection partner.",
+      capturedItems: ["Target weight (kg / MT)", "Material category", "Partner assignment", "PO creation timestamp"],
+      icon: FileText
+    },
+    {
+      number: "02",
+      title: "Partner accepts and dispatches",
+      description:
+        "The collection partner accepts the PO, loads a vehicle, and dispatches it — uploading the e-way bill, driver details, and weightbridge slip directly in the portal.",
+      capturedItems: ["Vehicle number and driver", "E-way bill and LR", "Dispatch weight", "Dispatch timestamp"],
+      icon: Truck
+    },
+    {
+      number: "03",
+      title: "Vehicle arrival is recorded",
+      description:
+        "On arrival at the facility, the receiving team marks the vehicle as arrived and logs the received weight. Any discrepancy is flagged immediately for resolution.",
+      capturedItems: ["Arrival timestamp", "Received weight", "Discrepancy flag if applicable"],
+      icon: Activity
+    },
+    {
+      number: "04",
+      title: "PO is fulfilled and closed",
+      description:
+        "Once the target weight is met across one or more dispatches, the PO is marked as fulfilled. A complete audit trail — vehicles, weights, partners — is attached to the closed PO.",
+      capturedItems: ["Fulfilment percentage", "Total received weight", "Dispatch history"],
+      icon: Bell
+    },
+    {
+      number: "05",
+      title: "Certificate is issued",
+      description:
+        "With fulfilment confirmed, the compliance team issues an EPR certificate linked to the PO data. The certificate is downloadable and available to the producer for CPCB filing.",
+      capturedItems: ["Certificate number", "Linked PO and weight data", "Downloadable PDF", "Issuer and timestamp"],
+      icon: Upload
+    }
+  ],
+  automation: [
+    {
+      number: "01",
+      title: "PO status notifications",
+      description:
+        "When a PO is created, accepted, dispatched, or closed, all relevant parties receive an automatic SMS or email — no manual communication needed"
+    },
+    {
+      number: "02",
+      title: "Monthly compliance reports",
+      description:
+        "Material movement summaries are auto-generated each month — state-wise, partner-wise, and material-wise — and delivered directly to the compliance team"
+    },
+    {
+      number: "03",
+      title: "Certificate issuance triggers",
+      description:
+        "Once a PO reaches its fulfilment threshold, the system flags it for certificate issuance — removing the need to manually track which POs are ready"
+    },
+    {
+      number: "04",
+      title: "Dispatch sync to all stakeholders",
+      description:
+        "When a vehicle is dispatched, its details are automatically visible to the facility, admin, and the brand — no phone call or message required"
+    },
+    {
+      number: "05",
+      title: "Discrepancy alerts",
+      description:
+        "If a received weight differs significantly from the dispatched weight, an alert is raised automatically so it can be investigated before the record is closed"
+    }
+  ],
+  outcomes: [
+    {
+      title: "Compliance managers stop chasing data",
+      description:
+        "PO status, vehicle movement, and certificate progress are all visible in one place — no more compiling status from calls and emails"
+    },
+    {
+      title: "Collection partners have full visibility",
+      description:
+        "Partners can see their assigned POs, dispatch history, and fulfilment status without contacting the admin team"
+    },
+    {
+      title: "EPR filings become routine",
+      description:
+        "All the data needed for CPCB filings — weights, partners, dates, certificates — is structured and ready to export at any time"
+    },
+    {
+      title: "Certificates are auditable end to end",
+      description:
+        "Every certificate is linked to the POs, vehicle dispatches, and weight records that support it — one click to the full evidence trail"
+    }
+  ],
+  dashboardNote:
+    "The ClimaOne V1 dashboard gives compliance managers a real-time view of purchase order fulfilment, active vehicle movement, and certificate status across the entire partner network.",
   capabilities: [
     {
       number: "01",
       title: "Role-based dashboard",
       description:
-        "Log in and see exactly what matters to your role - PO status, certificate progress, vehicle movement, partner counts, and material recovery - all at a glance.",
+        "Log in and see exactly what matters to your role — PO status, certificate progress, vehicle movement, partner counts, and material recovery — all at a glance.",
       icon: LayoutDashboard
     },
     {
@@ -582,21 +705,21 @@ export const climaOneV1Page: BaseToolPage & {
       number: "03",
       title: "Vehicle & dispatch tracking",
       description:
-        "Track every vehicle in real time - driver details, e-way bills, dispatch and receipt dates, geo-tagged images, and weightbridge slips all tied to a single trip.",
+        "Track every vehicle — driver details, e-way bills, dispatch and receipt dates, geo-tagged images, and weightbridge slips all tied to a single trip.",
       icon: Truck
     },
     {
       number: "04",
       title: "Certificates & compliance",
       description:
-        "Issue, track, and query EPR certificates end to end. Raise queries, resolve disputes, and maintain a clean compliance record - all within the platform.",
+        "Issue, track, and query EPR certificates end to end. Raise queries, resolve disputes, and maintain a clean compliance record — all within the platform.",
       icon: Award
     },
     {
       number: "05",
       title: "Reports & data",
       description:
-        "Generate monthly material movement reports, state-wise breakdowns, and PO dispatch summaries - automatically compiled and delivered to your inbox.",
+        "Generate monthly material movement reports, state-wise breakdowns, and PO dispatch summaries — automatically compiled and delivered to your inbox.",
       icon: BarChart2
     },
     {
@@ -612,7 +735,7 @@ export const climaOneV1Page: BaseToolPage & {
     title: "The full ClimaOne product page has ",
     highlight: "everything.",
     body:
-      "Features, onboarding steps, portal walkthroughs, and more - all on the official ClimaOne page.",
+      "Features, onboarding steps, portal walkthroughs, and more — all on the official ClimaOne page.",
     ctaLabel: "Explore ClimaOne",
     ctaHref: "https://recircle.in/climaone/"
   },

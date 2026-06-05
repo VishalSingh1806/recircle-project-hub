@@ -186,6 +186,64 @@ export default function OcrEprPage() {
         </div>
       </section>
 
+      <section className={styles.journeySection}>
+        <div className={styles.sectionHead}>
+          <p className={styles.sectionEyebrow}>How it works</p>
+          <h2>Four steps from upload to export</h2>
+          <p className={styles.subtext}>
+            Upload a folder of shipment documents and the tool handles the rest — classification,
+            extraction, grouping, and export — without any manual data entry.
+          </p>
+        </div>
+        <div className={styles.stepsList}>
+          {[
+            {
+              number: "01",
+              title: "Upload your folder",
+              description:
+                "Drag and drop a folder of shipment documents — invoices, e-way bills, weighbridge slips, LR copies — or click to browse. Each subfolder is treated as one transaction."
+            },
+            {
+              number: "02",
+              title: "System classifies and extracts",
+              description:
+                "The OCR engine reads each document, identifies its type automatically, and extracts the specific fields for that document — vehicle number, date, weight, invoice number, and more."
+            },
+            {
+              number: "03",
+              title: "Review and correct inline",
+              description:
+                "Extracted data is shown in the browser grouped by transaction. Check each field against the original and correct any misread value with a single click — takes seconds per row."
+            },
+            {
+              number: "04",
+              title: "Export your structured data",
+              description:
+                "Download as Excel, CSV, or PDF. Every transaction subfolder becomes one clean row. Export before the tab is closed — session data clears after 3 minutes of inactivity."
+            }
+          ].map((step, index) => (
+            <article
+              key={step.number}
+              className={`${styles.step} ${index % 2 === 1 ? styles.reversed : ""}`}
+            >
+              <div className={styles.stepText}>
+                <div className={styles.stepNumber}>{step.number}</div>
+                <h3 className={styles.stepTitle}>{step.title}</h3>
+                <p className={styles.stepDescription}>{step.description}</p>
+              </div>
+              <div className={styles.stepVisual}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={`/screenshots/ocr-epr/step-0${parseInt(step.number)}.png`}
+                  alt={step.title}
+                  className={styles.stepImage}
+                />
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className={styles.extractSection}>
         <div className={styles.sectionHead}>
           <p className={styles.sectionEyebrow}>What gets extracted</p>

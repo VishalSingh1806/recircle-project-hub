@@ -1,5 +1,6 @@
 .heroSection,
 .rolesSection,
+.journeySection,
 .extractSection,
 .capabilitiesSection,
 .notesSection {
@@ -180,10 +181,65 @@
   background: var(--color-surface-warm);
 }
 
+.journeySection,
 .extractSection,
 .capabilitiesSection {
   padding: 72px 48px;
   border-bottom: 1px solid var(--color-border);
+}
+
+.stepsList {
+  margin-top: 28px;
+  border-top: 1px solid var(--color-border);
+}
+
+.step {
+  display: grid;
+  gap: 40px;
+  padding: 56px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.stepText {
+  display: grid;
+  gap: 14px;
+  align-content: start;
+}
+
+.stepNumber {
+  font-size: 64px;
+  line-height: 0.95;
+  font-weight: 700;
+  color: #f0f0f0;
+  letter-spacing: -3px;
+  margin: 0;
+}
+
+.stepTitle {
+  font-size: 22px;
+  margin: 0;
+}
+
+.stepDescription {
+  font-size: 15px;
+  color: var(--color-text-body);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.stepVisual {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.stepImage {
+  width: 100%;
+  max-width: 720px;
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  display: block;
 }
 
 .capabilitiesGrid {
@@ -234,6 +290,20 @@
 @media (min-width: 900px) {
   .heroSection {
     grid-template-columns: 1fr 420px;
+  }
+
+  .step {
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+
+  .reversed .stepText {
+    order: 2;
+  }
+
+  .reversed .stepVisual {
+    order: 1;
   }
 
   .grid3 {
