@@ -114,7 +114,7 @@ export default function DriveAutomationPage() {
             moves them into the right destination, notifies the right person, and keeps a processing
             log so HR does not have to chase files manually.
           </p>
-          <a className={styles.githubButton} href="[INSERT GITHUB URL]" target="_blank" rel="noreferrer">
+          <a className={styles.githubButton} href="https://github.com/VishalSingh1806/backup-automation" target="_blank" rel="noreferrer">
             <Github size={18} />
             View on GitHub
           </a>

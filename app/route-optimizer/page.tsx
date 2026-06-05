@@ -148,7 +148,7 @@ export default function RouteOptimizerPage() {
             orders them efficiently, and tells you the best day to run each route - based on real
             traffic estimates. No manual planning. No guesswork.
           </p>
-          <a className={styles.githubButton} href="[INSERT GITHUB URL]" target="_blank" rel="noreferrer">
+          <a className={styles.githubButton} href="https://github.com/VishalSingh1806/best-route" target="_blank" rel="noreferrer">
             <Github size={18} />
             View on GitHub
           </a>
