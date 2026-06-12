@@ -1,4 +1,4 @@
-import {
+﻿import {
   Bell,
   CheckCircle2,
   FileCheck2,
@@ -62,7 +62,7 @@ const capabilities = [
   {
     number: "04",
     title: "Move to the correct folder",
-    description: "Each file is routed to the right employee or document-category folder automatically — no manual drag and drop.",
+    description: "Each file is routed to the right employee or document-category folder automatically, no manual drag and drop.",
     icon: FolderSync
   },
   {
@@ -74,7 +74,7 @@ const capabilities = [
   {
     number: "06",
     title: "Track every processed file",
-    description: "A timestamped log records what moved, when, and where — so HR always knows what has been processed.",
+    description: "A timestamped log records what moved, when, and where, so HR always knows what has been processed.",
     icon: ShieldCheck
   }
 ];

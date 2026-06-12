@@ -1,4 +1,4 @@
-import {
+﻿import {
   Activity,
   Award,
   BarChart2,
@@ -219,7 +219,7 @@ const ocrEprSteps: JourneyItem[] = [
     number: "01",
     title: "Upload your document",
     description:
-      "Drag and drop or photograph any EPR compliance document — waste manifests, CPCB forms, weightbridge slips, or collection receipts.",
+      "Drag and drop or photograph any EPR compliance document, waste manifests, CPCB forms, weightbridge slips, or collection receipts.",
     capturedItems: ["Accepted: JPG, PNG, PDF", "Batch upload supported"],
     icon: Upload
   },
@@ -227,7 +227,7 @@ const ocrEprSteps: JourneyItem[] = [
     number: "02",
     title: "OCR extracts the data",
     description:
-      "The tool reads the document and pulls out all key fields — dates, quantities, vehicle numbers, partner names — instantly.",
+      "The tool reads the document and pulls out all key fields, dates, quantities, vehicle numbers, partner names, instantly.",
     capturedItems: ["Quantity (kg / MT)", "Date, vehicle number, partner name"],
     icon: FileText
   },
@@ -235,7 +235,7 @@ const ocrEprSteps: JourneyItem[] = [
     number: "03",
     title: "Review and correct",
     description:
-      "Check the extracted output side-by-side with the original. Fix any misread fields before saving — takes seconds, not minutes.",
+      "Check the extracted output side-by-side with the original. Fix any misread fields before saving, takes seconds, not minutes.",
     capturedItems: ["Highlighted low-confidence fields", "Original image alongside extracted data"],
     icon: Activity
   },
@@ -280,7 +280,7 @@ const ocrBizcardSteps: JourneyItem[] = [
     number: "01",
     title: "Photograph the card",
     description:
-      "Use your phone camera or upload an existing photo of any business card — from partners, recyclers, collectors, or event contacts.",
+      "Use your phone camera or upload an existing photo of any business card, from partners, recyclers, collectors, or event contacts.",
     capturedItems: ["JPG or PNG", "Works with worn or hand-written cards"],
     icon: Upload
   },
@@ -340,7 +340,7 @@ const routeSteps: JourneyItem[] = [
     number: "01",
     title: "Add collection points",
     description:
-      "Enter or import the list of pickup locations for the day — addresses, contact names, and expected quantities.",
+      "Enter or import the list of pickup locations for the day, addresses, contact names, and expected quantities.",
     capturedItems: ["Address or GPS coordinates", "Contact name and expected weight"],
     icon: Upload
   },
@@ -427,7 +427,7 @@ const chatbotSteps: JourneyItem[] = [
     number: "04",
     title: "Save or share",
     description:
-      "Copy the answer, export the conversation as PDF, or share a summary with your team — directly from the chat window.",
+      "Copy the answer, export the conversation as PDF, or share a summary with your team, directly from the chat window.",
     capturedItems: ["Copy to clipboard", "Export as PDF"],
     icon: Bell
   }
@@ -465,7 +465,7 @@ const driveSteps: JourneyItem[] = [
     number: "01",
     title: "Upload to the trigger folder",
     description:
-      "Drop any HR document — offer letter, payslip, policy, or ID proof — into the designated Google Drive trigger folder.",
+      "Drop any HR document, offer letter, payslip, policy, or ID proof, into the designated Google Drive trigger folder.",
     capturedItems: ["Google Drive folder (set by admin)", "PDF, DOCX, or image formats"],
     icon: Upload
   },
@@ -473,7 +473,7 @@ const driveSteps: JourneyItem[] = [
     number: "02",
     title: "System detects and classifies",
     description:
-      "The automation detects the new file and classifies it by type — payslip, contract, ID, or policy — based on name or content.",
+      "The automation detects the new file and classifies it by type, payslip, contract, ID, or policy, based on name or content.",
     capturedItems: ["File type detected automatically", "Employee name extracted from filename"],
     icon: FileText
   },
@@ -481,7 +481,7 @@ const driveSteps: JourneyItem[] = [
     number: "03",
     title: "Rename, sort, and archive",
     description:
-      "The file is automatically renamed to a standard format and moved to the correct subfolder — no manual action needed.",
+      "The file is automatically renamed to a standard format and moved to the correct subfolder, no manual action needed.",
     capturedItems: ["Renamed to standard convention", "Moved to correct subfolder"],
     icon: FolderSync
   },
@@ -489,7 +489,7 @@ const driveSteps: JourneyItem[] = [
     number: "04",
     title: "Notify the right person",
     description:
-      "An automatic email notification is sent to the relevant team member with a direct Drive link — and a timestamp is logged.",
+      "An automatic email notification is sent to the relevant team member with a direct Drive link, and a timestamp is logged.",
     capturedItems: ["Email notification with Drive link", "Processing timestamp logged"],
     icon: Bell
   }
@@ -528,7 +528,7 @@ export const climaOneV1Page: BaseToolPage & {
     after: " In one platform."
   },
   subheading:
-    "ClimaOne V1 manages the full plastic recovery lifecycle — from purchase order creation to certificate issuance — across every partner, facility, and vehicle in your network.",
+    "ClimaOne V1 manages the full plastic recovery lifecycle, from purchase order creation to certificate issuance, across every partner, facility, and vehicle in your network.",
   primaryAction: {
     label: "Open ClimaOne V1",
     href: "https://admin.climaone.in/",
@@ -556,7 +556,7 @@ export const climaOneV1Page: BaseToolPage & {
     {
       icon: UserCircle,
       name: "Admin",
-      description: "Oversee the entire network — partners, approvals, reports, and master data"
+      description: "Oversee the entire network, partners, approvals, reports, and master data"
     },
     {
       icon: Activity,
@@ -573,7 +573,7 @@ export const climaOneV1Page: BaseToolPage & {
     {
       title: "PO tracking lived in spreadsheets",
       description:
-        "Purchase orders were assigned over WhatsApp and tracked in Excel — with no single source of truth across partners"
+        "Purchase orders were assigned over WhatsApp and tracked in Excel, with no single source of truth across partners"
     },
     {
       title: "Vehicle status required phone calls",
@@ -587,13 +587,13 @@ export const climaOneV1Page: BaseToolPage & {
     }
   ],
   journeyIntro:
-    "Every purchase order in ClimaOne V1 moves through a defined lifecycle — from creation and allocation to vehicle dispatch, weight capture, and certificate issuance — with every step logged and auditable.",
+    "Every purchase order in ClimaOne V1 moves through a defined lifecycle, from creation and allocation to vehicle dispatch, weight capture, and certificate issuance, with every step logged and auditable.",
   journey: [
     {
       number: "01",
       title: "Create a purchase order",
       description:
-        "Admin or compliance manager creates a PO — setting the target weight, material type, and partner allocation. The PO is immediately visible to the assigned collection partner.",
+        "Admin or compliance manager creates a PO, setting the target weight, material type, and partner allocation. The PO is immediately visible to the assigned collection partner.",
       capturedItems: ["Target weight (kg / MT)", "Material category", "Partner assignment", "PO creation timestamp"],
       icon: FileText
     },
@@ -601,7 +601,7 @@ export const climaOneV1Page: BaseToolPage & {
       number: "02",
       title: "Partner accepts and dispatches",
       description:
-        "The collection partner accepts the PO, loads a vehicle, and dispatches it — uploading the e-way bill, driver details, and weightbridge slip directly in the portal.",
+        "The collection partner accepts the PO, loads a vehicle, and dispatches it, uploading the e-way bill, driver details, and weightbridge slip directly in the portal.",
       capturedItems: ["Vehicle number and driver", "E-way bill and LR", "Dispatch weight", "Dispatch timestamp"],
       icon: Truck
     },
@@ -617,7 +617,7 @@ export const climaOneV1Page: BaseToolPage & {
       number: "04",
       title: "PO is fulfilled and closed",
       description:
-        "Once the target weight is met across one or more dispatches, the PO is marked as fulfilled. A complete audit trail — vehicles, weights, partners — is attached to the closed PO.",
+        "Once the target weight is met across one or more dispatches, the PO is marked as fulfilled. A complete audit trail, vehicles, weights, partners, is attached to the closed PO.",
       capturedItems: ["Fulfilment percentage", "Total received weight", "Dispatch history"],
       icon: Bell
     },
@@ -635,25 +635,25 @@ export const climaOneV1Page: BaseToolPage & {
       number: "01",
       title: "PO status notifications",
       description:
-        "When a PO is created, accepted, dispatched, or closed, all relevant parties receive an automatic SMS or email — no manual communication needed"
+        "When a PO is created, accepted, dispatched, or closed, all relevant parties receive an automatic SMS or email, no manual communication needed"
     },
     {
       number: "02",
       title: "Monthly compliance reports",
       description:
-        "Material movement summaries are auto-generated each month — state-wise, partner-wise, and material-wise — and delivered directly to the compliance team"
+        "Material movement summaries are auto-generated each month, state-wise, partner-wise, and material-wise, and delivered directly to the compliance team"
     },
     {
       number: "03",
       title: "Certificate issuance triggers",
       description:
-        "Once a PO reaches its fulfilment threshold, the system flags it for certificate issuance — removing the need to manually track which POs are ready"
+        "Once a PO reaches its fulfilment threshold, the system flags it for certificate issuance, removing the need to manually track which POs are ready"
     },
     {
       number: "04",
       title: "Dispatch sync to all stakeholders",
       description:
-        "When a vehicle is dispatched, its details are automatically visible to the facility, admin, and the brand — no phone call or message required"
+        "When a vehicle is dispatched, its details are automatically visible to the facility, admin, and the brand, no phone call or message required"
     },
     {
       number: "05",
@@ -666,7 +666,7 @@ export const climaOneV1Page: BaseToolPage & {
     {
       title: "Compliance managers stop chasing data",
       description:
-        "PO status, vehicle movement, and certificate progress are all visible in one place — no more compiling status from calls and emails"
+        "PO status, vehicle movement, and certificate progress are all visible in one place, no more compiling status from calls and emails"
     },
     {
       title: "Collection partners have full visibility",
@@ -676,12 +676,12 @@ export const climaOneV1Page: BaseToolPage & {
     {
       title: "EPR filings become routine",
       description:
-        "All the data needed for CPCB filings — weights, partners, dates, certificates — is structured and ready to export at any time"
+        "All the data needed for CPCB filings, weights, partners, dates, certificates, is structured and ready to export at any time"
     },
     {
       title: "Certificates are auditable end to end",
       description:
-        "Every certificate is linked to the POs, vehicle dispatches, and weight records that support it — one click to the full evidence trail"
+        "Every certificate is linked to the POs, vehicle dispatches, and weight records that support it, one click to the full evidence trail"
     }
   ],
   dashboardNote:
@@ -691,7 +691,7 @@ export const climaOneV1Page: BaseToolPage & {
       number: "01",
       title: "Role-based dashboard",
       description:
-        "Log in and see exactly what matters to your role — PO status, certificate progress, vehicle movement, partner counts, and material recovery — all at a glance.",
+        "Log in and see exactly what matters to your role, PO status, certificate progress, vehicle movement, partner counts, and material recovery, all at a glance.",
       icon: LayoutDashboard
     },
     {
@@ -705,21 +705,21 @@ export const climaOneV1Page: BaseToolPage & {
       number: "03",
       title: "Vehicle & dispatch tracking",
       description:
-        "Track every vehicle — driver details, e-way bills, dispatch and receipt dates, geo-tagged images, and weightbridge slips all tied to a single trip.",
+        "Track every vehicle, driver details, e-way bills, dispatch and receipt dates, geo-tagged images, and weightbridge slips all tied to a single trip.",
       icon: Truck
     },
     {
       number: "04",
       title: "Certificates & compliance",
       description:
-        "Issue, track, and query EPR certificates end to end. Raise queries, resolve disputes, and maintain a clean compliance record — all within the platform.",
+        "Issue, track, and query EPR certificates end to end. Raise queries, resolve disputes, and maintain a clean compliance record, all within the platform.",
       icon: Award
     },
     {
       number: "05",
       title: "Reports & data",
       description:
-        "Generate monthly material movement reports, state-wise breakdowns, and PO dispatch summaries — automatically compiled and delivered to your inbox.",
+        "Generate monthly material movement reports, state-wise breakdowns, and PO dispatch summaries, automatically compiled and delivered to your inbox.",
       icon: BarChart2
     },
     {
@@ -735,7 +735,7 @@ export const climaOneV1Page: BaseToolPage & {
     title: "The full ClimaOne product page has ",
     highlight: "everything.",
     body:
-      "Features, onboarding steps, portal walkthroughs, and more — all on the official ClimaOne page.",
+      "Features, onboarding steps, portal walkthroughs, and more, all on the official ClimaOne page.",
     ctaLabel: "Explore ClimaOne",
     ctaHref: "https://recircle.in/climaone/"
   },
@@ -990,7 +990,7 @@ export const placeholderToolPages = {
       after: " Zero manual entry."
     },
     subheading:
-      "Upload any compliance document — waste manifests, weightbridge slips, collection receipts, or CPCB forms — and get structured, exportable data instantly.",
+      "Upload any compliance document, waste manifests, weightbridge slips, collection receipts, or CPCB forms, and get structured, exportable data instantly.",
     primaryAction: {
       label: "Open OCR for EPR",
       href: "#",
@@ -1009,7 +1009,7 @@ export const placeholderToolPages = {
       eyebrow: "Want to understand EPR better?",
       title: "Everything about India's EPR regulations is on ",
       highlight: "recircle.in.",
-      body: "Guides, compliance timelines, CPCB filing steps, and more — all on the ReCircle EPR resource page.",
+      body: "Guides, compliance timelines, CPCB filing steps, and more, all on the ReCircle EPR resource page.",
       ctaLabel: "Explore EPR resources",
       ctaHref: "https://recircle.in/epr/"
     },
@@ -1025,7 +1025,7 @@ export const placeholderToolPages = {
       after: " That's it."
     },
     subheading:
-      "Scan any business card from a recycler, collector, or partner and get a clean contact record in seconds — no typing required.",
+      "Scan any business card from a recycler, collector, or partner and get a clean contact record in seconds, no typing required.",
     primaryAction: {
       label: "Open OCR for Business Cards",
       href: "#",
@@ -1087,7 +1087,7 @@ export const placeholderToolPages = {
       after: " now."
     },
     subheading:
-      "An AI assistant trained on India's EPR regulations and ReCircle's internal processes. Get instant, accurate answers to compliance questions — no waiting, no forwarding emails.",
+      "An AI assistant trained on India's EPR regulations and ReCircle's internal processes. Get instant, accurate answers to compliance questions, no waiting, no forwarding emails.",
     primaryAction: {
       label: "Open EPR Chatbot",
       href: "#",
@@ -1102,7 +1102,7 @@ export const placeholderToolPages = {
       eyebrow: "Want deeper EPR knowledge?",
       title: "ReCircle's EPR guides cover ",
       highlight: "everything.",
-      body: "From CPCB registration to plastic credit trading — all the compliance context you need, in one place.",
+      body: "From CPCB registration to plastic credit trading, all the compliance context you need, in one place.",
       ctaLabel: "Read EPR resources",
       ctaHref: "https://recircle.in/epr/"
     },
@@ -1118,7 +1118,7 @@ export const placeholderToolPages = {
       after: ""
     },
     subheading:
-      "Drop files into the configured Google Drive folder and the tool handles the rest — renaming, sorting, and notifying the right people — without any manual handoff.",
+      "Drop files into the configured Google Drive folder and the tool handles the rest, renaming, sorting, and notifying the right people, without any manual handoff.",
     primaryAction: {
       label: "Open Drive Automation",
       href: "#",
@@ -1155,7 +1155,7 @@ export const faqItems = [
   {
     question: "How do I get access to a tool?",
     answer:
-      "Each tool page lists access requirements in the hero section. Most tools require a login — reach out to the ReCircle tech team via the contact page and they will set up your account or grant the necessary permissions."
+      "Each tool page lists access requirements in the hero section. Most tools require a login, reach out to the ReCircle tech team via the contact page and they will set up your account or grant the necessary permissions."
   },
   {
     question: "I found a bug - who do I report it to?",
@@ -1170,11 +1170,11 @@ export const faqItems = [
   {
     question: "Is my data secure when using these tools?",
     answer:
-      "All tools are built and hosted by ReCircle's internal tech team. Data entered into these tools is stored securely and is only accessible to authorised ReCircle staff. None of the tools share data with third parties outside of the services they integrate with (such as Google Drive or Google Maps)."
+      "All tools are built and hosted by ReCircle's internal tech team. Data entered into these tools is stored securely and is accessible only to the ReCircle team. None of the tools share data with third parties outside of the services they integrate with (such as Google Drive or Google Maps)."
   },
   {
     question: "How do I get trained on a tool?",
     answer:
-      "Each tool has a dedicated page on this hub with a full explanation of what it does, who it is for, and how to use it step by step. Start there. If you need a walkthrough or have questions after reading, contact the tech team — they can arrange a quick demo or a screen-share session."
+      "Each tool has a dedicated page on this hub with a full explanation of what it does, who it is for, and how to use it step by step. Start there. If you need a walkthrough or have questions after reading, contact the tech team, they can arrange a quick demo or a screen-share session."
   }
 ];

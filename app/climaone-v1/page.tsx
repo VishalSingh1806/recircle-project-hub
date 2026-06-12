@@ -1,4 +1,4 @@
-import {
+﻿import {
   Award,
   BarChart2,
   Bell,
@@ -24,7 +24,7 @@ const capabilities = [
     number: "01",
     title: "Role-based dashboard",
     description:
-      "Log in and see exactly what matters to your role — PO status, certificate progress, vehicle movement, partner counts, and material recovery — all at a glance.",
+      "Log in and see exactly what matters to your role, PO status, certificate progress, vehicle movement, partner counts, and material recovery, all at a glance.",
     icon: LayoutDashboard
   },
   {
@@ -38,21 +38,21 @@ const capabilities = [
     number: "03",
     title: "Vehicle & dispatch tracking",
     description:
-      "Track every vehicle — driver details, e-way bills, dispatch and receipt dates, geo-tagged images, and weightbridge slips all tied to a single trip.",
+      "Track every vehicle, driver details, e-way bills, dispatch and receipt dates, geo-tagged images, and weightbridge slips all tied to a single trip.",
     icon: Truck
   },
   {
     number: "04",
     title: "Certificates & compliance",
     description:
-      "Issue, track, and query EPR certificates end to end. Raise queries, resolve disputes, and maintain a clean compliance record — all within the platform.",
+      "Issue, track, and query EPR certificates end to end. Raise queries, resolve disputes, and maintain a clean compliance record, all within the platform.",
     icon: Award
   },
   {
     number: "05",
     title: "Reports & data",
     description:
-      "Generate monthly material movement reports, state-wise breakdowns, and PO dispatch summaries — automatically compiled and delivered to your inbox.",
+      "Generate monthly material movement reports, state-wise breakdowns, and PO dispatch summaries, automatically compiled and delivered to your inbox.",
     icon: BarChart2
   },
   {

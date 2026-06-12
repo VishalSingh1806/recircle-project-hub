@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 import { overviewTools } from "@/lib/content";
 import { FooterStrip } from "@/components/FooterStrip/FooterStrip";
@@ -16,7 +16,7 @@ export default function HomePage() {
             Welcome to Recircle <span>tools.</span>
           </h1>
           <p className={styles.heroBody}>
-            Everything the ReCircle team needs to work smarter — built in-house, ready to use.
+            Everything the ReCircle team needs to work smarter, built in-house, ready to use.
           </p>
         </div>
       </section>

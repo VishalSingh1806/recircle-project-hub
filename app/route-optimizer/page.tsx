@@ -1,4 +1,4 @@
-import {
+﻿import {
   BarChart2,
   Calendar,
   Clock,
@@ -57,7 +57,7 @@ const capabilities = [
   {
     number: "03",
     title: "Cluster stops by area",
-    description: "Nearby stops are grouped into geographic clusters so each route covers a single area — reducing unnecessary cross-city travel.",
+    description: "Nearby stops are grouped into geographic clusters so each route covers a single area, reducing unnecessary cross-city travel.",
     icon: Map
   },
   {

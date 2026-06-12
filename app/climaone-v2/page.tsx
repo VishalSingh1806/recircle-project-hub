@@ -1,4 +1,4 @@
-import {
+﻿import {
   Award,
   CheckCircle2,
   FileText,
@@ -35,7 +35,7 @@ const capabilities = [
   {
     number: "03",
     title: "Record weight at every stage",
-    description: "Capture weigh-in and weigh-out readings at intake, processing, and dispatch — building an unbroken weight audit trail.",
+    description: "Capture weigh-in and weigh-out readings at intake, processing, and dispatch, building an unbroken weight audit trail.",
     icon: Scale
   },
   {

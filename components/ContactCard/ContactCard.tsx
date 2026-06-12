@@ -28,7 +28,7 @@ export function ContactCard({ name, role, email, phone }: ContactCardProps) {
       </div>
       <div className={styles.detailRow}>
         <Mail size={16} />
-        <span>{email}</span>
+        <a href={`mailto:${email}`} style={{ color: "inherit", textDecoration: "none" }}>{email}</a>
       </div>
       <div className={styles.detailRow}>
         <Phone size={16} />

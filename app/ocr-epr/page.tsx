@@ -64,13 +64,13 @@ const capabilities = [
   {
     number: "01",
     title: "Auto-classify six document types",
-    description: "The system identifies Weighbridge slips, Tax Invoices, E-Way Bills, LR Copies, Delivery Challans, and RC documents automatically — no labelling required.",
+    description: "The system identifies Weighbridge slips, Tax Invoices, E-Way Bills, LR Copies, Delivery Challans, and RC documents automatically,no labelling required.",
     icon: Sparkles
   },
   {
     number: "02",
     title: "Extract key fields per document",
-    description: "Each document type has its own field set extracted — vehicle number, date, weight, invoice number, state details, and more — mapped to the right columns.",
+    description: "Each document type has its own field set extracted,vehicle number, date, weight, invoice number, state details, and more,mapped to the right columns.",
     icon: FileSearch
   },
   {
@@ -82,7 +82,7 @@ const capabilities = [
   {
     number: "04",
     title: "Batch process up to 150 folders",
-    description: "Upload a parent folder with up to 150 subfolders — each subfolder is one transaction. The system processes them all in one go with live progress on screen.",
+    description: "Upload a parent folder with up to 150 subfolders,each subfolder is one transaction. The system processes them all in one go with live progress on screen.",
     icon: FolderOpen
   },
   {
@@ -94,7 +94,7 @@ const capabilities = [
   {
     number: "06",
     title: "Export to Excel, CSV, or PDF",
-    description: "Download structured results in three formats. Each transaction subfolder becomes one row. Export before closing the tab — session data clears after 3 minutes of inactivity.",
+    description: "Download structured results in three formats. Each transaction subfolder becomes one row. Export before closing the tab,session data clears after 3 minutes of inactivity.",
     icon: Download
   }
 ];
@@ -191,8 +191,8 @@ export default function OcrEprPage() {
           <p className={styles.sectionEyebrow}>How it works</p>
           <h2>Four steps from upload to export</h2>
           <p className={styles.subtext}>
-            Upload a folder of shipment documents and the tool handles the rest — classification,
-            extraction, grouping, and export — without any manual data entry.
+            Upload a folder of shipment documents and the tool handles the rest,classification,
+            extraction, grouping, and export,without any manual data entry.
           </p>
         </div>
         <div className={styles.stepsList}>
@@ -201,25 +201,25 @@ export default function OcrEprPage() {
               number: "01",
               title: "Upload your folder",
               description:
-                "Drag and drop a folder of shipment documents — invoices, e-way bills, weighbridge slips, LR copies — or click to browse. Each subfolder is treated as one transaction."
+                "Drag and drop a folder of shipment documents,invoices, e-way bills, weighbridge slips, LR copies,or click to browse. Each subfolder is treated as one transaction."
             },
             {
               number: "02",
               title: "System classifies and extracts",
               description:
-                "The OCR engine reads each document, identifies its type automatically, and extracts the specific fields for that document — vehicle number, date, weight, invoice number, and more."
+                "The OCR engine reads each document, identifies its type automatically, and extracts the specific fields for that document,vehicle number, date, weight, invoice number, and more."
             },
             {
               number: "03",
               title: "Review and correct inline",
               description:
-                "Extracted data is shown in the browser grouped by transaction. Check each field against the original and correct any misread value with a single click — takes seconds per row."
+                "Extracted data is shown in the browser grouped by transaction. Check each field against the original and correct any misread value with a single click,takes seconds per row."
             },
             {
               number: "04",
               title: "Export your structured data",
               description:
-                "Download as Excel, CSV, or PDF. Every transaction subfolder becomes one clean row. Export before the tab is closed — session data clears after 3 minutes of inactivity."
+                "Download as Excel, CSV, or PDF. Every transaction subfolder becomes one clean row. Export before the tab is closed,session data clears after 3 minutes of inactivity."
             }
           ].map((step, index) => (
             <article
