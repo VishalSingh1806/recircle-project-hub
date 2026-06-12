@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
 import styles from "./Navbar.module.css";
@@ -8,6 +9,8 @@ import styles from "./Navbar.module.css";
 export function Navbar() {
   const sentinelRef = useRef<HTMLDivElement | null>(null);
   const [isElevated, setIsElevated] = useState(false);
+  const pathname = usePathname();
+  const isContact = pathname === "/contact" || pathname === "/contact/";
 
   useEffect(() => {
     const node = sentinelRef.current;
@@ -28,13 +31,19 @@ export function Navbar() {
       <header className={`${styles.header} ${isElevated ? styles.elevated : ""}`}>
         <div className={styles.inner}>
           <Link className={styles.brand} href="/">
-            <span className={styles.badge}>Re</span>
-            <span className={styles.brandText}>ReCircle Product Hub</span>
+            <img src="/recircle-logo.png" alt="ReCircle" className={styles.logo} />
+            <span className={styles.brandText}>Product Hub</span>
           </Link>
 
-          <Link href="/contact/" className={styles.helpLink}>
-            Help &amp; Contact
-          </Link>
+          {isContact ? (
+            <Link href="/" className={styles.helpLink}>
+              ← Home
+            </Link>
+          ) : (
+            <Link href="/contact/" className={styles.helpLink}>
+              Help &amp; Contact
+            </Link>
+          )}
         </div>
       </header>
     </>

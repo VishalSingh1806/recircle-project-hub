@@ -5,7 +5,7 @@
 /* ── Main strip ──────────────────────────────────── */
 
 .stripWrap {
-  background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%);
+  background-color: #042c8c;
   position: relative;
   overflow: hidden;
 }
@@ -58,7 +58,7 @@
   padding: 0 28px;
   border-radius: 999px;
   background: #ffffff;
-  color: #1e3a8a;
+  color: #042c8c;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
@@ -70,7 +70,7 @@
 }
 
 .button:hover {
-  background: #eff6ff;
+  background: #eef1fb;
 }
 
 /* ── Bottom bar ──────────────────────────────────── */
