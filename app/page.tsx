@@ -11,8 +11,7 @@ export default function HomePage() {
       {/* ── Hero ─────────────────────────────────────────── */}
       <section className={styles.hero}>
         <div className={styles.heroInner}>
-          <p className={styles.eyebrow}>RECIRCLE PRODUCT HUB</p>
-          <h1 className={styles.heroTitle}>
+<h1 className={styles.heroTitle}>
             Welcome to Recircle <span>tools.</span>
           </h1>
           <p className={styles.heroBody}>
