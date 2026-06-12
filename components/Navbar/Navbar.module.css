@@ -35,7 +35,7 @@
 }
 
 .logo {
-  height: 25px;
+  height: 35px;
   margin-bottom:2px;
   width: auto;
   flex-shrink: 0;
@@ -43,8 +43,8 @@
 }
 
 .brandText {
-  font-size: 14px;
-  font-weight: 700;
+  font-size: 21px;
+  font-weight: 600;
   color: #042c8c;
 }
 
