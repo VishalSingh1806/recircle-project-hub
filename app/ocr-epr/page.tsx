@@ -1,11 +1,10 @@
-import { FileCheck, FolderOpen, Truck, Upload } from "lucide-react";
+import { Download, Edit2, FileCheck, FileSearch, FolderOpen, Github, Scale, Sparkles, Truck } from "lucide-react";
 
 import { AccentBar } from "@/components/AccentBar/AccentBar";
-import { ContactCard } from "@/components/ContactCard/ContactCard";
+import { BackLink } from "@/components/BackLink/BackLink";
+import { CapabilityBlock } from "@/components/CapabilityBlock/CapabilityBlock";
 import { FooterStrip } from "@/components/FooterStrip/FooterStrip";
-import { JourneyStep } from "@/components/JourneyStep/JourneyStep";
 import { RoleCard } from "@/components/RoleCard/RoleCard";
-import { contactDetails } from "@/lib/content";
 
 import styles from "./page.module.css";
 
@@ -61,38 +60,44 @@ const extractTiles = [
   }
 ] as const;
 
-const steps = [
+const capabilities = [
   {
     number: "01",
-    title: "Organise your documents into folders",
-    description:
-      "Each subfolder represents one transaction. Place the shipment documents for that transaction - weighbridge slips, invoice, e-way bill, LR copy - inside one subfolder. Root-level files must be PDFs. Images (PNG, JPG, JPEG) are supported inside subfolders. Maximum 150 folders per upload. Maximum 50MB per file. PDFs over 50 pages are not supported."
+    title: "Auto-classify six document types",
+    description: "The system identifies Weighbridge slips, Tax Invoices, E-Way Bills, LR Copies, Delivery Challans, and RC documents automatically,no labelling required.",
+    icon: Sparkles
   },
   {
     number: "02",
-    title: "Upload the entire folder at once",
-    description:
-      "Click Upload Folder and select your parent folder. The system accepts the whole folder in one go - no need to upload files one by one. Progress streams live to your screen as each document is processed."
+    title: "Extract key fields per document",
+    description: "Each document type has its own field set extracted,vehicle number, date, weight, invoice number, state details, and more,mapped to the right columns.",
+    icon: FileSearch
   },
   {
     number: "03",
-    title: "The system identifies each document and extracts the data",
-    description:
-      "For every document, the system first identifies what type it is - Weighbridge, Tax Invoice, E-Way Bill, LR Copy, Delivery Challan, or RC. It then extracts the specific fields for that document type. Weighbridge slips are automatically paired into loading and unloading. If a document cannot be classified, it is flagged as Unrecognised."
+    title: "Auto-pair weighbridge slips",
+    description: "Loading and unloading weighbridge slips for the same transaction are automatically paired and presented as a single record with net weight calculated.",
+    icon: Scale
   },
   {
     number: "04",
-    title: "Review the results on screen",
-    description:
-      "All extracted fields appear live in your browser as processing completes. You can review each document's data, and edit any field directly in the interface if a value looks incorrect. Note: inline edits are reflected in CSV and PDF exports but not in the server Excel export."
+    title: "Batch process up to 150 folders",
+    description: "Upload a parent folder with up to 150 subfolders,each subfolder is one transaction. The system processes them all in one go with live progress on screen.",
+    icon: FolderOpen
   },
   {
     number: "05",
-    title: "Export your structured data",
-    description:
-      "Download your results in three formats - Excel (server-generated), CSV (client-generated), or PDF. Each transaction subfolder becomes one structured row in the export. Your session data is available for 3 minutes of inactivity before it auto-clears - export before closing the tab."
+    title: "Edit any field before export",
+    description: "Review extracted data in the browser and correct any value inline. Edits are reflected in your CSV and PDF exports before you download.",
+    icon: Edit2
+  },
+  {
+    number: "06",
+    title: "Export to Excel, CSV, or PDF",
+    description: "Download structured results in three formats. Each transaction subfolder becomes one row. Export before closing the tab,session data clears after 3 minutes of inactivity.",
+    icon: Download
   }
-] as const;
+];
 
 const notes = [
   {
@@ -121,6 +126,7 @@ export default function OcrEprPage() {
   return (
     <main>
       <AccentBar />
+      <BackLink />
 
       <section className={styles.heroSection}>
         <div className={styles.heroText}>
@@ -133,8 +139,9 @@ export default function OcrEprPage() {
             slips, LR copies - and the system classifies, extracts, and groups them into a clean
             transaction row automatically. No manual typing. No spreadsheet reconciliation.
           </p>
-          <a className={styles.primaryButton} href="[INSERT URL]">
-            Open OCR for EPR
+          <a className={styles.githubButton} href="https://github.com/VishalSingh1806/OCR" target="_blank" rel="noreferrer">
+            <Github size={18} />
+            View on GitHub
           </a>
           <p className={styles.accessNote}>
             Works on Chrome and Edge | Desktop only | Upload folders, not individual files
@@ -179,6 +186,64 @@ export default function OcrEprPage() {
         </div>
       </section>
 
+      <section className={styles.journeySection}>
+        <div className={styles.sectionHead}>
+          <p className={styles.sectionEyebrow}>How it works</p>
+          <h2>Four steps from upload to export</h2>
+          <p className={styles.subtext}>
+            Upload a folder of shipment documents and the tool handles the rest,classification,
+            extraction, grouping, and export,without any manual data entry.
+          </p>
+        </div>
+        <div className={styles.stepsList}>
+          {[
+            {
+              number: "01",
+              title: "Upload your folder",
+              description:
+                "Drag and drop a folder of shipment documents,invoices, e-way bills, weighbridge slips, LR copies,or click to browse. Each subfolder is treated as one transaction."
+            },
+            {
+              number: "02",
+              title: "System classifies and extracts",
+              description:
+                "The OCR engine reads each document, identifies its type automatically, and extracts the specific fields for that document,vehicle number, date, weight, invoice number, and more."
+            },
+            {
+              number: "03",
+              title: "Review and correct inline",
+              description:
+                "Extracted data is shown in the browser grouped by transaction. Check each field against the original and correct any misread value with a single click,takes seconds per row."
+            },
+            {
+              number: "04",
+              title: "Export your structured data",
+              description:
+                "Download as Excel, CSV, or PDF. Every transaction subfolder becomes one clean row. Export before the tab is closed,session data clears after 3 minutes of inactivity."
+            }
+          ].map((step, index) => (
+            <article
+              key={step.number}
+              className={`${styles.step} ${index % 2 === 1 ? styles.reversed : ""}`}
+            >
+              <div className={styles.stepText}>
+                <div className={styles.stepNumber}>{step.number}</div>
+                <h3 className={styles.stepTitle}>{step.title}</h3>
+                <p className={styles.stepDescription}>{step.description}</p>
+              </div>
+              <div className={styles.stepVisual}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={`/screenshots/ocr-epr/step-0${parseInt(step.number)}.png`}
+                  alt={step.title}
+                  className={styles.stepImage}
+                />
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className={styles.extractSection}>
         <div className={styles.sectionHead}>
           <p className={styles.sectionEyebrow}>What gets extracted</p>
@@ -199,23 +264,16 @@ export default function OcrEprPage() {
         </div>
       </section>
 
-      <section className={styles.stepsSection}>
+      <section className={styles.capabilitiesSection}>
         <div className={styles.sectionHead}>
-          <p className={styles.sectionEyebrow}>How to use it</p>
-          <h2>Step by step</h2>
+          <p className={styles.sectionEyebrow}>Capabilities</p>
+          <h2>What you can do with OCR for EPR</h2>
         </div>
-        <div className={styles.stepsList}>
-          {steps.map((step, index) => (
-            <JourneyStep
-              key={step.number}
-              number={step.number}
-              title={step.title}
-              description={step.description}
-              capturedLabel=""
-              capturedItems={[]}
-              icon={Upload}
-              reversed={index % 2 === 1}
-            />
+        <div className={styles.capabilitiesGrid}>
+          {capabilities.map((cap) => (
+            <div key={cap.number} className={styles.capabilityCell}>
+              <CapabilityBlock {...cap} />
+            </div>
           ))}
         </div>
       </section>
@@ -233,14 +291,6 @@ export default function OcrEprPage() {
             </article>
           ))}
         </div>
-      </section>
-
-      <section className={styles.helpSection}>
-        <div className={styles.sectionHead}>
-          <p className={styles.sectionEyebrow}>Need help</p>
-          <h2>Having trouble? We&apos;re here.</h2>
-        </div>
-        <ContactCard {...contactDetails} />
       </section>
 
       <FooterStrip />

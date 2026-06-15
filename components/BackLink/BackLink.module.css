@@ -1,0 +1,27 @@
+.wrap {
+  width: min(1280px, calc(100% - 96px));
+  margin: 0 auto;
+  padding: 14px 48px 0;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.link:hover {
+  color: var(--color-primary);
+}
+
+@media (max-width: 767px) {
+  .wrap {
+    width: min(100%, calc(100% - 32px));
+    padding: 12px 0 0;
+  }
+}

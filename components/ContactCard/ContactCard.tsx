@@ -28,16 +28,13 @@ export function ContactCard({ name, role, email, phone }: ContactCardProps) {
       </div>
       <div className={styles.detailRow}>
         <Mail size={16} />
-        <span>{email}</span>
+        <a href={`mailto:${email}`} style={{ color: "inherit", textDecoration: "none" }}>{email}</a>
       </div>
       <div className={styles.detailRow}>
         <Phone size={16} />
         <span>{phone}</span>
       </div>
-      <a className={styles.button} href={`mailto:${email}`}>
-        Send an email
-      </a>
-      <p className={styles.note}>You can also reach us on WhatsApp or drop by the tech desk.</p>
+<p className={styles.note}>You can also reach us on WhatsApp or drop by the tech desk.</p>
     </article>
   );
 }

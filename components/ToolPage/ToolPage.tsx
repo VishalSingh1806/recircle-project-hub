@@ -1,13 +1,10 @@
-import { LayoutDashboard } from "lucide-react";
-
 import { AccentBar } from "@/components/AccentBar/AccentBar";
-import { ContactCard } from "@/components/ContactCard/ContactCard";
+import { BackLink } from "@/components/BackLink/BackLink";
 import { FooterStrip } from "@/components/FooterStrip/FooterStrip";
 import { JourneyStep } from "@/components/JourneyStep/JourneyStep";
 import { LearnMoreStrip } from "@/components/LearnMoreStrip/LearnMoreStrip";
 import { RoleCard } from "@/components/RoleCard/RoleCard";
-import { ScreenshotSlot } from "@/components/ScreenshotSlot/ScreenshotSlot";
-import { contactDetails, placeholderToolPages } from "@/lib/content";
+import { placeholderToolPages } from "@/lib/content";
 
 import styles from "./ToolPage.module.css";
 
@@ -21,6 +18,7 @@ export function ToolPage({ tool }: ToolPageProps) {
   return (
     <main>
       <AccentBar />
+      <BackLink />
 
       <section className={styles.heroSection}>
         <div className={styles.heroText}>
@@ -42,9 +40,6 @@ export function ToolPage({ tool }: ToolPageProps) {
             ) : null}
           </div>
           <p className={styles.accessNote}>{tool.accessNote}</p>
-        </div>
-        <div className={styles.visualWrap}>
-          <ScreenshotSlot icon={LayoutDashboard} label="[INSERT HERO SCREENSHOT]" />
         </div>
       </section>
 
@@ -73,14 +68,6 @@ export function ToolPage({ tool }: ToolPageProps) {
       </section>
 
       {"learnMore" in tool && tool.learnMore ? <LearnMoreStrip {...tool.learnMore} /> : null}
-
-      <section className={styles.helpSection}>
-        <div className={styles.sectionHead}>
-          <p className={styles.sectionEyebrow}>Need help</p>
-          <h2>{tool.helpTitle}</h2>
-        </div>
-        <ContactCard {...contactDetails} />
-      </section>
 
       <FooterStrip />
     </main>

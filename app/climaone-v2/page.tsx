@@ -1,22 +1,68 @@
-import { LayoutDashboard } from "lucide-react";
+﻿import {
+  Award,
+  CheckCircle2,
+  FileText,
+  LayoutDashboard,
+  Scale,
+  Truck
+} from "lucide-react";
 
 import { AutomationItem } from "@/components/AutomationItem/AutomationItem";
 import { AccentBar } from "@/components/AccentBar/AccentBar";
-import { ContactCard } from "@/components/ContactCard/ContactCard";
+import { BackLink } from "@/components/BackLink/BackLink";
+import { CapabilityBlock } from "@/components/CapabilityBlock/CapabilityBlock";
 import { FooterStrip } from "@/components/FooterStrip/FooterStrip";
-import { JourneyStep } from "@/components/JourneyStep/JourneyStep";
 import { LearnMoreStrip } from "@/components/LearnMoreStrip/LearnMoreStrip";
 import { OutcomeTile } from "@/components/OutcomeTile/OutcomeTile";
 import { RoleCard } from "@/components/RoleCard/RoleCard";
-import { ScreenshotSlot } from "@/components/ScreenshotSlot/ScreenshotSlot";
-import { climaOneV2Page, contactDetails } from "@/lib/content";
+import { climaOneV2Page } from "@/lib/content";
 
 import styles from "./page.module.css";
+
+const capabilities = [
+  {
+    number: "01",
+    title: "Track every vehicle movement",
+    description: "Log vehicle check-ins and check-outs at each facility. Every trip is recorded with timestamps, weight, and driver details.",
+    icon: Truck
+  },
+  {
+    number: "02",
+    title: "Create and manage purchase orders",
+    description: "Raise POs for raw material collection, set target weights, assign partners, and track fulfilment against each order.",
+    icon: FileText
+  },
+  {
+    number: "03",
+    title: "Record weight at every stage",
+    description: "Capture weigh-in and weigh-out readings at intake, processing, and dispatch, building an unbroken weight audit trail.",
+    icon: Scale
+  },
+  {
+    number: "04",
+    title: "Run quality control checks",
+    description: "Conduct QC at processing stages, flag rejections, and record the outcome before material moves to the next step.",
+    icon: CheckCircle2
+  },
+  {
+    number: "05",
+    title: "Issue EPR certificates",
+    description: "Generate compliance certificates once fulfilment conditions are met. Certificates are downloadable and linked to the underlying PO data.",
+    icon: Award
+  },
+  {
+    number: "06",
+    title: "Producer compliance dashboard",
+    description: "Give producers a real-time view of their fulfilment status, certificate inventory, and upcoming obligations in one place.",
+    icon: LayoutDashboard
+  }
+];
 
 export default function ClimaOneV2Page() {
   return (
     <main>
       <AccentBar />
+      <BackLink />
 
       <section className={styles.heroSection}>
         <div className={styles.heroText}>
@@ -26,10 +72,9 @@ export default function ClimaOneV2Page() {
             <span>{climaOneV2Page.heroTitle.highlight}</span>
           </h1>
           <p>{climaOneV2Page.subheading}</p>
-          <a className={styles.ghostAmber} href={climaOneV2Page.primaryAction.href}>
+          <a className={styles.primaryButton} href={climaOneV2Page.primaryAction.href} target="_blank" rel="noreferrer">
             {climaOneV2Page.primaryAction.label}
           </a>
-          <span className={styles.statusPill}>{climaOneV2Page.statusBadge?.label}</span>
           <p className={styles.accessNote}>{climaOneV2Page.accessNote}</p>
         </div>
 
@@ -97,7 +142,23 @@ export default function ClimaOneV2Page() {
         </div>
         <div className={styles.journeyList}>
           {climaOneV2Page.journey.map((step, index) => (
-            <JourneyStep key={step.number} {...step} reversed={index % 2 === 1} />
+            <article
+              key={step.number}
+              className={`${styles.journeyStep} ${index % 2 === 1 ? styles.reversed : ""}`}
+            >
+              <div className={styles.stepText}>
+                <div className={styles.stepNumber}>{step.number}</div>
+                <h3 className={styles.stepTitle}>{step.title}</h3>
+                <p className={styles.stepDescription}>{step.description}</p>
+              </div>
+              <div className={styles.stepVisual}>
+                <img
+                  src={`/screenshots/climaone-v2/step-${step.number}.png`}
+                  alt={step.title}
+                  className={styles.stepImage}
+                />
+              </div>
+            </article>
           ))}
         </div>
       </section>
@@ -110,6 +171,20 @@ export default function ClimaOneV2Page() {
         <div className={styles.rolesGrid}>
           {climaOneV2Page.roles.map((role) => (
             <RoleCard key={role.name} {...role} />
+          ))}
+        </div>
+      </section>
+
+      <section className={styles.capabilitiesSection}>
+        <div className={styles.sectionHead}>
+          <p className={styles.sectionEyebrow}>Capabilities</p>
+          <h2>What you can do inside ClimaOne V2</h2>
+        </div>
+        <div className={styles.capabilitiesGrid}>
+          {capabilities.map((cap) => (
+            <div key={cap.number} className={styles.capabilityCell}>
+              <CapabilityBlock {...cap} />
+            </div>
           ))}
         </div>
       </section>
@@ -143,26 +218,10 @@ export default function ClimaOneV2Page() {
           <p className={styles.sectionEyebrow}>Compliance</p>
           <h2>Everything a producer needs to see</h2>
         </div>
-        <div className={styles.dashboardVisual}>
-          <ScreenshotSlot
-            icon={LayoutDashboard}
-            label="Insert compliance dashboard screenshot"
-            note="Recommended 1440 x 900px"
-            tall
-          />
-          <p className={styles.dashboardNote}>{climaOneV2Page.dashboardNote}</p>
-        </div>
+        <p className={styles.dashboardNote}>{climaOneV2Page.dashboardNote}</p>
       </section>
 
       <LearnMoreStrip {...climaOneV2Page.learnMore} />
-
-      <section className={styles.helpSection}>
-        <div className={styles.sectionHead}>
-          <p className={styles.sectionEyebrow}>Need help</p>
-          <h2>{climaOneV2Page.helpTitle}</h2>
-        </div>
-        <ContactCard {...contactDetails} />
-      </section>
 
       <FooterStrip />
     </main>

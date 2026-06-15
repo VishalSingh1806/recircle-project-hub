@@ -7,17 +7,14 @@ import {
   MapPin,
   Phone,
   Settings,
-  Upload,
   User,
   Users
 } from "lucide-react";
 
 import { AccentBar } from "@/components/AccentBar/AccentBar";
-import { ContactCard } from "@/components/ContactCard/ContactCard";
+import { BackLink } from "@/components/BackLink/BackLink";
 import { FooterStrip } from "@/components/FooterStrip/FooterStrip";
-import { JourneyStep } from "@/components/JourneyStep/JourneyStep";
 import { RoleCard } from "@/components/RoleCard/RoleCard";
-import { contactDetails } from "@/lib/content";
 
 import styles from "./page.module.css";
 
@@ -139,6 +136,7 @@ export default function OcrBizCardPage() {
   return (
     <main>
       <AccentBar />
+      <BackLink />
 
       <section className={styles.heroSection}>
         <div className={styles.heroText}>
@@ -151,7 +149,7 @@ export default function OcrBizCardPage() {
             extracts the contact details, and gives you an editable table ready to save, export, or
             use for outreach. No typing. No manual entry.
           </p>
-          <a className={styles.primaryButton} href="[INSERT URL]">
+          <a className={styles.primaryButton} href="https://ocr.recircle.in/" target="_blank" rel="noreferrer">
             Open Business Card OCR
           </a>
           <p className={styles.accessNote}>
@@ -238,16 +236,23 @@ export default function OcrBizCardPage() {
         </div>
         <div className={styles.stepsList}>
           {steps.map((step, index) => (
-            <JourneyStep
+            <article
               key={step.number}
-              number={step.number}
-              title={step.title}
-              description={step.description}
-              capturedItems={[]}
-              capturedLabel=""
-              icon={Upload}
-              reversed={index % 2 === 1}
-            />
+              className={`${styles.step} ${index % 2 === 1 ? styles.reversed : ""}`}
+            >
+              <div className={styles.stepText}>
+                <div className={styles.stepNumber}>{step.number}</div>
+                <h3 className={styles.stepTitle}>{step.title}</h3>
+                <p className={styles.stepDescription}>{step.description}</p>
+              </div>
+              <div className={styles.stepVisual}>
+                <img
+                  src={`/screenshots/ocr-bizcard/step-${step.number}.png`}
+                  alt={step.title}
+                  className={styles.stepImage}
+                />
+              </div>
+            </article>
           ))}
         </div>
       </section>
@@ -265,14 +270,6 @@ export default function OcrBizCardPage() {
             </article>
           ))}
         </div>
-      </section>
-
-      <section className={styles.helpSection}>
-        <div className={styles.sectionHead}>
-          <p className={styles.sectionEyebrow}>Need help</p>
-          <h2>Having trouble? We&apos;re here.</h2>
-        </div>
-        <ContactCard {...contactDetails} />
       </section>
 
       <FooterStrip />

@@ -1,209 +1,155 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
-import { FooterStrip } from "@/components/FooterStrip/FooterStrip";
-import { ToolRow } from "@/components/ToolRow/ToolRow";
 import { overviewTools } from "@/lib/content";
+import { FooterStrip } from "@/components/FooterStrip/FooterStrip";
 
 import styles from "./page.module.css";
-
-function BrowserFrame({ children }: { children: React.ReactNode }) {
-  return (
-    <div className={styles.browserFrame}>
-      <div className={styles.browserTop}>
-        <span className={`${styles.dot} ${styles.dotRed}`} />
-        <span className={`${styles.dot} ${styles.dotYellow}`} />
-        <span className={`${styles.dot} ${styles.dotGreen}`} />
-      </div>
-      <div className={styles.browserBody}>{children}</div>
-    </div>
-  );
-}
-
-function OverviewMockup({ type }: { type: (typeof overviewTools)[number]["mockup"] }) {
-  if (type === "v1") {
-    return (
-      <BrowserFrame>
-        <div className={styles.statsGrid}>
-          {[
-            ["142", "Active POs"],
-            ["38", "Certificates"],
-            ["94%", "Fulfilment"]
-          ].map(([value, label]) => (
-            <div key={label} className={styles.statTile}>
-              <strong>{value}</strong>
-              <span>{label}</span>
-            </div>
-          ))}
-        </div>
-        <div className={styles.statusList}>
-          {[
-            [styles.greenStatus, "Issued"],
-            [styles.amberStatus, "In progress"],
-            [styles.grayStatus, "Pending"],
-            [styles.greenStatus, "Issued"]
-          ].map(([tone, label], index) => (
-            <div key={`${label}-${index}`} className={styles.statusRow}>
-              <span className={`${styles.statusDot} ${tone}`} />
-              <div className={styles.statusLines}>
-                <span className={styles.lineLong} />
-                <span className={styles.lineShort} />
-              </div>
-              <span className={styles.miniBadge}>{label}</span>
-            </div>
-          ))}
-        </div>
-      </BrowserFrame>
-    );
-  }
-
-  if (type === "v2") {
-    return (
-      <BrowserFrame>
-        <div className={styles.statsGrid}>
-          {[
-            ["12", "Pending vehicle actions"],
-            ["09", "Pending QC"],
-            ["24", "Open PO weight"]
-          ].map(([value, label]) => (
-            <div key={label} className={`${styles.statTile} ${styles.warmTile}`}>
-              <strong>{value}</strong>
-              <span>{label}</span>
-            </div>
-          ))}
-        </div>
-        <div className={styles.statusList}>
-          {[
-            [styles.amberStatus, "Pending"],
-            [styles.amberStatus, "In progress"],
-            [styles.greenStatus, "Approved"]
-          ].map(([tone, label], index) => (
-            <div key={`${label}-${index}`} className={styles.statusRow}>
-              <span className={`${styles.statusDot} ${tone}`} />
-              <div className={styles.statusLines}>
-                <span className={styles.lineLong} />
-                <span className={styles.lineShort} />
-              </div>
-              <span className={styles.miniBadge}>{label}</span>
-            </div>
-          ))}
-        </div>
-      </BrowserFrame>
-    );
-  }
-
-  if (type === "ocrEpr") {
-    return (
-      <BrowserFrame>
-        <div className={styles.uploadBox}>
-          <span className={styles.uploadIcon}>+</span>
-          <span className={styles.uploadLabel}>Upload document</span>
-        </div>
-        <div className={styles.extractRows}>
-          {[0, 1, 2, 3].map((item) => (
-            <div key={item} className={styles.extractRow}>
-              <span className={styles.extractLabel} />
-              <span className={styles.extractValue} />
-            </div>
-          ))}
-        </div>
-      </BrowserFrame>
-    );
-  }
-
-  if (type === "ocrBiz") {
-    return (
-      <BrowserFrame>
-        <div className={styles.bizCard}>
-          <span className={styles.bizBrand} />
-          <span className={styles.bizLineLong} />
-          <span className={styles.bizLineShort} />
-        </div>
-        <div className={styles.extractRows}>
-          {[0, 1, 2].map((item) => (
-            <div key={item} className={styles.extractRow}>
-              <span className={styles.extractLabel} />
-              <span className={styles.extractValue} />
-            </div>
-          ))}
-        </div>
-      </BrowserFrame>
-    );
-  }
-
-  if (type === "route") {
-    return (
-      <BrowserFrame>
-        <div className={styles.mapField}>
-          <span className={`${styles.mapNode} ${styles.nodeOne}`} />
-          <span className={`${styles.mapNode} ${styles.nodeTwo}`} />
-          <span className={`${styles.mapNode} ${styles.nodeThree}`} />
-          <span className={`${styles.mapNode} ${styles.nodeFour}`} />
-          <span className={`${styles.mapLine} ${styles.lineOne}`} />
-          <span className={`${styles.mapLine} ${styles.lineTwo}`} />
-          <span className={`${styles.mapLine} ${styles.lineThree}`} />
-        </div>
-      </BrowserFrame>
-    );
-  }
-
-  if (type === "chat") {
-    return (
-      <BrowserFrame>
-        <div className={`${styles.chatBubble} ${styles.botBubble}`} />
-        <div className={`${styles.chatBubble} ${styles.userBubble}`} />
-        <div className={`${styles.chatBubble} ${styles.botBubble} ${styles.shortBubble}`} />
-      </BrowserFrame>
-    );
-  }
-
-  return (
-    <BrowserFrame>
-      <div className={styles.folderFlow}>
-        <div className={styles.folder} />
-        <span className={styles.autoLabel}>auto</span>
-        <div className={styles.folder} />
-      </div>
-    </BrowserFrame>
-  );
-}
 
 export default function HomePage() {
   return (
     <main>
+      {/* ── Hero ─────────────────────────────────────────── */}
       <section className={styles.hero}>
         <div className={styles.heroInner}>
-          <p className={styles.eyebrow}>RECIRCLE PRODUCT HUB</p>
-          <h1 className={styles.heroTitle}>
-            Your tools. <span>All in one</span> place.
+<h1 className={styles.heroTitle}>
+            Welcome to Recircle <span>tools.</span>
           </h1>
           <p className={styles.heroBody}>
-            Everything the ReCircle team needs to work smarter - built in-house, ready to use. Pick
-            a tool below and get started.
+            Everything the ReCircle team needs to work smarter, built in-house, ready to use.
           </p>
-          <div className={styles.scrollCue}>
-            <span className={styles.scrollLine} />
-            <span>Scroll to explore</span>
-          </div>
         </div>
       </section>
 
-      <section className={styles.rows}>
-        {overviewTools.map((tool, index) => (
-          <ToolRow
-            key={tool.number}
-            number={tool.number}
-            name={tool.name}
-            tagline={tool.tagline}
-            status={tool.status}
-            statusTone={tool.statusTone}
-            href={tool.href}
-            ctaLabel={tool.ctaLabel}
-            reversed={index % 2 === 1}
-            visual={<OverviewMockup type={tool.mockup} />}
-            mailto={tool.mailto}
-          />
-        ))}
-      </section>
+      {/* ── Tool feature rows ─────────────────────────────── */}
+      <div className={styles.featuresWrap}>
+        {overviewTools.map((tool, index) => {
+          const Icon = tool.icon;
+          const isReversed = index % 2 === 1;
+
+          return (
+            <section
+              key={tool.number}
+              className={`${styles.featureRow} ${isReversed ? styles.reversed : ""}`}
+            >
+              <div className={styles.featureInner}>
+
+                {/* ── Visual mockup ── */}
+                <div className={styles.featureVisual}>
+                  <div className={styles.frame}>
+                    <div className={styles.frameBar}>
+                      <span className={`${styles.dot} ${styles.dotRed}`} />
+                      <span className={`${styles.dot} ${styles.dotYellow}`} />
+                      <span className={`${styles.dot} ${styles.dotGreen}`} />
+                    </div>
+                    <div className={styles.frameBody}>
+
+                      {/* ClimaOne V1 */}
+                      {tool.mockup === "v1" && (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img
+                          src="/screenshots/climaone-v1/hero.png"
+                          alt="ClimaOne V1 dashboard"
+                          className={styles.screenshotImg}
+                        />
+                      )}
+
+                      {/* ClimaOne V2 */}
+                      {tool.mockup === "v2" && (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img
+                          src="/screenshots/climaone-v2/hero.png"
+                          alt="ClimaOne V2 dashboard"
+                          className={styles.screenshotImg}
+                        />
+                      )}
+
+                      {/* OCR for EPR */}
+                      {tool.mockup === "ocrEpr" && (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img
+                          src="/screenshots/ocr-epr/hero.png"
+                          alt="OCR for EPR dashboard"
+                          className={styles.screenshotImg}
+                        />
+                      )}
+
+                      {/* OCR for Business Cards */}
+                      {tool.mockup === "ocrBiz" && (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img
+                          src="/screenshots/ocr-bizcard/step-01.png"
+                          alt="OCR for Business Cards dashboard"
+                          className={styles.screenshotImg}
+                        />
+                      )}
+
+                      {/* Route Optimizer */}
+                      {tool.mockup === "route" && (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img
+                          src="/screenshots/route-optimzer/hero.png"
+                          alt="Route Optimizer dashboard"
+                          className={styles.screenshotImg}
+                        />
+                      )}
+
+                      {/* EPR Chatbot */}
+                      {tool.mockup === "chat" && (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img
+                          src="/screenshots/chatbot/hero.png"
+                          alt="EPR Chatbot"
+                          className={styles.screenshotImg}
+                        />
+                      )}
+
+                      {/* Drive Automation */}
+                      {tool.mockup === "drive" && (
+                        <div className={styles.driveMockup}>
+                          <div className={styles.driveHeader}>
+                            <span className={styles.driveFolderIcon} />
+                            <span className={styles.driveFolderLabel}>Intake folder</span>
+                          </div>
+                          <div className={styles.driveFiles}>
+                            {[
+                              "payslip_Q3.pdf",
+                              "contract_v2.pdf",
+                              "id_proof.pdf",
+                            ].map((name) => (
+                              <div key={name} className={styles.driveFile}>
+                                <span className={styles.driveFileName}>{name}</span>
+                                <span className={styles.driveBadge}>Sorted</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
+                    </div>
+                  </div>
+                </div>
+
+                {/* ── Text content ── */}
+                <div className={styles.featureContent}>
+                  <p className={styles.featureNumber}>{tool.number}</p>
+                  <div className={styles.featureMeta}>
+                    <span className={styles.featureIconWrap}><Icon size={16} /></span>
+                    <span className={styles.featureCategory}>{tool.category}</span>
+                  </div>
+                  <h2 className={styles.featureName}>{tool.name}</h2>
+                  <p className={styles.featureTagline}>{tool.tagline}</p>
+                  <div className={styles.featureActions}>
+                    <Link href={tool.href} className={styles.featureCta}>
+                      Explore tool →
+                    </Link>
+                  </div>
+                </div>
+
+              </div>
+            </section>
+          );
+        })}
+      </div>
 
       <FooterStrip />
     </main>

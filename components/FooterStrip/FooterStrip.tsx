@@ -4,19 +4,24 @@ import styles from "./FooterStrip.module.css";
 
 export function FooterStrip() {
   return (
-    <>
-      <section className={styles.strip}>
-        <div>
-          <p className={styles.eyebrow}>RECIRCLE PRODUCT HUB</p>
-          <h2 className={styles.title}>
-            Can&apos;t find what you need? <span>Talk to us.</span>
-          </h2>
+    <footer className={styles.footer}>
+      <div className={styles.stripWrap}>
+        <div className={styles.strip}>
+          <div>
+<h2 className={styles.title}>
+              Can&apos;t find what you need? <span>Talk to us.</span>
+            </h2>
+          </div>
+          <Link className={styles.button} href="/contact/">
+            Go to Help &amp; Contact
+          </Link>
         </div>
-        <Link className={styles.button} href="/contact/">
-          Go to Help & Contact
-        </Link>
-      </section>
-      <div className={styles.bottomTag}>Built by ReCircle Tech | Recover. Recycle. Rethink.</div>
-    </>
+      </div>
+      <div className={styles.bottomBar}>
+        <div className={styles.bottomInner}>
+          Built by ReCircle Tech &nbsp;·&nbsp; Recover. Recycle. Rethink.
+        </div>
+      </div>
+    </footer>
   );
 }

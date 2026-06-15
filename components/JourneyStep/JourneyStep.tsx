@@ -1,7 +1,5 @@
 import { type LucideIcon } from "lucide-react";
 
-import { ScreenshotSlot } from "@/components/ScreenshotSlot/ScreenshotSlot";
-
 import styles from "./JourneyStep.module.css";
 
 type JourneyStepProps = {
@@ -20,7 +18,7 @@ export function JourneyStep({
   description,
   capturedLabel = "What gets captured",
   capturedItems = [],
-  icon,
+  icon: Icon,
   reversed = false
 }: JourneyStepProps) {
   return (
@@ -43,7 +41,9 @@ export function JourneyStep({
         ) : null}
       </div>
       <div className={styles.visualCol}>
-        <ScreenshotSlot icon={icon} tall />
+        <div className={styles.iconWrap}>
+          <Icon size={48} />
+        </div>
       </div>
     </article>
   );
