@@ -1,8 +1,8 @@
 :root {
-  --color-primary: #042c8c;
-  --color-primary-dark: #031f63;
+  --color-primary: #01298A;
+  --color-primary-dark: #011F6B;
   --color-primary-light: #eef1fb;
-  --color-primary-deep: #021545;
+  --color-primary-deep: #01154C;
   --color-amber: #ba7517;
   --color-amber-light: #faeeda;
   --color-amber-dark: #854f0b;
@@ -18,7 +18,7 @@
   --font-heading: "Plus Jakarta Sans", sans-serif;
   --font-body: "Inter", sans-serif;
   --radius-card: 12px;
-  --radius-btn: 8px;
+  --radius-btn: 0;
   --radius-role: 10px;
 }
 
@@ -32,7 +32,7 @@ html {
 
 body {
   margin: 0;
-  background: var(--color-surface);
+  background: #F7F1EE;
   color: var(--color-text-body);
   font: 400 16px/1.7 var(--font-body);
 }

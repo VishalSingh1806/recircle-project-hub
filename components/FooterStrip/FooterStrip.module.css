@@ -5,7 +5,7 @@
 /* ── Main strip ──────────────────────────────────── */
 
 .stripWrap {
-  background-color: #042c8c;
+  background-color: var(--color-primary);
   position: relative;
   overflow: hidden;
 }
@@ -56,9 +56,9 @@
   min-height: 48px;
   width: fit-content;
   padding: 0 28px;
-  border-radius: 999px;
+  border-radius: 0;
   background: #ffffff;
-  color: #042c8c;
+  color: var(--color-primary);
   text-decoration: none;
   display: inline-flex;
   align-items: center;

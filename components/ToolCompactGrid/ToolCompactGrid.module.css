@@ -54,7 +54,7 @@
 }
 
 .live {
-  background: #042c8c;
+  background: var(--color-primary);
 }
 
 .comingSoon {
@@ -83,7 +83,7 @@
   padding: 7px 12px;
   background: var(--color-primary);
   color: #ffffff;
-  border-radius: 999px;
+  border-radius: 0;
   font-size: 11px;
   font-weight: 600;
   margin-top: 2px;

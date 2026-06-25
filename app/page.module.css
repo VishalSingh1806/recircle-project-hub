@@ -3,7 +3,7 @@
 .hero {
   position: relative;
   overflow: hidden;
-  background-color: #042c8c;
+  background-color: var(--color-primary);
 }
 
 .hero::before,

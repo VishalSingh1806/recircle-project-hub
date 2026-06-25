@@ -31,7 +31,7 @@ export function Navbar() {
       <header className={`${styles.header} ${isElevated ? styles.elevated : ""}`}>
         <div className={styles.inner}>
           <Link className={styles.brand} href="/">
-            <img src="/recircle-logo.png" alt="ReCircle" className={styles.logo} />
+            <img src="/recircle-logo.svg" alt="ReCircle" className={styles.logo} />
             <span className={styles.brandText}>Product Hub</span>
           </Link>
 
