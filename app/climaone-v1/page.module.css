@@ -156,7 +156,7 @@
 }
 
 .rowDot { width: 10px; height: 10px; border-radius: 50%; }
-.rowAmber { background: var(--color-amber); }
+.rowAmber { background: var(--color-green); }
 .rowGreen { background: var(--color-primary); }
 .rowGray  { background: #c8c8c8; }
 

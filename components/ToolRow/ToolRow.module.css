@@ -52,8 +52,8 @@
 }
 
 .comingSoon {
-  background: var(--color-amber-light);
-  color: var(--color-amber-dark);
+  background: #f3f4f6;
+  color: #4b5563;
 }
 
 .name {
@@ -89,8 +89,8 @@
 }
 
 .ctaAmber {
-  color: var(--color-amber);
-  border-color: var(--color-amber);
+  color: var(--color-green);
+  border-color: var(--color-green);
 }
 
 .arrow {

@@ -21,8 +21,8 @@ import type { LucideIcon } from "lucide-react";
 
 export const navLinks = [
   { href: "/", label: "Overview" },
-  { href: "/climaone-v1/", label: "ClimaOne V1" },
-  { href: "/climaone-v2/", label: "ClimaOne V2" },
+  { href: "/climaone-v1/", label: "ClimaOne® V1" },
+  { href: "/climaone-v2/", label: "ClimaOne® V2" },
   { href: "/ocr-epr/", label: "OCR EPR" },
   { href: "/ocr-bizcard/", label: "OCR Biz Card" },
   { href: "/route-optimizer/", label: "Route Optimizer" },
@@ -76,7 +76,7 @@ export type BaseToolPage = {
   primaryAction: {
     label: string;
     href: string;
-    tone: "primary" | "ghostAmber";
+    tone: "primary" | "ghostPrimary";
   };
   secondaryAction?: {
     label: string;
@@ -96,9 +96,9 @@ export type BaseToolPage = {
 export const overviewTools = [
   {
     number: "01",
-    name: "ClimaOne V1",
+    name: "ClimaOne® V1",
     tagline:
-      "Managing EPR compliance shouldn't mean juggling spreadsheets. ClimaOne puts everything in one place.",
+      "Managing EPR compliance shouldn't mean juggling spreadsheets. ClimaOne® puts everything in one place.",
     status: "Live",
     statusTone: "live" as const,
     href: "/climaone-v1/",
@@ -109,7 +109,7 @@ export const overviewTools = [
   },
   {
     number: "02",
-    name: "ClimaOne V2",
+    name: "ClimaOne® V2",
     tagline:
       "Full material traceability built for BIS regulations - from collection all the way to compliance report.",
     status: "Live",
@@ -243,8 +243,8 @@ const ocrEprSteps: JourneyItem[] = [
     number: "04",
     title: "Export or save",
     description:
-      "Download as CSV or Excel, or push the structured data directly to ClimaOne for compliance reporting and record keeping.",
-    capturedItems: ["Export to CSV / Excel", "Sync to ClimaOne"],
+      "Download as CSV or Excel, or push the structured data directly to ClimaOne® for compliance reporting and record keeping.",
+    capturedItems: ["Export to CSV / Excel", "Sync to ClimaOne®"],
     icon: Bell
   }
 ];
@@ -519,23 +519,23 @@ export const climaOneV1Page: BaseToolPage & {
     ctaHref: string;
   };
 } = {
-  name: "ClimaOne V1",
+  name: "ClimaOne® V1",
   href: "/climaone-v1/",
-  productEyebrow: "Product 01 | ClimaOne V1",
+  productEyebrow: "Product 01 | ClimaOne® V1",
   heroTitle: {
     before: "Your EPR compliance, ",
     highlight: "end to end.",
     after: " In one platform."
   },
   subheading:
-    "ClimaOne V1 manages the full plastic recovery lifecycle, from purchase order creation to certificate issuance, across every partner, facility, and vehicle in your network.",
+    "ClimaOne® V1 manages the full plastic recovery lifecycle, from purchase order creation to certificate issuance, across every partner, facility, and vehicle in your network.",
   primaryAction: {
-    label: "Open ClimaOne V1",
+    label: "Open ClimaOne® V1",
     href: "https://admin.climaone.in/",
     tone: "primary"
   },
   secondaryAction: {
-    label: "Learn more about ClimaOne",
+    label: "Learn more about ClimaOne®",
     href: "https://recircle.in/climaone/"
   },
   accessNote:
@@ -587,7 +587,7 @@ export const climaOneV1Page: BaseToolPage & {
     }
   ],
   journeyIntro:
-    "Every purchase order in ClimaOne V1 moves through a defined lifecycle, from creation and allocation to vehicle dispatch, weight capture, and certificate issuance, with every step logged and auditable.",
+    "Every purchase order in ClimaOne® V1 moves through a defined lifecycle, from creation and allocation to vehicle dispatch, weight capture, and certificate issuance, with every step logged and auditable.",
   journey: [
     {
       number: "01",
@@ -685,7 +685,7 @@ export const climaOneV1Page: BaseToolPage & {
     }
   ],
   dashboardNote:
-    "The ClimaOne V1 dashboard gives compliance managers a real-time view of purchase order fulfilment, active vehicle movement, and certificate status across the entire partner network.",
+    "The ClimaOne® V1 dashboard gives compliance managers a real-time view of purchase order fulfilment, active vehicle movement, and certificate status across the entire partner network.",
   capabilities: [
     {
       number: "01",
@@ -726,17 +726,17 @@ export const climaOneV1Page: BaseToolPage & {
       number: "06",
       title: "Notifications & alerts",
       description:
-        "Never miss a critical update. ClimaOne sends SMS, email, and push notifications for PO alerts, approvals, and status changes across all user types.",
+        "Never miss a critical update. ClimaOne® sends SMS, email, and push notifications for PO alerts, approvals, and status changes across all user types.",
       icon: Bell
     }
   ],
   learnMore: {
     eyebrow: "Want to go deeper?",
-    title: "The full ClimaOne product page has ",
+    title: "The full ClimaOne® product page has ",
     highlight: "everything.",
     body:
-      "Features, onboarding steps, portal walkthroughs, and more, all on the official ClimaOne page.",
-    ctaLabel: "Explore ClimaOne",
+      "Features, onboarding steps, portal walkthroughs, and more, all on the official ClimaOne® page.",
+    ctaLabel: "Explore ClimaOne®",
     ctaHref: "https://recircle.in/climaone/"
   },
   helpTitle: "Can't access it? We're here."
@@ -758,17 +758,17 @@ export const climaOneV2Page: BaseToolPage & {
     ctaHref: string;
   };
 } = {
-  name: "ClimaOne V2",
+  name: "ClimaOne® V2",
   href: "/climaone-v2/",
-  productEyebrow: "Product 02 | ClimaOne V2",
+  productEyebrow: "Product 02 | ClimaOne® V2",
   heroTitle: {
     before: "From collection to converter. Every gram. ",
     highlight: "Fully traceable."
   },
   subheading:
-    "Before this, material moved. But nobody could prove where it came from, what happened to it, or whether the evidence would hold up. ClimaOne V2 changes that - end to end, across every partner, plant, and processor in your network.",
+    "Before this, material moved. But nobody could prove where it came from, what happened to it, or whether the evidence would hold up. ClimaOne® V2 changes that - end to end, across every partner, plant, and processor in your network.",
   primaryAction: {
-    label: "Open ClimaOne V2",
+    label: "Open ClimaOne® V2",
     href: "https://v2.climaone.in/login",
     tone: "primary"
   },
@@ -970,13 +970,13 @@ export const climaOneV2Page: BaseToolPage & {
     "The producer compliance dashboard gives brands a clear view of verified material collected, processed, and available for compliance reporting.",
   learnMore: {
     eyebrow: "Want to explore more?",
-    title: "The full ClimaOne V2 product page is ",
+    title: "The full ClimaOne® V2 product page is ",
     highlight: "live.",
     body: "See the platform in action, explore features, and get in touch with the team.",
-    ctaLabel: "Explore ClimaOne V2",
+    ctaLabel: "Explore ClimaOne® V2",
     ctaHref: "https://climaonev2.recircle.in/"
   },
-  helpTitle: "Questions about ClimaOne V2?"
+  helpTitle: "Questions about ClimaOne® V2?"
 };
 
 export const placeholderToolPages = {
@@ -1142,8 +1142,8 @@ export const placeholderToolPages = {
 } as const;
 
 export const toolNames = [
-  "ClimaOne V1",
-  "ClimaOne V2",
+  "ClimaOne® V1",
+  "ClimaOne® V2",
   "OCR for EPR",
   "OCR for Business Card",
   "Route Optimizer",

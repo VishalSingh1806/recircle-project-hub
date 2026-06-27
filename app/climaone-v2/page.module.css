@@ -108,13 +108,13 @@
 .heroTile {
   padding: 12px;
   border-radius: 10px;
-  background: #fffaf1;
-  border: 1px solid #f0e2c7;
+  background: #f0fdf9;
+  border: 1px solid #b3ede0;
   display: grid;
   gap: 3px;
 }
 
-.heroTile strong { color: var(--color-amber); }
+.heroTile strong { color: var(--color-green); }
 .heroTile span { color: #8c8c8c; font-size: 12px; }
 
 .heroRows {
@@ -134,7 +134,7 @@
 }
 
 .rowDot { width: 10px; height: 10px; border-radius: 50%; }
-.rowAmber { background: var(--color-amber); }
+.rowAmber { background: var(--color-green); }
 .rowGreen { background: var(--color-primary); }
 
 .rowLines { display: grid; gap: 6px; }

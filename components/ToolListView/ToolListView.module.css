@@ -76,8 +76,8 @@
 }
 
 .comingSoon {
-  background: var(--color-amber-light);
-  color: var(--color-amber-dark);
+  background: #f3f4f6;
+  color: #4b5563;
 }
 
 .desc {

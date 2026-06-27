@@ -178,7 +178,7 @@ export default function ClimaOneV2Page() {
       <section className={styles.capabilitiesSection}>
         <div className={styles.sectionHead}>
           <p className={styles.sectionEyebrow}>Capabilities</p>
-          <h2>What you can do inside ClimaOne V2</h2>
+          <h2>What you can do inside ClimaOne<sup>®</sup> V2</h2>
         </div>
         <div className={styles.capabilitiesGrid}>
           {capabilities.map((cap) => (

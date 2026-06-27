@@ -49,7 +49,7 @@
 }
 
 .title span {
-  color: #93c5fd;
+  color: var(--color-lime);
 }
 
 .button {

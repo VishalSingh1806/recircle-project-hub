@@ -58,7 +58,7 @@
 }
 
 .heroTitle span {
-  color: #93c5fd;
+  color: var(--color-lime);
 }
 
 .heroBody {
@@ -225,12 +225,12 @@
 
 .live {
   background: #dcfce7;
-  color: #15803d;
+  color: #047857;
 }
 
 .comingSoon {
-  background: #fef9c3;
-  color: #854d0e;
+  background: #f3f4f6;
+  color: #4b5563;
 }
 
 /* ── Browser frame (shared) ───────────────────────── */
@@ -287,8 +287,8 @@
   flex-shrink: 0;
 }
 
-.sGreen { background: var(--color-primary); }
-.sAmber { background: var(--color-amber); }
+.sGreen { background: var(--color-green); }
+.sAmber { background: var(--color-lime); }
 .sGray  { background: #c8c8c8; }
 
 /* ── Shared line shapes ───────────────────────────── */

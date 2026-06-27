@@ -12,10 +12,10 @@ export default function HomePage() {
       <section className={styles.hero}>
         <div className={styles.heroInner}>
 <h1 className={styles.heroTitle}>
-            Welcome to Recircle <span>tools.</span>
+            ReCircle Internal Tools, <span>built for the team.</span>
           </h1>
           <p className={styles.heroBody}>
-            Everything the ReCircle team needs to work smarter, built in-house, ready to use.
+            Purpose-built by the ReCircle tech team for EPR compliance, logistics, document processing, and automation. Everything in one place.
           </p>
         </div>
       </section>
@@ -48,7 +48,7 @@ export default function HomePage() {
                         // eslint-disable-next-line @next/next/no-img-element
                         <img
                           src="/screenshots/climaone-v1/hero.png"
-                          alt="ClimaOne V1 dashboard"
+                          alt="ClimaOne® V1 dashboard"
                           className={styles.screenshotImg}
                         />
                       )}
@@ -58,7 +58,7 @@ export default function HomePage() {
                         // eslint-disable-next-line @next/next/no-img-element
                         <img
                           src="/screenshots/climaone-v2/hero.png"
-                          alt="ClimaOne V2 dashboard"
+                          alt="ClimaOne® V2 dashboard"
                           className={styles.screenshotImg}
                         />
                       )}
@@ -136,7 +136,11 @@ export default function HomePage() {
                     <span className={styles.featureIconWrap}><Icon size={16} /></span>
                     <span className={styles.featureCategory}>{tool.category}</span>
                   </div>
-                  <h2 className={styles.featureName}>{tool.name}</h2>
+                  <h2 className={styles.featureName}>
+                    {tool.name.includes('®')
+                      ? <>{tool.name.split('®')[0]}<sup>®</sup>{tool.name.split('®')[1]}</>
+                      : tool.name}
+                  </h2>
                   <p className={styles.featureTagline}>{tool.tagline}</p>
                   <div className={styles.featureActions}>
                     <Link href={tool.href} className={styles.featureCta}>

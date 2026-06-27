@@ -59,7 +59,7 @@ const capabilities = [
     number: "06",
     title: "Notifications & alerts",
     description:
-      "Never miss a critical update. ClimaOne sends SMS, email, and push notifications for PO alerts, approvals, and status changes across all user types.",
+      "Never miss a critical update. ClimaOne® sends SMS, email, and push notifications for PO alerts, approvals, and status changes across all user types.",
     icon: Bell
   }
 ];
@@ -133,7 +133,7 @@ export default function ClimaOneV1Page() {
       <section className={styles.problemSection}>
         <p className={styles.quote}>
           EPR compliance was managed across WhatsApp groups, spreadsheets, and phone calls.
-          ClimaOne V1 put the entire lifecycle in one place.
+          ClimaOne® V1 put the entire lifecycle in one place.
         </p>
         <div className={styles.problemGrid}>
           {climaOneV1Page.problemTiles.map((tile) => (
@@ -190,7 +190,7 @@ export default function ClimaOneV1Page() {
       <section className={styles.capabilitiesSection}>
         <div className={styles.sectionHead}>
           <p className={styles.sectionEyebrow}>Capabilities</p>
-          <h2>What you can do inside ClimaOne V1</h2>
+          <h2>What you can do inside ClimaOne<sup>®</sup> V1</h2>
         </div>
         <div className={styles.capabilitiesGrid}>
           {capabilities.map((cap) => (
@@ -216,7 +216,7 @@ export default function ClimaOneV1Page() {
       <section className={styles.outcomeSection}>
         <div className={styles.sectionHead}>
           <p className={styles.sectionEyebrow}>The outcome</p>
-          <h2>What changes when the whole team is on ClimaOne</h2>
+          <h2>What changes when the whole team is on ClimaOne<sup>®</sup></h2>
         </div>
         <div className={styles.outcomeGrid}>
           {climaOneV1Page.outcomes.map((item) => (
