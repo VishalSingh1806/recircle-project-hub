@@ -4,6 +4,12 @@
   gap: 14px;
 }
 
+@media (max-width: 767px) {
+  .block {
+    padding: 24px;
+  }
+}
+
 .iconWrap {
   width: 36px;
   height: 36px;

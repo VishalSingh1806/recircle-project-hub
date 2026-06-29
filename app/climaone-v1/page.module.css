@@ -43,6 +43,10 @@
 
 .heroTitle span {
   color: var(--color-primary);
+  text-decoration: underline;
+  text-decoration-color: var(--color-lime);
+  text-underline-offset: 8px;
+  text-decoration-thickness: 3px;
 }
 
 .heroActions {
@@ -88,8 +92,8 @@
 }
 
 .accessNote {
-  font-size: 12px;
-  color: var(--color-text-muted);
+  font-size: 13px;
+  color: var(--color-text-body);
 }
 
 .browserFrame {
@@ -156,8 +160,8 @@
 }
 
 .rowDot { width: 10px; height: 10px; border-radius: 50%; }
-.rowAmber { background: var(--color-green); }
-.rowGreen { background: var(--color-primary); }
+.rowGreen { background: var(--color-green); }
+.rowAmber { background: var(--color-lime); }
 .rowGray  { background: #c8c8c8; }
 
 .rowLines { display: grid; gap: 6px; }
@@ -262,7 +266,7 @@
   font-size: 64px;
   line-height: 0.95;
   font-weight: 700;
-  color: #f0f0f0;
+  color: rgba(0, 0, 0, 0.04);
   letter-spacing: -3px;
   margin: 0;
 }
@@ -348,4 +352,32 @@
   .outcomeGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+}
+
+@media (max-width: 767px) {
+  .heroSection,
+  .problemSection,
+  .journeySection,
+  .rolesSection,
+  .capabilitiesSection,
+  .automationSection,
+  .outcomeSection,
+  .dashboardSection {
+    width: min(100%, calc(100% - 32px));
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .heroSection { padding-top: 44px; padding-bottom: 40px; }
+  .problemSection,
+  .journeySection,
+  .capabilitiesSection,
+  .automationSection,
+  .dashboardSection { padding-top: 44px; padding-bottom: 44px; }
+  .rolesSection,
+  .outcomeSection { padding-top: 44px; padding-bottom: 44px; }
+
+  .rolesGrid { grid-template-columns: repeat(2, 1fr); }
+  .problemGrid { grid-template-columns: 1fr; }
+  .journeyStep { padding: 36px 0; gap: 24px; }
 }

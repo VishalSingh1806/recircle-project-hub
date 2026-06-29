@@ -57,3 +57,21 @@
 .table th {
   background: var(--color-surface-warm);
 }
+
+@media (max-width: 767px) {
+  .hero,
+  .section {
+    width: min(100%, calc(100% - 32px));
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .hero { padding-top: 36px; padding-bottom: 24px; }
+  .section { padding-top: 24px; padding-bottom: 32px; }
+
+  .table th,
+  .table td {
+    padding: 14px 12px;
+    font-size: 13px;
+  }
+}

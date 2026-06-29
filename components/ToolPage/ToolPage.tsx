@@ -58,7 +58,7 @@ export function ToolPage({ tool }: ToolPageProps) {
       <section className={styles.stepsSection}>
         <div className={styles.sectionHead}>
           <p className={styles.sectionEyebrow}>How to use it</p>
-          <h2>[INSERT STEP-BY-STEP SECTION TITLE]</h2>
+          <h2>How to use it, step by step</h2>
         </div>
         <div className={styles.stepsList}>
           {tool.steps.map((step, index) => (

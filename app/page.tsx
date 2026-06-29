@@ -87,7 +87,7 @@ export default function HomePage() {
                       {tool.mockup === "route" && (
                         // eslint-disable-next-line @next/next/no-img-element
                         <img
-                          src="/screenshots/route-optimzer/hero.png"
+                          src="/screenshots/route-optimizer/hero.png"
                           alt="Route Optimizer dashboard"
                           className={styles.screenshotImg}
                         />

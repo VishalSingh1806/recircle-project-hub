@@ -150,7 +150,7 @@
   font-weight: 700;
   line-height: 0.9;
   letter-spacing: -5px;
-  color: #efefef;
+  color: rgba(0, 0, 0, 0.04);
   font-family: var(--font-heading);
 }
 
@@ -696,6 +696,21 @@
 
   .heroBody {
     font-size: 15px;
+  }
+
+  .heroStats {
+    border-radius: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .statChip {
+    padding: 7px 12px;
+    font-size: 12px;
+  }
+
+  .statDivider {
+    display: none;
   }
 
   .featureInner {

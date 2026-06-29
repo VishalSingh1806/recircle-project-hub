@@ -41,7 +41,7 @@
   font-size: 64px;
   line-height: 0.95;
   font-weight: 700;
-  color: #f0f0f0;
+  color: rgba(0, 0, 0, 0.04);
   letter-spacing: -3px;
 }
 
@@ -83,5 +83,15 @@
 
   .reversed .visualCol {
     order: 1;
+  }
+}
+
+@media (max-width: 767px) {
+  .textCol {
+    padding: 32px 0;
+  }
+
+  .visualCol {
+    padding: 24px 0;
   }
 }
