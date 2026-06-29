@@ -31,13 +31,14 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   margin: 0;
   background: #F7F1EE;
   color: var(--color-text-body);
-  font: 400 16px/1.7 var(--font-body);
+  font: 400 17px/1.7 var(--font-body);
 }
 
 a,
