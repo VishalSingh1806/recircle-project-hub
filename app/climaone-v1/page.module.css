@@ -27,7 +27,6 @@
 .sectionEyebrow,
 .quote,
 .dashboardNote,
-.accessNote,
 .journeyIntro {
   margin: 0;
 }
@@ -43,10 +42,6 @@
 
 .heroTitle span {
   color: var(--color-primary);
-  text-decoration: underline;
-  text-decoration-color: var(--color-lime);
-  text-underline-offset: 8px;
-  text-decoration-thickness: 3px;
 }
 
 .heroActions {
@@ -89,11 +84,6 @@
 
 .ghostLink:hover {
   gap: 14px;
-}
-
-.accessNote {
-  font-size: 13px;
-  color: var(--color-text-body);
 }
 
 .browserFrame {
@@ -190,6 +180,17 @@
   border-bottom: 1px solid var(--color-border);
 }
 
+.problemSection {
+  display: grid;
+  gap: 48px;
+}
+
+.problemLeft {
+  display: grid;
+  gap: 16px;
+  align-content: start;
+}
+
 .capabilitiesGrid {
   display: grid;
   border-top: 1px solid var(--color-border);
@@ -205,6 +206,11 @@
 .outcomeSection {
   padding: 72px 48px;
   border-bottom: 1px solid var(--color-border);
+}
+
+.journeySection,
+.capabilitiesSection,
+.outcomeSection {
   background: var(--color-surface-warm);
 }
 
@@ -225,10 +231,16 @@
   margin-top: 28px;
 }
 
+.problemGrid {
+  gap: 0;
+  border-top: 1px solid var(--color-border);
+  border-left: 1px solid var(--color-border);
+}
+
 .problemTile {
   padding: 24px;
-  border: 1px solid var(--color-border);
-  border-radius: 12px;
+  border-right: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .problemTile h3,
@@ -277,7 +289,7 @@
 }
 
 .stepDescription {
-  font-size: 15px;
+  font-size: 17px;
   color: var(--color-text-body);
   line-height: 1.7;
   margin: 0;
@@ -314,6 +326,16 @@
     grid-template-columns: 1fr 420px;
   }
 
+  .problemSection {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    gap: 64px;
+  }
+
+  .problemSection .problemGrid {
+    margin-top: 0;
+  }
+
   .journeyStep {
     grid-template-columns: 1fr 1fr;
     gap: 64px;
@@ -329,7 +351,7 @@
   }
 
   .problemGrid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .rolesGrid {

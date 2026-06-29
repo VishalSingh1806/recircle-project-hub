@@ -98,7 +98,7 @@ export const overviewTools = [
     number: "01",
     name: "ClimaOne® V1",
     tagline:
-      "Managing EPR compliance shouldn't mean juggling spreadsheets. ClimaOne® puts everything in one place.",
+      "Manage EPR compliance, track plastic credits, and stay CPCB-integrated in real time. One platform for brands, processors, and collectors.",
     status: "Live",
     statusTone: "live" as const,
     href: "/climaone-v1/",
@@ -111,7 +111,7 @@ export const overviewTools = [
     number: "02",
     name: "ClimaOne® V2",
     tagline:
-      "Full material traceability built for BIS regulations - from collection all the way to compliance report.",
+      "Track recycled plastic bag-by-bag from collection to finished flakes, with live dashboards for collection partners, recycling plants, and buyers.",
     status: "Live",
     statusTone: "live" as const,
     href: "/climaone-v2/",
@@ -124,7 +124,7 @@ export const overviewTools = [
     number: "03",
     name: "OCR for EPR",
     tagline:
-      "Stop entering compliance document data by hand. Upload any form and the data comes out structured, instantly.",
+      "Purpose-built to digitize shipment paperwork by extracting critical data and feeding it directly into your MIS for faster EPR reporting and operational workflows.",
     status: "Live",
     statusTone: "live" as const,
     href: "/ocr-epr/",
@@ -137,7 +137,7 @@ export const overviewTools = [
     number: "04",
     name: "OCR for Business Cards",
     tagline:
-      "Never manually type a contact again. Photograph any business card and save the details in seconds.",
+      "Digitise business cards into a searchable contact database, eliminating manual data entry and making follow-ups effortless.",
     status: "Live",
     statusTone: "live" as const,
     href: "/ocr-bizcard/",
@@ -150,7 +150,7 @@ export const overviewTools = [
     number: "05",
     name: "Route Optimizer",
     tagline:
-      "Plan smarter collection routes in seconds. Less time on the road, more pickups done every day.",
+      "Plan faster, smarter collection routes that reduce travel time, fuel costs, and manual route planning.",
     status: "Live",
     statusTone: "live" as const,
     href: "/route-optimizer/",
@@ -163,7 +163,7 @@ export const overviewTools = [
     number: "06",
     name: "EPR Chatbot",
     tagline:
-      "Get instant answers to any EPR compliance question. No waiting, no back-and-forth - just ask.",
+      "Get instant, reliable answers to EPR compliance questions, reducing research time and helping you make informed decisions faster.",
     status: "Live",
     statusTone: "live" as const,
     href: "/chatbot/",
@@ -176,7 +176,7 @@ export const overviewTools = [
     number: "07",
     name: "Drive Automation",
     tagline:
-      "No more manual file transfers between team members. Built for HR - automated, reliable, instant.",
+      "Simplify Google Drive administration by auditing file access, transferring ownership, and managing shared permissions securely at scale.",
     status: "Live - HR team",
     statusTone: "live" as const,
     href: "/drive-automation/",
@@ -521,14 +521,14 @@ export const climaOneV1Page: BaseToolPage & {
 } = {
   name: "ClimaOne® V1",
   href: "/climaone-v1/",
-  productEyebrow: "Product 01 | ClimaOne® V1",
+  productEyebrow: "Supply Chain Optimizer · Circular Economy Enabler",
   heroTitle: {
-    before: "Your EPR compliance, ",
-    highlight: "end to end.",
-    after: " In one platform."
+    before: "Gain control over your ",
+    highlight: "sustainability targets.",
+    after: ""
   },
   subheading:
-    "ClimaOne® V1 manages the full plastic recovery lifecycle, from purchase order creation to certificate issuance, across every partner, facility, and vehicle in your network.",
+    "Say goodbye to guesswork and welcome data-driven decision-making. Manage EPR compliances, achieve Plastic Neutrality, and track ethically recycled plastic — all in one platform.",
   primaryAction: {
     label: "Open ClimaOne® V1",
     href: "https://admin.climaone.in/",
@@ -571,23 +571,28 @@ export const climaOneV1Page: BaseToolPage & {
   ],
   problemTiles: [
     {
-      title: "PO tracking lived in spreadsheets",
+      title: "End-to-End Traceability",
       description:
-        "Purchase orders were assigned over WhatsApp and tracked in Excel, with no single source of truth across partners"
+        "Track every plastic credit from collection to compliance certification, with a verifiable audit trail at every step."
     },
     {
-      title: "Vehicle status required phone calls",
+      title: "Live Data Tracking",
       description:
-        "Getting a dispatch update meant calling the driver or partner directly. No visibility without manual follow-up"
+        "Real-time updates across your entire circular supply chain — vehicle movement, PO status, and partner activity, always current."
     },
     {
-      title: "Certificates took days to produce",
+      title: "CPCB Portal Integration",
       description:
-        "Compliance certificates were manually assembled from data scattered across email threads, slips, and files"
+        "EPR plastic credits directly linked to the government compliance portal. File with confidence, backed by verified data."
+    },
+    {
+      title: "Dashboard and Reporting",
+      description:
+        "Compliance progress and SDG delivery tracked in one view. Monthly reports generated automatically, no manual compilation."
     }
   ],
   journeyIntro:
-    "Every purchase order in ClimaOne® V1 moves through a defined lifecycle, from creation and allocation to vehicle dispatch, weight capture, and certificate issuance, with every step logged and auditable.",
+    "Every purchase order in ClimaOne® V1 moves through a defined 5-step lifecycle — from creation and allocation to dispatch, weight capture, and certificate issuance — with every action logged and auditable.",
   journey: [
     {
       number: "01",
@@ -731,11 +736,11 @@ export const climaOneV1Page: BaseToolPage & {
     }
   ],
   learnMore: {
-    eyebrow: "Want to go deeper?",
-    title: "The full ClimaOne® product page has ",
-    highlight: "everything.",
+    eyebrow: "Explore more",
+    title: "The full ClimaOne® product page — ",
+    highlight: "everything in one place.",
     body:
-      "Features, onboarding steps, portal walkthroughs, and more, all on the official ClimaOne® page.",
+      "Portal walkthroughs, onboarding guides, feature deep-dives, and more — all on the official ClimaOne® page.",
     ctaLabel: "Explore ClimaOne®",
     ctaHref: "https://recircle.in/climaone/"
   },
@@ -762,62 +767,84 @@ export const climaOneV2Page: BaseToolPage & {
   href: "/climaone-v2/",
   productEyebrow: "Product 02 | ClimaOne® V2",
   heroTitle: {
-    before: "From collection to converter. Every gram. ",
-    highlight: "Fully traceable."
+    before: "The Future of Recycling Is ",
+    highlight: "Traceable."
   },
   subheading:
-    "Before this, material moved. But nobody could prove where it came from, what happened to it, or whether the evidence would hold up. ClimaOne® V2 changes that - end to end, across every partner, plant, and processor in your network.",
+    "ClimaOne connects the entire recycling journey. By connecting every stage, the platform enables bag-level traceability for recycled plastic across the entire supply chain. Each step is recorded, so every bag can be traced back to its origin.",
   primaryAction: {
     label: "Open ClimaOne® V2",
     href: "https://v2.climaone.in/login",
     tone: "primary"
   },
+  secondaryAction: {
+    label: "Learn more about ClimaOne® V2",
+    href: "https://climaonev2.recircle.in/"
+  },
   accessNote: "Full deployment in progress | Contact the tech team to get early access",
   rolesEyebrow: "Who is this for",
-  rolesTitle: "Four roles. One connected platform.",
+  rolesTitle: "Built for Every Stakeholder in the Recycling Ecosystem",
   roles: [
     {
       icon: Truck,
-      name: "Collection Partner",
-      description: "Accept POs, load vehicles, upload documents, and track dispatch and approval status"
+      name: "Collection Partners",
+      description: "Faster delivery confirmations, digital records for dispatches and QC reports, and improved transparency with operators and stakeholders."
     },
     {
       icon: Home,
-      name: "Plant Operator",
-      description: "Validate arrivals, run QC, manage production batches, bag output, and dispatch to converters"
+      name: "Recycling Plants",
+      description: "Reliable supply chain transparency, full traceability of recycled materials, and digital documentation for sustainability reporting."
     },
     {
       icon: Package,
-      name: "Converter",
-      description: "Receive dispatches, record QC, and trace every bag back to its source collection partner"
+      name: "Buyers",
+      description: "Track incoming dispatches, access shipment and batch records, and confirm deliveries with full rPET traceability data."
     },
     {
       icon: LayoutDashboard,
-      name: "Admin / Ops",
-      description: "Monitor the full network - exceptions, pending actions, KPIs, and compliance outputs"
+      name: "Admin Teams",
+      description: "Real-time view of operations across the ecosystem, centralised dashboards, and structured reports for compliance needs."
     }
   ],
   problemTiles: [
     {
-      title: "No chain of custody",
+      title: "Bag-Level Material Traceability",
       description:
-        "Material changed hands across CPs, plants, and converters with no unified record"
+        "Every stage from collection to flakes is recorded in a verified digital trail — traceable back to its origin."
     },
     {
-      title: "Evidence gaps",
-      description: "Documents, weights, and photos lived in WhatsApp, email, and spreadsheets"
+      title: "Operational Inventory Insights",
+      description: "Live view of raw material, batches in process, and finished goods so you always know what is in stock."
     },
     {
-      title: "Unverifiable compliance",
+      title: "Integrated Quality Assurance",
       description:
-        "When asked to prove material provenance, the answer was manual, slow, and incomplete"
+        "Every production batch carries its own QC reports, accessible directly from the platform by any stakeholder."
+    },
+    {
+      title: "Supply Chain Movement Tracking",
+      description:
+        "Track plastic from collection partners to the plant, and monitor rPET flakes as they move to downstream buyers."
     }
   ],
   journeyIntro:
-    "Every unit of material that enters this platform is tracked across 7 physical touchpoints - with documents, GPS evidence, weights, and QC records attached at each one.",
+    "Every unit of material that enters this platform is tracked across 8 physical touchpoints — with documents, GPS evidence, weights, and QC records attached at each one.",
   journey: [
     {
       number: "01",
+      title: "Create a Purchase Order",
+      description:
+        "Before any material moves, a purchase order is raised in the system. The PO sets the target collection weight, assigns a collection partner, and creates the reference that every subsequent step — vehicle dispatch, GRN, production batch — is linked back to.",
+      capturedItems: [
+        "PO number",
+        "Target weight",
+        "Assigned collection partner",
+        "PO date and validity"
+      ],
+      icon: FileText
+    },
+    {
+      number: "02",
       title: "Collection partner loads a vehicle",
       description:
         "A collection partner receives a purchase order, accepts it, and creates a vehicle load - entering vehicle details, driver information, planned weight, and uploading all shipment documents.",
@@ -832,7 +859,7 @@ export const climaOneV2Page: BaseToolPage & {
       icon: Truck
     },
     {
-      number: "02",
+      number: "03",
       title: "Vehicle is dispatched and synced",
       description:
         "Once dispatched, the vehicle load is automatically synced to the plant and admin services - no manual handoff, no phone calls. The plant knows it is coming before it arrives.",
@@ -844,7 +871,7 @@ export const climaOneV2Page: BaseToolPage & {
       icon: Activity
     },
     {
-      number: "03",
+      number: "04",
       title: "Vehicle arrives at the plant",
       description:
         "The plant operator marks the vehicle as arrived, uploads a GPS-tagged photo as proof of arrival, and validates all incoming documents. If any document fails validation, an admin flag is automatically created.",
@@ -857,7 +884,7 @@ export const climaOneV2Page: BaseToolPage & {
       icon: Upload
     },
     {
-      number: "04",
+      number: "05",
       title: "Goods received and quality checked",
       description:
         "The system auto-creates a GRN at plant arrival. The plant operator then runs quality control - logging QC parameters and results against the received material before it enters production.",
@@ -870,7 +897,7 @@ export const climaOneV2Page: BaseToolPage & {
       icon: FileText
     },
     {
-      number: "05",
+      number: "06",
       title: "Material enters production",
       description:
         "Material from one or more GRNs is fed into a production batch. The platform tracks exactly which GRNs contributed to which batch - down to the timeslot level - so the source of every output is always known.",
@@ -883,7 +910,7 @@ export const climaOneV2Page: BaseToolPage & {
       icon: Activity
     },
     {
-      number: "06",
+      number: "07",
       title: "Output is bagged and stored",
       description:
         "Processed output is bagged and assigned individual bag numbers. Each bag carries its weight, grade, storage location, and the exact source GRN composition - including which collection partners contributed to it.",
@@ -898,7 +925,7 @@ export const climaOneV2Page: BaseToolPage & {
       icon: Package
     },
     {
-      number: "07",
+      number: "08",
       title: "Converter receives and traces back",
       description:
         "The converter records receipt, accepted and rejected quantities, QC results, and receipt evidence. From this single screen, they can trace any dispatch all the way back - through bags, batches, GRNs, and original collection partners - with contribution percentages.",
@@ -969,11 +996,11 @@ export const climaOneV2Page: BaseToolPage & {
   dashboardNote:
     "The producer compliance dashboard gives brands a clear view of verified material collected, processed, and available for compliance reporting.",
   learnMore: {
-    eyebrow: "Want to explore more?",
+    eyebrow: "Witness ClimaOne® in Action",
     title: "The full ClimaOne® V2 product page is ",
     highlight: "live.",
     body: "See the platform in action, explore features, and get in touch with the team.",
-    ctaLabel: "Explore ClimaOne® V2",
+    ctaLabel: "Book a Live Demo",
     ctaHref: "https://climaonev2.recircle.in/"
   },
   helpTitle: "Questions about ClimaOne® V2?"

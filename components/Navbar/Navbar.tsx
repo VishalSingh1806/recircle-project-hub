@@ -44,7 +44,7 @@ export function Navbar() {
         <div className={styles.inner}>
           <Link className={styles.brand} href="/">
             <img src="/recircle-logo.svg" alt="ReCircle" className={styles.logo} />
-            <span className={styles.brandText}>Product Hub</span>
+            <span className={styles.brandText}>Tech Hub</span>
           </Link>
 
           {isContact ? (
@@ -58,7 +58,7 @@ export function Navbar() {
           )}
         </div>
 
-        {!isHome && (
+        {!isHome && !isContact && (
           <nav className={styles.toolNav} aria-label="All tools">
             <div className={styles.toolNavInner}>
               {toolLinks.map((tool) => {

@@ -150,7 +150,7 @@
   font-weight: 700;
   line-height: 0.9;
   letter-spacing: -5px;
-  color: rgba(0, 0, 0, 0.04);
+  color: rgba(0, 0, 0, 0.10);
   font-family: var(--font-heading);
 }
 
@@ -515,17 +515,45 @@
 
 /* ── Route Optimizer mockup ──────────────────────── */
 
-.routeMockup { display: grid; gap: 18px; padding: 6px 0; }
+.routeMockup { display: grid; gap: 14px; padding: 6px 0; }
+
+.routeCardHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.routeCardLabel {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-heading);
+}
+
+.routeOptBadge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #dcfce7;
+  color: #15803d;
+}
 
 .routeTrack {
   display: flex;
   flex-direction: column;
 }
 
-.routeStop {
+.routeRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.routePinCol {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  flex-shrink: 0;
 }
 
 .routePin {
@@ -544,10 +572,29 @@
 
 .routeConnector {
   width: 2px;
-  height: 22px;
+  height: 20px;
   background: #bfdbfe;
-  margin-left: 16px;
   display: block;
+}
+
+.routeRowInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.routePlace {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-heading);
+}
+
+.routeStopTime {
+  font-size: 12px;
+  color: var(--color-text-body);
 }
 
 .routeSummary {
@@ -560,7 +607,6 @@
   border-radius: 8px;
   font-size: 12px;
   color: var(--color-text-body);
-  flex-wrap: wrap;
 }
 
 .routeDot {

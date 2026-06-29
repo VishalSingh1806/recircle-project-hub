@@ -3,7 +3,6 @@ import { AccentBar } from "@/components/AccentBar/AccentBar";
 import { BackLink } from "@/components/BackLink/BackLink";
 import { CapabilityBlock } from "@/components/CapabilityBlock/CapabilityBlock";
 import { FooterStrip } from "@/components/FooterStrip/FooterStrip";
-import { LearnMoreStrip } from "@/components/LearnMoreStrip/LearnMoreStrip";
 import { OutcomeTile } from "@/components/OutcomeTile/OutcomeTile";
 import { RoleCard } from "@/components/RoleCard/RoleCard";
 import { climaOneV1Page } from "@/lib/content";
@@ -29,11 +28,7 @@ export default function ClimaOneV1Page() {
             <a className={styles.primaryButton} href={climaOneV1Page.primaryAction.href} target="_blank" rel="noreferrer">
               {climaOneV1Page.primaryAction.label}
             </a>
-            <a className={styles.ghostLink} href={climaOneV1Page.secondaryAction?.href} target="_blank" rel="noreferrer">
-              {climaOneV1Page.secondaryAction?.label}
-            </a>
           </div>
-          <p className={styles.accessNote}>{climaOneV1Page.accessNote}</p>
         </div>
 
         <div className={styles.browserFrame}>
@@ -77,11 +72,13 @@ export default function ClimaOneV1Page() {
       </section>
 
       <section className={styles.problemSection}>
-        <p className={styles.sectionEyebrow}>The problem we solved</p>
-        <p className={styles.quote}>
-          Before ClimaOne<sup>®</sup> V1, EPR compliance lived across WhatsApp groups, spreadsheets, and phone calls.
-          The entire lifecycle is now in one platform.
-        </p>
+        <div className={styles.problemLeft}>
+          <p className={styles.sectionEyebrow}>What ClimaOne® delivers</p>
+          <h2 className={styles.quote}>
+            ClimaOne<sup>®</sup> brings inbuilt traceability, analytics, and data capabilities into one place —
+            giving every team in your circular supply chain the visibility and tools they need.
+          </h2>
+        </div>
         <div className={styles.problemGrid}>
           {climaOneV1Page.problemTiles.map((tile) => (
             <article key={tile.title} className={styles.problemTile}>
@@ -94,8 +91,8 @@ export default function ClimaOneV1Page() {
 
       <section className={styles.journeySection}>
         <div className={styles.sectionHead}>
-          <p className={styles.sectionEyebrow}>How it works</p>
-          <h2>5 steps. Every one tracked.</h2>
+          <p className={styles.sectionEyebrow}>How to use this tool</p>
+          <h2>Five steps. Every one tracked.</h2>
           <p className={styles.journeyIntro}>{climaOneV1Page.journeyIntro}</p>
         </div>
         <div className={styles.journeyList}>
@@ -137,7 +134,7 @@ export default function ClimaOneV1Page() {
       <section className={styles.capabilitiesSection}>
         <div className={styles.sectionHead}>
           <p className={styles.sectionEyebrow}>Capabilities</p>
-          <h2>What you can do inside ClimaOne<sup>®</sup> V1</h2>
+          <h2>Advanced capabilities across every portal</h2>
         </div>
         <div className={styles.capabilitiesGrid}>
           {climaOneV1Page.capabilities.map((cap) => (
@@ -163,7 +160,7 @@ export default function ClimaOneV1Page() {
       <section className={styles.outcomeSection}>
         <div className={styles.sectionHead}>
           <p className={styles.sectionEyebrow}>The outcome</p>
-          <h2>What the team gains with ClimaOne<sup>®</sup></h2>
+          <h2>Monitor compliance progress and deliver on your SDGs</h2>
         </div>
         <div className={styles.outcomeGrid}>
           {climaOneV1Page.outcomes.map((item) => (
@@ -171,16 +168,6 @@ export default function ClimaOneV1Page() {
           ))}
         </div>
       </section>
-
-      <section className={styles.dashboardSection}>
-        <div className={styles.sectionHead}>
-          <p className={styles.sectionEyebrow}>Compliance</p>
-          <h2>Everything a compliance manager needs to see</h2>
-        </div>
-        <p className={styles.dashboardNote}>{climaOneV1Page.dashboardNote}</p>
-      </section>
-
-      <LearnMoreStrip {...climaOneV1Page.learnMore} />
 
       <FooterStrip />
     </main>

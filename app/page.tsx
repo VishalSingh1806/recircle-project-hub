@@ -12,10 +12,10 @@ export default function HomePage() {
       <section className={styles.hero}>
         <div className={styles.heroInner}>
 <h1 className={styles.heroTitle}>
-            ReCircle Internal Tools, <span>built for the team.</span>
+            Tools that power impact<br /><span>at ReCircle.</span>
           </h1>
           <p className={styles.heroBody}>
-            Purpose-built by the ReCircle tech team for EPR compliance, logistics, document processing, and automation. Everything in one place.
+            Internal tools that simplify work, save time and drive circularity.
           </p>
         </div>
       </section>
@@ -85,12 +85,38 @@ export default function HomePage() {
 
                       {/* Route Optimizer */}
                       {tool.mockup === "route" && (
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <img
-                          src="/screenshots/route-optimizer/hero.png"
-                          alt="Route Optimizer dashboard"
-                          className={styles.screenshotImg}
-                        />
+                        <div className={styles.routeMockup}>
+                          <div className={styles.routeCardHead}>
+                            <span className={styles.routeCardLabel}>Today · 4 stops</span>
+                            <span className={styles.routeOptBadge}>Optimised</span>
+                          </div>
+                          <div className={styles.routeTrack}>
+                            {[
+                              { pin: "A", place: "Andheri East",  time: "9:00 AM" },
+                              { pin: "B", place: "Kurla West",    time: "9:28 AM" },
+                              { pin: "C", place: "Dharavi",       time: "9:51 AM" },
+                              { pin: "D", place: "Chembur",       time: "10:22 AM" },
+                            ].map((s, i, arr) => (
+                              <div key={s.pin} className={styles.routeRow}>
+                                <div className={styles.routePinCol}>
+                                  <span className={styles.routePin}>{s.pin}</span>
+                                  {i < arr.length - 1 && <span className={styles.routeConnector} />}
+                                </div>
+                                <div className={styles.routeRowInfo}>
+                                  <span className={styles.routePlace}>{s.place}</span>
+                                  <span className={styles.routeStopTime}>{s.time}</span>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                          <div className={styles.routeSummary}>
+                            <span>4 stops</span>
+                            <span className={styles.routeDot} />
+                            <span>13.1 km</span>
+                            <span className={styles.routeDot} />
+                            <span>82 min</span>
+                          </div>
+                        </div>
                       )}
 
                       {/* EPR Chatbot */}
