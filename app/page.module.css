@@ -30,7 +30,7 @@
 
 .heroTitle {
   margin: 0;
-  font-size: clamp(2rem, 5vw, 48px);
+  font-size: clamp(1.5rem, 3.5vw, 40px);
   font-family: var(--font-heading);
   font-weight: 700;
   letter-spacing: -1.5px;

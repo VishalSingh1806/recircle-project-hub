@@ -44,7 +44,6 @@ export function Navbar() {
         <div className={styles.inner}>
           <Link className={styles.brand} href="/">
             <img src="/recircle-logo.svg" alt="ReCircle" className={styles.logo} />
-            <span className={styles.brandText}>Tech Hub</span>
           </Link>
 
           {isContact ? (

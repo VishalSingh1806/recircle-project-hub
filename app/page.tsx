@@ -36,12 +36,6 @@ const categories = [
         description: "Manage your full EPR compliance cycle in one place. From purchase orders to certificates.",
       },
       {
-        href: "/climaone-v2/",
-        category: "EPR Compliance",
-        name: "ClimaOne V2",
-        description: "Full material traceability from collection to converter. Built for BIS regulations.",
-      },
-      {
         href: "/chatbot/",
         category: "EPR Compliance",
         name: "EPR Chatbot",
@@ -69,6 +63,12 @@ const categories = [
   {
     label: "Operations",
     tools: [
+      {
+        href: "/climaone-v2/",
+        category: "Recycling Operations",
+        name: "ClimaOne V2",
+        description: "Digitise the entire recycling process. Full material traceability from collection to converter.",
+      },
       {
         href: "/route-optimizer/",
         category: "Logistics",
