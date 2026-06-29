@@ -12,12 +12,43 @@ import { AutomationItem } from "@/components/AutomationItem/AutomationItem";
 import { AccentBar } from "@/components/AccentBar/AccentBar";
 import { BackLink } from "@/components/BackLink/BackLink";
 import { CapabilityBlock } from "@/components/CapabilityBlock/CapabilityBlock";
+import { ExploreMore } from "@/components/ExploreMore/ExploreMore";
 import { FooterStrip } from "@/components/FooterStrip/FooterStrip";
 import { OutcomeTile } from "@/components/OutcomeTile/OutcomeTile";
 import { RoleCard } from "@/components/RoleCard/RoleCard";
 import { climaOneV2Page } from "@/lib/content";
 
 import styles from "./page.module.css";
+
+const problemCards = [
+  {
+    title: "No chain of custody",
+    description: "Material changed hands across CPs, plants, and converters with no unified record.",
+  },
+  {
+    title: "Evidence gaps everywhere",
+    description: "Documents, weights, and photos lived in WhatsApp, email, and spreadsheets.",
+  },
+  {
+    title: "Compliance was hard to prove",
+    description: "Demonstrating material provenance was a manual, slow, and incomplete process.",
+  },
+];
+
+const exploreItems = [
+  {
+    href: "/climaone-v1/",
+    category: "EPR Compliance",
+    name: "ClimaOne V1",
+    description: "Manage your EPR compliance lifecycle end to end.",
+  },
+  {
+    href: "/chatbot/",
+    category: "AI Assistant",
+    name: "EPR Chatbot",
+    description: "Instant answers to any EPR compliance question.",
+  },
+];
 
 const deliverables = [
   {
@@ -49,33 +80,39 @@ const deliverables = [
 const capabilities = [
   {
     number: "01",
-    title: "Bag-Level Material Traceability",
-    description: "From the moment raw material is transported from a collection partner to the moment recycled flakes leave the plant, ClimaOne records every stage in a verified digital trail you can follow.",
+    title: "Track every vehicle movement",
+    description: "Log check-ins and check-outs at each facility. Every trip records timestamps, weight, and driver details.",
     icon: Truck
   },
   {
     number: "02",
-    title: "Operational Inventory Insights",
-    description: "Gain access to a live view of raw material, batches in process, and finished goods so you always know what is in stock and what is ready for dispatch.",
-    icon: LayoutDashboard
+    title: "Create and manage purchase orders",
+    description: "Raise POs, set target weights, assign partners, and track fulfilment against each order.",
+    icon: FileText
   },
   {
     number: "03",
-    title: "Integrated Quality Assurance",
-    description: "Every production batch carries its own QC reports and technical specifications, allowing stakeholders to access verified quality records directly from the platform.",
-    icon: CheckCircle2
-  },
-  {
-    number: "04",
-    title: "Supply Chain Movement Tracking",
-    description: "Track plastic collected by partners as it reaches the plant, and monitor rPET flakes as they move from production lines to downstream buyers.",
+    title: "Record weight at every stage",
+    description: "Capture weigh-in and weigh-out readings at intake, processing, and dispatch. Build an unbroken weight audit trail.",
     icon: Scale
   },
   {
+    number: "04",
+    title: "Run quality control checks",
+    description: "Conduct QC at processing stages, flag rejections, and record outcomes before material moves forward.",
+    icon: CheckCircle2
+  },
+  {
     number: "05",
-    title: "Operational Data & Compliance Reporting",
-    description: "Transform your daily production activity into structured insights through dashboards and reports that help you monitor performance, verify traceability, and stay on top of compliance requirements.",
-    icon: FileText
+    title: "Issue EPR certificates",
+    description: "Generate compliance certificates once fulfilment conditions are met. Downloadable and linked to the underlying PO.",
+    icon: Award
+  },
+  {
+    number: "06",
+    title: "Producer compliance dashboard",
+    description: "Give producers a real-time view of fulfilment status, certificate inventory, and upcoming obligations.",
+    icon: LayoutDashboard
   }
 ];
 
@@ -97,7 +134,13 @@ export default function ClimaOneV2Page() {
             <a className={styles.primaryButton} href={climaOneV2Page.primaryAction.href} target="_blank" rel="noreferrer">
               {climaOneV2Page.primaryAction.label}
             </a>
+            {climaOneV2Page.secondaryAction && (
+              <a className={styles.ghostLink} href={climaOneV2Page.secondaryAction.href}>
+                {climaOneV2Page.secondaryAction.label}
+              </a>
+            )}
           </div>
+          <p className={styles.accessNote}>{climaOneV2Page.accessNote}</p>
         </div>
 
         <div className={styles.browserFrame}>
@@ -140,11 +183,26 @@ export default function ClimaOneV2Page() {
         </div>
       </section>
 
+      <section className={styles.problemSection}>
+        <div className={styles.sectionHead}>
+          <p className={styles.sectionEyebrow}>Before ClimaOne® V2</p>
+          <h2>What the supply chain was missing</h2>
+        </div>
+        <div className={styles.problemGrid}>
+          {problemCards.map((card) => (
+            <article key={card.title} className={styles.problemCard}>
+              <h3>{card.title}</h3>
+              <p>{card.description}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className={styles.rolesSection}>
         <div className={styles.sectionHead}>
           <p className={styles.sectionEyebrow}>{climaOneV2Page.rolesEyebrow}</p>
           <h2>{climaOneV2Page.rolesTitle}</h2>
-          <p className={styles.journeyIntro}>ClimaOne equips every stakeholder in the recycling supply chain with a dedicated dashboard designed around their role.</p>
+          <p className={styles.journeyIntro}>ClimaOne® V2 gives every stakeholder in the recycling supply chain a dedicated view built around their responsibilities.</p>
         </div>
         <div className={styles.rolesGrid}>
           {climaOneV2Page.roles.map((role) => (
@@ -153,10 +211,10 @@ export default function ClimaOneV2Page() {
         </div>
       </section>
 
-      <section className={styles.journeySection}>
+      <section id="how-it-works" className={styles.journeySection}>
         <div className={styles.sectionHead}>
-          <p className={styles.sectionEyebrow}>How it works</p>
-          <h2>8 steps. Every one tracked.</h2>
+          <p className={styles.sectionEyebrow}>How It Works</p>
+          <h2>7 steps. Every one tracked.</h2>
           <p className={styles.journeyIntro}>{climaOneV2Page.journeyIntro}</p>
         </div>
         <div className={styles.journeyList}>
@@ -185,13 +243,25 @@ export default function ClimaOneV2Page() {
       <section className={styles.capabilitiesSection}>
         <div className={styles.sectionHead}>
           <p className={styles.sectionEyebrow}>Capabilities</p>
-          <h2>One platform. Multiple optimisation capabilities.</h2>
+          <h2>One platform. Every stage tracked.</h2>
         </div>
         <div className={styles.capabilitiesGrid}>
           {capabilities.map((cap) => (
             <div key={cap.number} className={styles.capabilityCell}>
               <CapabilityBlock {...cap} />
             </div>
+          ))}
+        </div>
+      </section>
+
+      <section className={styles.automationSection}>
+        <div className={styles.sectionHead}>
+          <p className={styles.sectionEyebrow}>Built-in Automation</p>
+          <h2>Five things that run without anyone touching them</h2>
+        </div>
+        <div className={styles.automationList}>
+          {climaOneV2Page.automation.map((item) => (
+            <AutomationItem key={item.number} {...item} />
           ))}
         </div>
       </section>
@@ -209,6 +279,8 @@ export default function ClimaOneV2Page() {
           ))}
         </div>
       </section>
+
+      <ExploreMore items={exploreItems} />
 
       <FooterStrip />
     </main>

@@ -50,8 +50,9 @@
 }
 
 .description {
-  font-size: 15px;
+  font-size: 17px;
   color: var(--color-text-body);
+  line-height: 1.7;
 }
 
 .label {

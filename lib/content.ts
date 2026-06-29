@@ -497,7 +497,7 @@ const driveSteps: JourneyItem[] = [
 
 export const contactDetails = {
   name: "Vishal Singh",
-  role: "Business Analyst Executive | ReCircle Tech",
+  role: "Solution Architect, ReCircle Tech",
   email: "vishal.singh@recircle.in",
   phone: "+91 878 992 0475"
 };
@@ -521,52 +521,52 @@ export const climaOneV1Page: BaseToolPage & {
 } = {
   name: "ClimaOne® V1",
   href: "/climaone-v1/",
-  productEyebrow: "Supply Chain Optimizer · Circular Economy Enabler",
+  productEyebrow: "EPR Compliance",
   heroTitle: {
-    before: "Gain control over your ",
-    highlight: "sustainability targets.",
+    before: "Your EPR compliance cycle, ",
+    highlight: "managed end to end.",
     after: ""
   },
   subheading:
-    "Say goodbye to guesswork and welcome data-driven decision-making. Manage EPR compliances, achieve Plastic Neutrality, and track ethically recycled plastic — all in one platform.",
+    "From purchase order to compliance certificate. Every step tracked. Every partner connected. No spreadsheets.",
   primaryAction: {
     label: "Open ClimaOne® V1",
     href: "https://admin.climaone.in/",
     tone: "primary"
   },
   secondaryAction: {
-    label: "Learn more about ClimaOne®",
-    href: "https://recircle.in/climaone/"
+    label: "Learn How It Works",
+    href: "#how-it-works"
   },
   accessNote:
-    "Available on desktop and mobile | Login with password or OTP | Contact tech team for access",
+    "Available on desktop and mobile | Login with password or OTP | Contact the tech team for access",
   rolesEyebrow: "Who is this for",
   rolesTitle: "Built for every role in your network",
   roles: [
     {
       icon: LayoutDashboard,
       name: "Brand / Producer",
-      description: "Track EPR obligations, purchase orders, and compliance certificates"
+      description: "Track EPR obligations, purchase orders, and certificates."
     },
     {
       icon: Truck,
       name: "Collection Partner",
-      description: "Manage assigned POs, vehicle dispatch, and material recovery tracking"
+      description: "See assigned POs, vehicle dispatch, and fulfilment status."
     },
     {
       icon: UserCircle,
       name: "Admin",
-      description: "Oversee the entire network, partners, approvals, reports, and master data"
+      description: "Manage the full network: partners, approvals, reports."
     },
     {
       icon: Activity,
       name: "Operations",
-      description: "Monitor vehicle movement, dispatch status, and ground-level activity"
+      description: "Monitor vehicle movement and ground-level dispatch status."
     },
     {
       icon: Home,
       name: "PWP / Processor",
-      description: "Track credits issued, certificate status, and material received at facility"
+      description: "Track credits, certificate status, and material received at facility."
     }
   ],
   problemTiles: [
@@ -669,24 +669,24 @@ export const climaOneV1Page: BaseToolPage & {
   ],
   outcomes: [
     {
-      title: "Compliance managers stop chasing data",
+      title: "No more data chasing",
       description:
-        "PO status, vehicle movement, and certificate progress are all visible in one place, no more compiling status from calls and emails"
+        "PO status, vehicle movement, and certificate progress are visible in one place."
     },
     {
-      title: "Collection partners have full visibility",
+      title: "Partners work independently",
       description:
-        "Partners can see their assigned POs, dispatch history, and fulfilment status without contacting the admin team"
+        "Collection partners see their POs, dispatch history, and fulfilment status without contacting admin."
     },
     {
-      title: "EPR filings become routine",
+      title: "EPR filings are routine",
       description:
-        "All the data needed for CPCB filings, weights, partners, dates, certificates, is structured and ready to export at any time"
+        "All data for CPCB filings is structured and ready to export."
     },
     {
-      title: "Certificates are auditable end to end",
+      title: "Certificates are fully auditable",
       description:
-        "Every certificate is linked to the POs, vehicle dispatches, and weight records that support it, one click to the full evidence trail"
+        "Every certificate links back to the POs, dispatches, and weight records that support it."
     }
   ],
   dashboardNote:
@@ -765,45 +765,45 @@ export const climaOneV2Page: BaseToolPage & {
 } = {
   name: "ClimaOne® V2",
   href: "/climaone-v2/",
-  productEyebrow: "Product 02 | ClimaOne® V2",
+  productEyebrow: "EPR Compliance",
   heroTitle: {
-    before: "The Future of Recycling Is ",
-    highlight: "Traceable."
+    before: "Every gram. Fully traceable. ",
+    highlight: "From collection to converter."
   },
   subheading:
-    "ClimaOne connects the entire recycling journey. By connecting every stage, the platform enables bag-level traceability for recycled plastic across the entire supply chain. Each step is recorded, so every bag can be traced back to its origin.",
+    "Prove where material came from, who handled it, and whether the evidence holds up. ClimaOne V2 connects every partner, plant, and processor in one platform.",
   primaryAction: {
     label: "Open ClimaOne® V2",
     href: "https://v2.climaone.in/login",
     tone: "primary"
   },
   secondaryAction: {
-    label: "Learn more about ClimaOne® V2",
-    href: "https://climaonev2.recircle.in/"
+    label: "See How It Works",
+    href: "#how-it-works"
   },
-  accessNote: "Full deployment in progress | Contact the tech team to get early access",
+  accessNote: "Full deployment in progress | Contact the tech team for early access",
   rolesEyebrow: "Who is this for",
-  rolesTitle: "Built for Every Stakeholder in the Recycling Ecosystem",
+  rolesTitle: "Built for every stakeholder in the recycling supply chain",
   roles: [
     {
       icon: Truck,
-      name: "Collection Partners",
-      description: "Faster delivery confirmations, digital records for dispatches and QC reports, and improved transparency with operators and stakeholders."
+      name: "Collection Partner",
+      description: "Accept POs, upload documents, track dispatch and approval status."
     },
     {
       icon: Home,
-      name: "Recycling Plants",
-      description: "Reliable supply chain transparency, full traceability of recycled materials, and digital documentation for sustainability reporting."
+      name: "Plant Operator",
+      description: "Validate arrivals, run QC, manage batches, bag output."
     },
     {
       icon: Package,
-      name: "Buyers",
-      description: "Track incoming dispatches, access shipment and batch records, and confirm deliveries with full rPET traceability data."
+      name: "Converter",
+      description: "Receive dispatches, record QC, trace bags to source partners."
     },
     {
       icon: LayoutDashboard,
-      name: "Admin Teams",
-      description: "Real-time view of operations across the ecosystem, centralised dashboards, and structured reports for compliance needs."
+      name: "Admin / Ops",
+      description: "Monitor exceptions, pending actions, KPIs, and compliance outputs."
     }
   ],
   problemTiles: [
@@ -828,26 +828,13 @@ export const climaOneV2Page: BaseToolPage & {
     }
   ],
   journeyIntro:
-    "Every unit of material that enters this platform is tracked across 8 physical touchpoints — with documents, GPS evidence, weights, and QC records attached at each one.",
+    "Every unit of material that enters this platform is tracked across 7 physical touchpoints — with documents, GPS evidence, weights, and QC records attached at each one.",
   journey: [
     {
       number: "01",
-      title: "Create a Purchase Order",
-      description:
-        "Before any material moves, a purchase order is raised in the system. The PO sets the target collection weight, assigns a collection partner, and creates the reference that every subsequent step — vehicle dispatch, GRN, production batch — is linked back to.",
-      capturedItems: [
-        "PO number",
-        "Target weight",
-        "Assigned collection partner",
-        "PO date and validity"
-      ],
-      icon: FileText
-    },
-    {
-      number: "02",
       title: "Collection partner loads a vehicle",
       description:
-        "A collection partner receives a purchase order, accepts it, and creates a vehicle load - entering vehicle details, driver information, planned weight, and uploading all shipment documents.",
+        "A collection partner accepts a PO, creates a vehicle load, and uploads all shipment documents: vehicle details, driver info, planned weight.",
       capturedItems: [
         "Vehicle identity",
         "Driver details",
@@ -859,10 +846,10 @@ export const climaOneV2Page: BaseToolPage & {
       icon: Truck
     },
     {
-      number: "03",
+      number: "02",
       title: "Vehicle is dispatched and synced",
       description:
-        "Once dispatched, the vehicle load is automatically synced to the plant and admin services - no manual handoff, no phone calls. The plant knows it is coming before it arrives.",
+        "Once dispatched, the vehicle load syncs to the plant and admin automatically. No manual handoff. The plant knows it is arriving before it gets there.",
       capturedItems: [
         "Dispatch status",
         "Auto-sync to plant and admin",
@@ -871,10 +858,10 @@ export const climaOneV2Page: BaseToolPage & {
       icon: Activity
     },
     {
-      number: "04",
+      number: "03",
       title: "Vehicle arrives at the plant",
       description:
-        "The plant operator marks the vehicle as arrived, uploads a GPS-tagged photo as proof of arrival, and validates all incoming documents. If any document fails validation, an admin flag is automatically created.",
+        "The plant operator marks arrival, uploads a GPS-tagged photo as proof, and validates all incoming documents. Failed documents trigger an admin flag.",
       capturedItems: [
         "GPS arrival photo",
         "Document validation (invoice / e-way bill / LR / baslip)",
@@ -884,10 +871,10 @@ export const climaOneV2Page: BaseToolPage & {
       icon: Upload
     },
     {
-      number: "05",
+      number: "04",
       title: "Goods received and quality checked",
       description:
-        "The system auto-creates a GRN at plant arrival. The plant operator then runs quality control - logging QC parameters and results against the received material before it enters production.",
+        "A GRN is created automatically at arrival. The plant operator runs quality control and logs results against the received material before production.",
       capturedItems: [
         "Auto-generated GRN number",
         "Received weight",
@@ -897,10 +884,10 @@ export const climaOneV2Page: BaseToolPage & {
       icon: FileText
     },
     {
-      number: "06",
+      number: "05",
       title: "Material enters production",
       description:
-        "Material from one or more GRNs is fed into a production batch. The platform tracks exactly which GRNs contributed to which batch - down to the timeslot level - so the source of every output is always known.",
+        "Material from one or more GRNs feeds into a production batch. The platform tracks which GRNs contributed to which batch, down to the timeslot.",
       capturedItems: [
         "Batch number",
         "GRN-level consumption",
@@ -910,10 +897,10 @@ export const climaOneV2Page: BaseToolPage & {
       icon: Activity
     },
     {
-      number: "07",
+      number: "06",
       title: "Output is bagged and stored",
       description:
-        "Processed output is bagged and assigned individual bag numbers. Each bag carries its weight, grade, storage location, and the exact source GRN composition - including which collection partners contributed to it.",
+        "Processed output is bagged with individual bag numbers. Each bag carries its weight, grade, storage location, and exact source GRN composition.",
       capturedItems: [
         "Bag number",
         "Bag weight",
@@ -925,10 +912,10 @@ export const climaOneV2Page: BaseToolPage & {
       icon: Package
     },
     {
-      number: "08",
-      title: "Converter receives and traces back",
+      number: "07",
+      title: "Converter traces back to source",
       description:
-        "The converter records receipt, accepted and rejected quantities, QC results, and receipt evidence. From this single screen, they can trace any dispatch all the way back - through bags, batches, GRNs, and original collection partners - with contribution percentages.",
+        "The converter records receipt, QC results, and accepted quantities. From one screen, they can trace any dispatch back to the original collection partner.",
       capturedItems: [
         "Receipt number",
         "Accepted / rejected quantity",
@@ -973,24 +960,24 @@ export const climaOneV2Page: BaseToolPage & {
   ],
   outcomes: [
     {
-      title: "CPs stop chasing status",
+      title: "CPs get live status",
       description:
-        "Collection partners no longer call the plant to check whether their vehicle was accepted. They see it live."
+        "Collection partners no longer call the plant to check if their vehicle was accepted. They see it live."
     },
     {
       title: "Plants stop building packets by hand",
       description:
-        "GRNs, QC records, and production summaries are structured in the system - not assembled from WhatsApp and email"
+        "GRNs, QC records, and production summaries are structured in the system."
     },
     {
-      title: "Converters can validate provenance instantly",
+      title: "Converters validate provenance instantly",
       description:
-        "Any dispatch can be traced back to its source in seconds - no back-and-forth, no spreadsheet reconciliation"
+        "Any dispatch traces back to its source in seconds."
     },
     {
-      title: "Admin can answer in minutes, not days",
+      title: "Admin answers in minutes, not days",
       description:
-        '"Where did this material come from, what happened to it, is the evidence complete?" - answered from one screen'
+        "Where did this material come from? What happened to it? Answered from one screen."
     }
   ],
   dashboardNote:

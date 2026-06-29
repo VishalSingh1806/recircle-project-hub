@@ -1,4 +1,5 @@
 .heroSection,
+.problemSection,
 .deliverablesSection,
 .journeySection,
 .rolesSection,
@@ -12,6 +13,40 @@
   padding-left: 48px;
   padding-right: 48px;
   box-sizing: border-box;
+}
+
+.problemSection {
+  padding-top: 72px;
+  padding-bottom: 72px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.problemGrid {
+  display: grid;
+  gap: 20px;
+  margin-top: 36px;
+}
+
+.problemCard {
+  padding: 28px;
+  border-left: 3px solid var(--color-red);
+  background: #ffffff;
+  border-top: 1px solid var(--color-border);
+  border-right: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  border-radius: 0 8px 8px 0;
+}
+
+.problemCard h3,
+.problemCard p {
+  margin: 0;
+}
+
+.problemCard p {
+  margin-top: 8px;
+  font-size: 17px;
+  color: var(--color-text-body);
+  line-height: 1.7;
 }
 
 .heroSection {
@@ -74,6 +109,12 @@
   flex-wrap: wrap;
   gap: 18px;
   align-items: center;
+}
+
+.accessNote {
+  font-size: 13px;
+  color: var(--color-text-body);
+  margin: 0;
 }
 
 .ghostLink {
@@ -193,13 +234,12 @@
 
 .capabilitiesGrid {
   display: grid;
-  border-top: 3px solid var(--color-border);
-  border-left: 3px solid var(--color-border);
+  border: 3px solid var(--color-border-strong);
 }
 
 .capabilityCell {
-  border-right: 3px solid var(--color-border);
-  border-bottom: 3px solid var(--color-border);
+  border-right: 3px solid var(--color-border-strong);
+  border-bottom: 3px solid var(--color-border-strong);
 }
 
 .rolesSection,
@@ -277,26 +317,22 @@
 }
 
 .outcomeGrid {
-  border-top: 3px solid var(--color-border);
-  border-left: 3px solid var(--color-border);
+  border: 3px solid var(--color-border-strong);
 }
 
 .outcomeCell {
-  border-right: 3px solid var(--color-border);
-  border-bottom: 3px solid var(--color-border);
+  border-right: 3px solid var(--color-border-strong);
+  border-bottom: 3px solid var(--color-border-strong);
 }
 
 .rolesGrid {
   gap: 0;
-  border-top: 3px solid var(--color-border);
-  border-left: 3px solid var(--color-border);
-  border-right: 3px solid var(--color-border);
-  border-bottom: 3px solid var(--color-border);
+  border: 3px solid var(--color-border-strong);
 }
 
 .rolesGrid > * {
-  border-right: 3px solid var(--color-border);
-  border-bottom: 3px solid var(--color-border);
+  border-right: 3px solid var(--color-border-strong);
+  border-bottom: 3px solid var(--color-border-strong);
   padding: 40px;
 }
 
@@ -382,6 +418,10 @@
 }
 
 @media (min-width: 900px) {
+  .problemGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .heroSection {
     grid-template-columns: 1fr 420px;
   }
@@ -408,17 +448,24 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .capabilityCell:nth-child(2n) {
+    border-right: 0;
+  }
+
+  .capabilityCell:nth-last-child(-n+2) {
+    border-bottom: 0;
+  }
 
   .outcomeGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .outcomeCell:nth-child(2n) {
-    border-right: 3px solid var(--color-border);
+    border-right: 0;
   }
 
   .outcomeCell:nth-last-child(-n+2) {
-    border-bottom: 3px solid var(--color-border);
+    border-bottom: 0;
   }
 }
 

@@ -10,12 +10,13 @@
 }
 
 .title {
-  font-size: 16px;
+  font-size: 17px;
   font-family: var(--font-body);
   font-weight: 700;
 }
 
 .description {
-  font-size: 14px;
+  font-size: 17px;
   color: var(--color-text-body);
+  line-height: 1.7;
 }

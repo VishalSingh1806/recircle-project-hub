@@ -15,6 +15,7 @@
 import { AccentBar } from "@/components/AccentBar/AccentBar";
 import { BackLink } from "@/components/BackLink/BackLink";
 import { CapabilityBlock } from "@/components/CapabilityBlock/CapabilityBlock";
+import { ExploreMore } from "@/components/ExploreMore/ExploreMore";
 import { FooterStrip } from "@/components/FooterStrip/FooterStrip";
 import { RoleCard } from "@/components/RoleCard/RoleCard";
 
@@ -131,6 +132,21 @@ const notes = [
   }
 ] as const;
 
+const exploreItems = [
+  {
+    href: "/drive-automation/",
+    category: "Automation",
+    name: "Drive Automation",
+    description: "Automate HR file sorting and sharing.",
+  },
+  {
+    href: "/climaone-v1/",
+    category: "EPR Compliance",
+    name: "ClimaOne V1",
+    description: "Track vehicle dispatch across your EPR network.",
+  },
+];
+
 export default function RouteOptimizerPage() {
   return (
     <main>
@@ -139,22 +155,55 @@ export default function RouteOptimizerPage() {
 
       <section className={styles.heroSection}>
         <div className={styles.heroText}>
-          <p className={styles.eyebrow}>Product 05 | Route Optimizer</p>
+          <p className={styles.eyebrow}>Logistics</p>
           <h1 className={styles.title}>
             Smarter collection routes. <span>Less time on the road.</span>
           </h1>
           <p>
-            Upload your pickup list as a CSV, and the Route Optimizer clusters your stops by area,
-            orders them efficiently, and tells you the best day to run each route - based on real
-            traffic estimates. No manual planning. No guesswork.
+            Upload your pickup list as a CSV. The tool clusters your stops by area, orders them for
+            the shortest path, and tells you the best day to run each route based on real traffic
+            data.
           </p>
-          <a className={styles.githubButton} href="https://github.com/VishalSingh1806/best-route" target="_blank" rel="noreferrer">
-            <Github size={18} />
-            View on GitHub
-          </a>
+          <div className={styles.heroActions}>
+            <a className={styles.githubButton} href="https://github.com/VishalSingh1806/best-route" target="_blank" rel="noreferrer">
+              <Github size={18} />
+              View on GitHub
+            </a>
+          </div>
           <p className={styles.accessNote}>
             Available at route.recircle.in | Desktop | Upload a CSV to get started
           </p>
+        </div>
+
+        <div className={styles.browserFrame}>
+          <div className={styles.browserTop}>
+            <span className={`${styles.dot} ${styles.red}`} />
+            <span className={`${styles.dot} ${styles.yellow}`} />
+            <span className={`${styles.dot} ${styles.green}`} />
+          </div>
+          <div className={styles.browserBody}>
+            <div className={styles.mapCard}>
+              <span className={styles.mapBrand} />
+              <span className={styles.mapLineLong} />
+              <span className={styles.mapLineShort} />
+            </div>
+            <div className={styles.routeTable}>
+              <div className={styles.tableHead}>
+                <span>Area</span>
+                <span>Stops</span>
+                <span>Distance</span>
+                <span>Best Day</span>
+              </div>
+              {["Andheri W", "Bandra", "Kurla"].map((area) => (
+                <div key={area} className={styles.tableRow}>
+                  <span className={styles.tableCell}><span className={styles.tableLineLong} /></span>
+                  <span className={styles.tableCell}><span className={styles.tableLineShort} /></span>
+                  <span className={styles.tableCell}><span className={styles.tableLineShort} /></span>
+                  <span className={styles.tableCell}><span className={styles.tableLineShort} /></span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -219,6 +268,8 @@ export default function RouteOptimizerPage() {
           ))}
         </div>
       </section>
+
+      <ExploreMore items={exploreItems} />
 
       <FooterStrip />
     </main>

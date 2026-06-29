@@ -1,13 +1,44 @@
-﻿import { AutomationItem } from "@/components/AutomationItem/AutomationItem";
-import { AccentBar } from "@/components/AccentBar/AccentBar";
+﻿import { AccentBar } from "@/components/AccentBar/AccentBar";
+import { AutomationItem } from "@/components/AutomationItem/AutomationItem";
 import { BackLink } from "@/components/BackLink/BackLink";
 import { CapabilityBlock } from "@/components/CapabilityBlock/CapabilityBlock";
+import { ExploreMore } from "@/components/ExploreMore/ExploreMore";
 import { FooterStrip } from "@/components/FooterStrip/FooterStrip";
 import { OutcomeTile } from "@/components/OutcomeTile/OutcomeTile";
 import { RoleCard } from "@/components/RoleCard/RoleCard";
 import { climaOneV1Page } from "@/lib/content";
 
 import styles from "./page.module.css";
+
+const problemCards = [
+  {
+    title: "POs lived in spreadsheets",
+    description: "Purchase orders were tracked in Excel and assigned over WhatsApp. No single source of truth.",
+  },
+  {
+    title: "Vehicle updates needed phone calls",
+    description: "Finding out if a vehicle was dispatched meant calling the driver or partner directly.",
+  },
+  {
+    title: "Certificates took days",
+    description: "Compliance certificates were manually assembled from data scattered across email threads and files.",
+  },
+];
+
+const exploreItems = [
+  {
+    href: "/climaone-v2/",
+    category: "EPR Compliance",
+    name: "ClimaOne V2",
+    description: "Full material traceability from collection to converter.",
+  },
+  {
+    href: "/chatbot/",
+    category: "AI Assistant",
+    name: "EPR Chatbot",
+    description: "Instant answers to any EPR compliance question.",
+  },
+];
 
 export default function ClimaOneV1Page() {
   return (
@@ -28,7 +59,13 @@ export default function ClimaOneV1Page() {
             <a className={styles.primaryButton} href={climaOneV1Page.primaryAction.href} target="_blank" rel="noreferrer">
               {climaOneV1Page.primaryAction.label}
             </a>
+            {climaOneV1Page.secondaryAction && (
+              <a className={styles.ghostLink} href={climaOneV1Page.secondaryAction.href}>
+                {climaOneV1Page.secondaryAction.label}
+              </a>
+            )}
           </div>
+          <p className={styles.accessNote}>{climaOneV1Page.accessNote}</p>
         </div>
 
         <div className={styles.browserFrame}>
@@ -72,27 +109,37 @@ export default function ClimaOneV1Page() {
       </section>
 
       <section className={styles.problemSection}>
-        <div className={styles.problemLeft}>
-          <p className={styles.sectionEyebrow}>What ClimaOne® delivers</p>
-          <h2 className={styles.quote}>
-            ClimaOne<sup>®</sup> brings inbuilt traceability, analytics, and data capabilities into one place —
-            giving every team in your circular supply chain the visibility and tools they need.
-          </h2>
+        <div className={styles.sectionHead}>
+          <p className={styles.sectionEyebrow}>Before ClimaOne® V1</p>
+          <h2>What the team was dealing with</h2>
         </div>
         <div className={styles.problemGrid}>
-          {climaOneV1Page.problemTiles.map((tile) => (
-            <article key={tile.title} className={styles.problemTile}>
-              <h3>{tile.title}</h3>
-              <p>{tile.description}</p>
+          {problemCards.map((card) => (
+            <article key={card.title} className={styles.problemCard}>
+              <h3>{card.title}</h3>
+              <p>{card.description}</p>
             </article>
           ))}
         </div>
       </section>
 
-      <section className={styles.journeySection}>
+      <section className={styles.rolesSection}>
         <div className={styles.sectionHead}>
-          <p className={styles.sectionEyebrow}>How to use this tool</p>
-          <h2>Five steps. Every one tracked.</h2>
+          <p className={styles.sectionEyebrow}>{climaOneV1Page.rolesEyebrow}</p>
+          <h2>{climaOneV1Page.rolesTitle}</h2>
+          <p className={styles.journeyIntro}>ClimaOne® V1 gives every stakeholder in the EPR compliance chain a dedicated dashboard built around their responsibilities.</p>
+        </div>
+        <div className={styles.rolesGrid}>
+          {climaOneV1Page.roles.map((role) => (
+            <RoleCard key={role.name} {...role} />
+          ))}
+        </div>
+      </section>
+
+      <section id="how-it-works" className={styles.journeySection}>
+        <div className={styles.sectionHead}>
+          <p className={styles.sectionEyebrow}>How It Works</p>
+          <h2>5 steps. Every one tracked.</h2>
           <p className={styles.journeyIntro}>{climaOneV1Page.journeyIntro}</p>
         </div>
         <div className={styles.journeyList}>
@@ -119,18 +166,6 @@ export default function ClimaOneV1Page() {
         </div>
       </section>
 
-      <section className={styles.rolesSection}>
-        <div className={styles.sectionHead}>
-          <p className={styles.sectionEyebrow}>{climaOneV1Page.rolesEyebrow}</p>
-          <h2>{climaOneV1Page.rolesTitle}</h2>
-        </div>
-        <div className={styles.rolesGrid}>
-          {climaOneV1Page.roles.map((role) => (
-            <RoleCard key={role.name} {...role} />
-          ))}
-        </div>
-      </section>
-
       <section className={styles.capabilitiesSection}>
         <div className={styles.sectionHead}>
           <p className={styles.sectionEyebrow}>Capabilities</p>
@@ -147,8 +182,8 @@ export default function ClimaOneV1Page() {
 
       <section className={styles.automationSection}>
         <div className={styles.sectionHead}>
-          <p className={styles.sectionEyebrow}>Built-in automation</p>
-          <h2>Five automated workflows, zero manual triggers</h2>
+          <p className={styles.sectionEyebrow}>Built-in Automation</p>
+          <h2>Five things that run without anyone touching them</h2>
         </div>
         <div className={styles.automationList}>
           {climaOneV1Page.automation.map((item) => (
@@ -164,10 +199,14 @@ export default function ClimaOneV1Page() {
         </div>
         <div className={styles.outcomeGrid}>
           {climaOneV1Page.outcomes.map((item) => (
-            <OutcomeTile key={item.title} {...item} />
+            <div key={item.title} className={styles.outcomeCell}>
+              <OutcomeTile {...item} />
+            </div>
           ))}
         </div>
       </section>
+
+      <ExploreMore items={exploreItems} />
 
       <FooterStrip />
     </main>

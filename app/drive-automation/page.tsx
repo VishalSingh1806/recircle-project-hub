@@ -1,19 +1,18 @@
 ﻿import {
-  Bell,
-  CheckCircle2,
-  FileCheck2,
+  BarChart2,
+  FileSearch,
   FolderSync,
   Github,
-  Mail,
+  RefreshCw,
+  Share2,
   ShieldCheck,
-  Sparkles,
-  Upload,
   Users
 } from "lucide-react";
 
 import { AccentBar } from "@/components/AccentBar/AccentBar";
 import { BackLink } from "@/components/BackLink/BackLink";
 import { CapabilityBlock } from "@/components/CapabilityBlock/CapabilityBlock";
+import { ExploreMore } from "@/components/ExploreMore/ExploreMore";
 import { FooterStrip } from "@/components/FooterStrip/FooterStrip";
 import { RoleCard } from "@/components/RoleCard/RoleCard";
 
@@ -21,81 +20,84 @@ import styles from "./page.module.css";
 
 const roles = [
   {
+    icon: ShieldCheck,
+    name: "IT / Admin team",
+    description:
+      "Audit who has access to what, transfer ownership when people leave, and clean up shared permissions across the org"
+  },
+  {
     icon: Users,
-    name: "HR Manager",
+    name: "HR & Operations",
     description:
-      "Keep employee documents organised without manually downloading, renaming, and resharing files"
+      "Reassign file and folder ownership during team changes without losing access to any documents"
   },
   {
-    icon: Upload,
-    name: "HR Admin",
+    icon: BarChart2,
+    name: "Managers",
     description:
-      "Drop documents into one Drive folder and let the automation sort each file into the right place"
-  },
-  {
-    icon: Bell,
-    name: "Team Leads",
-    description:
-      "Receive file-ready notifications with direct Drive links when the documents they need are processed"
+      "Get a full report of which files an employee can access before offboarding or role changes"
   }
 ] as const;
 
 const capabilities = [
   {
     number: "01",
-    title: "Drop files into the intake folder",
-    description: "Upload employee documents to one configured Google Drive folder. The automation watches it continuously for new files.",
-    icon: Upload
+    title: "User File Audit",
+    description: "Generate a full CSV report of every file a user has access to — excluding files they own. Run for a single user or across all users at once.",
+    icon: FileSearch
   },
   {
     number: "02",
-    title: "Auto-classify document types",
-    description: "The workflow reads the file name and metadata to identify payslips, contracts, ID proofs, policy docs, and other HR records.",
-    icon: Sparkles
-  },
-  {
-    number: "03",
-    title: "Rename to standard format",
-    description: "Every file is renamed into the agreed HR naming convention before it moves anywhere, keeping records consistent.",
-    icon: FileCheck2
-  },
-  {
-    number: "04",
-    title: "Move to the correct folder",
-    description: "Each file is routed to the right employee or document-category folder automatically, no manual drag and drop.",
+    title: "Folder Transfer",
+    description: "Transfer ownership of all folders from one user to another in a single operation. Useful when someone leaves or changes roles.",
     icon: FolderSync
   },
   {
-    number: "05",
-    title: "Email notification with direct link",
-    description: "The right person gets an email with a direct Drive link as soon as the file lands in the correct location.",
-    icon: Mail
+    number: "03",
+    title: "Single File Transfer",
+    description: "Transfer ownership of specific files or folders individually. Useful when you need to move select items rather than everything.",
+    icon: Share2
   },
   {
-    number: "06",
-    title: "Track every processed file",
-    description: "A timestamped log records what moved, when, and where, so HR always knows what has been processed.",
-    icon: ShieldCheck
+    number: "04",
+    title: "Replace Shared Access",
+    description: "Replace one user's access with another across all shared files. Swap permissions org-wide without touching each file manually.",
+    icon: RefreshCw
   }
 ];
 
 const outcomes = [
   {
-    icon: FileCheck2,
-    title: "Cleaner HR records",
-    description: "Files land in a predictable folder structure with consistent names."
+    icon: FileSearch,
+    title: "Full access visibility",
+    description: "Know exactly which files every user can see, before and after any org change."
+  },
+  {
+    icon: FolderSync,
+    title: "Clean ownership handoffs",
+    description: "Transfer files and folders in bulk when people leave or move roles — no files left behind."
   },
   {
     icon: ShieldCheck,
-    title: "Fewer handoffs",
-    description: "No manual download-transfer-upload loop between HR and team folders."
-  },
-  {
-    icon: CheckCircle2,
-    title: "Visible completion",
-    description: "Processed files are tracked so HR knows what moved and when."
+    title: "Tighter access control",
+    description: "Replace stale shared access across all files in one step, keeping permissions accurate."
   }
 ] as const;
+
+const exploreItems = [
+  {
+    href: "/ocr-bizcard/",
+    category: "Document OCR",
+    name: "OCR for Business Cards",
+    description: "Turn a stack of business cards into a contact list.",
+  },
+  {
+    href: "/route-optimizer/",
+    category: "Logistics",
+    name: "Route Optimizer",
+    description: "Plan smarter collection routes without manual ordering.",
+  },
+];
 
 export default function DriveAutomationPage() {
   return (
@@ -105,21 +107,21 @@ export default function DriveAutomationPage() {
 
       <section className={styles.heroSection}>
         <div className={styles.heroText}>
-          <p className={styles.eyebrow}>Product 07 | Drive Automation</p>
+          <p className={styles.eyebrow}>Google Drive Admin</p>
           <h1 className={styles.title}>
-            HR files, sorted and <span>shared automatically.</span>
+            Audit, transfer, and manage <span>Drive access. In one place.</span>
           </h1>
           <p>
-            Drop documents into the configured Google Drive folder. The automation renames them,
-            moves them into the right destination, notifies the right person, and keeps a processing
-            log so HR does not have to chase files manually.
+            A Google Sheets sidebar tool for Drive admins. Audit who has access to what, transfer
+            folder and file ownership in bulk, and replace shared permissions across the org —
+            without touching each file manually.
           </p>
           <a className={styles.githubButton} href="https://github.com/VishalSingh1806/backup-automation" target="_blank" rel="noreferrer">
             <Github size={18} />
             View on GitHub
           </a>
           <p className={styles.accessNote}>
-            Internal HR workflow | Google Drive based | Contact the tech team for folder access
+            Runs as a Google Sheets sidebar | Admin access required | Contact the tech team to set up
           </p>
         </div>
       </section>
@@ -127,7 +129,7 @@ export default function DriveAutomationPage() {
       <section className={styles.rolesSection}>
         <div className={styles.sectionHead}>
           <p className={styles.sectionEyebrow}>Who is this for</p>
-          <h2>Built for the HR workflow</h2>
+          <h2>Built for Drive admins and ops teams</h2>
         </div>
         <div className={styles.rolesGrid}>
           {roles.map((role) => (
@@ -139,7 +141,7 @@ export default function DriveAutomationPage() {
       <section className={styles.capabilitiesSection}>
         <div className={styles.sectionHead}>
           <p className={styles.sectionEyebrow}>Capabilities</p>
-          <h2>What you can do with Drive Automation</h2>
+          <h2>Four tools. Full Drive control.</h2>
         </div>
         <div className={styles.capabilitiesGrid}>
           {capabilities.map((cap) => (
@@ -153,7 +155,7 @@ export default function DriveAutomationPage() {
       <section className={styles.outcomeSection}>
         <div className={styles.sectionHead}>
           <p className={styles.sectionEyebrow}>What changes</p>
-          <h2>Less manual admin, more reliable records</h2>
+          <h2>Less manual admin, tighter access control</h2>
         </div>
         <div className={styles.outcomeGrid}>
           {outcomes.map((outcome) => {
@@ -168,6 +170,8 @@ export default function DriveAutomationPage() {
           })}
         </div>
       </section>
+
+      <ExploreMore items={exploreItems} />
 
       <FooterStrip />
     </main>
