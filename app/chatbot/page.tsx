@@ -10,6 +10,7 @@ import {
 
 import { AccentBar } from "@/components/AccentBar/AccentBar";
 import { BackLink } from "@/components/BackLink/BackLink";
+import { ExploreMore } from "@/components/ExploreMore/ExploreMore";
 import { FooterStrip } from "@/components/FooterStrip/FooterStrip";
 import { RoleCard } from "@/components/RoleCard/RoleCard";
 
@@ -122,6 +123,21 @@ const notes = [
   }
 ] as const;
 
+const exploreItems = [
+  {
+    href: "/climaone-v1/",
+    category: "EPR Compliance",
+    name: "ClimaOne V1",
+    description: "Manage your full EPR compliance cycle.",
+  },
+  {
+    href: "/climaone-v2/",
+    category: "EPR Compliance",
+    name: "ClimaOne V2",
+    description: "Full material traceability from collection to converter.",
+  },
+];
+
 export default function ChatbotPage() {
   return (
     <main>
@@ -130,22 +146,20 @@ export default function ChatbotPage() {
 
       <section className={styles.heroSection}>
         <div className={styles.heroText}>
-          <p className={styles.eyebrow}>Product 06 | EPR Chatbot</p>
+          <p className={styles.eyebrow}>AI Assistant</p>
           <h1 className={styles.title}>
-            EPR questions. <span>Answered instantly.</span>
+            Ask any EPR question. <span>Get a clear answer in seconds.</span>
           </h1>
           <p>
-            The ReCircle EPR Chatbot is trained on EPR regulations, compliance FAQs, and
-            ReCircle&apos;s own knowledge base. Ask anything - registration steps, filing deadlines,
-            plastic categories, compliance basics - and get a clear answer in seconds. Follow-up
-            questions are supported.
+            The chatbot is trained on EPR regulations, compliance FAQs, and ReCircle&apos;s own
+            knowledge base. Ask about registration steps, filing deadlines, plastic categories, or
+            compliance basics. Follow-up questions supported.
           </p>
           <a className={styles.primaryButton} href="https://recircle.in/epr/" target="_blank" rel="noreferrer">
             Open EPR Chatbot
           </a>
           <p className={styles.accessNote}>
-            Available at https://recircle.in/epr/ | No login required | Share your contact details to
-            begin | English only
+            Available at recircle.in/epr | No login required | English only
           </p>
         </div>
 
@@ -185,7 +199,7 @@ export default function ChatbotPage() {
           <p className={styles.sectionEyebrow}>Who is this for</p>
           <h2>For anyone with an EPR question</h2>
         </div>
-        <div className={styles.grid4}>
+        <div className={styles.rolesGrid}>
           {roles.map((role) => (
             <RoleCard key={role.name} {...role} />
           ))}
@@ -260,6 +274,8 @@ export default function ChatbotPage() {
           ))}
         </div>
       </section>
+
+      <ExploreMore items={exploreItems} />
 
       <FooterStrip />
     </main>

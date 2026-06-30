@@ -6,12 +6,17 @@
 .automationSection,
 .outcomeSection,
 .dashboardSection {
-  width: min(1280px, calc(100% - 96px));
+  width: min(1280px, 100%);
+  max-width: 1280px;
   margin: 0 auto;
+  padding-left: 48px;
+  padding-right: 48px;
+  box-sizing: border-box;
 }
 
 .heroSection {
-  padding: 80px 48px 72px;
+  padding-top: 80px;
+  padding-bottom: 72px;
   border-bottom: 1px solid var(--color-border);
   display: grid;
   gap: 48px;
@@ -27,7 +32,6 @@
 .sectionEyebrow,
 .quote,
 .dashboardNote,
-.accessNote,
 .journeyIntro {
   margin: 0;
 }
@@ -71,6 +75,12 @@
   background: var(--color-primary-dark);
 }
 
+.accessNote {
+  font-size: 13px;
+  color: var(--color-text-body);
+  margin: 0;
+}
+
 .ghostLink {
   min-height: 44px;
   display: inline-flex;
@@ -85,11 +95,6 @@
 
 .ghostLink:hover {
   gap: 14px;
-}
-
-.accessNote {
-  font-size: 12px;
-  color: var(--color-text-muted);
 }
 
 .browserFrame {
@@ -156,8 +161,8 @@
 }
 
 .rowDot { width: 10px; height: 10px; border-radius: 50%; }
-.rowAmber { background: var(--color-amber); }
-.rowGreen { background: var(--color-primary); }
+.rowGreen { background: var(--color-green); }
+.rowAmber { background: var(--color-lime); }
 .rowGray  { background: #c8c8c8; }
 
 .rowLines { display: grid; gap: 6px; }
@@ -182,26 +187,96 @@
 .capabilitiesSection,
 .automationSection,
 .dashboardSection {
-  padding: 72px 48px;
+  padding-top: 72px;
+  padding-bottom: 72px;
   border-bottom: 1px solid var(--color-border);
 }
 
-.capabilitiesGrid {
+.problemGrid {
   display: grid;
-  border-top: 1px solid var(--color-border);
-  border-left: 1px solid var(--color-border);
+  gap: 20px;
+  margin-top: 36px;
 }
 
-.capabilityCell {
+.problemCard {
+  padding: 28px;
+  border-left: 3px solid var(--color-red);
+  background: #ffffff;
+  border-top: 1px solid var(--color-border);
   border-right: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
+  border-radius: 0 8px 8px 0;
+}
+
+.problemCard h3,
+.problemCard p {
+  margin: 0;
+}
+
+.problemCard p {
+  margin-top: 8px;
+  font-size: 17px;
+  color: var(--color-text-body);
+  line-height: 1.7;
 }
 
 .rolesSection,
 .outcomeSection {
-  padding: 72px 48px;
+  padding-top: 72px;
+  padding-bottom: 72px;
   border-bottom: 1px solid var(--color-border);
+  position: relative;
+}
+
+.rolesSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background: #ffffff;
+  z-index: -1;
+}
+
+.journeySection,
+.outcomeSection {
   background: var(--color-surface-warm);
+  position: relative;
+}
+
+.capabilitiesSection {
+  background: #ffffff;
+  position: relative;
+}
+
+.journeySection::before,
+.outcomeSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background: var(--color-surface-warm);
+  z-index: -1;
+}
+
+.capabilitiesSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background: #ffffff;
+  z-index: -1;
 }
 
 .quote {
@@ -213,27 +288,43 @@
   color: var(--color-text-heading);
 }
 
-.problemGrid,
 .rolesGrid,
 .outcomeGrid {
   display: grid;
-  gap: 16px;
   margin-top: 28px;
 }
 
-.problemTile {
-  padding: 24px;
-  border: 1px solid var(--color-border);
-  border-radius: 12px;
+.rolesGrid {
+  gap: 0;
+  border-top: 3px solid var(--color-border-strong);
+  border-left: 3px solid var(--color-border-strong);
 }
 
-.problemTile h3,
-.problemTile p {
-  margin: 0;
+.rolesGrid > * {
+  border-right: 3px solid var(--color-border-strong);
+  border-bottom: 3px solid var(--color-border-strong);
+  padding: 40px;
 }
 
-.problemTile p {
-  margin-top: 8px;
+
+.capabilitiesGrid {
+  display: grid;
+  border: 3px solid var(--color-border-strong);
+}
+
+.capabilityCell {
+  border-right: 3px solid var(--color-border-strong);
+  border-bottom: 3px solid var(--color-border-strong);
+}
+
+.outcomeGrid {
+  border: 3px solid var(--color-border-strong);
+  
+}
+
+.outcomeCell {
+  border-right: 3px solid var(--color-border-strong);
+  border-bottom: 3px solid var(--color-border-strong);
 }
 
 .journeyIntro {
@@ -262,7 +353,7 @@
   font-size: 64px;
   line-height: 0.95;
   font-weight: 700;
-  color: #f0f0f0;
+  color: rgba(0, 0, 0, 0.04);
   letter-spacing: -3px;
   margin: 0;
 }
@@ -273,7 +364,7 @@
 }
 
 .stepDescription {
-  font-size: 15px;
+  font-size: 17px;
   color: var(--color-text-body);
   line-height: 1.7;
   margin: 0;
@@ -329,7 +420,7 @@
   }
 
   .rolesGrid {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .capabilitiesGrid {
@@ -340,12 +431,59 @@
     border-right: 0;
   }
 
-  .capabilityCell:nth-last-child(1),
-  .capabilityCell:nth-last-child(2) {
+  .capabilityCell:nth-last-child(-n+2) {
     border-bottom: 0;
   }
 
   .outcomeGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .outcomeCell:nth-child(2n) {
+    border-right: 0;
+  }
+
+  .outcomeCell:nth-last-child(-n+2) {
+    border-bottom: 0;
+  }
+
+}
+
+@media (max-width: 767px) {
+  .heroSection,
+  .journeySection,
+  .rolesSection,
+  .capabilitiesSection,
+  .automationSection,
+  .outcomeSection,
+  .dashboardSection {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .heroSection { padding-top: 44px; padding-bottom: 40px; }
+  .journeySection,
+  .capabilitiesSection,
+  .automationSection,
+  .dashboardSection { padding-top: 44px; padding-bottom: 44px; }
+  .rolesSection,
+  .outcomeSection { padding-top: 44px; padding-bottom: 44px; }
+
+  .journeyStep { padding: 36px 0; gap: 24px; }
+
+  .capabilityCell {
+    border-right: 0;
+  }
+
+  .capabilityCell:last-child {
+    border-bottom: 0;
+  }
+
+  .outcomeCell {
+    border-right: 0;
+  }
+
+  .outcomeCell:last-child {
+    border-bottom: 0;
   }
 }

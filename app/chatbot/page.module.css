@@ -3,12 +3,17 @@
 .knowledgeSection,
 .stepsSection,
 .notesSection {
-  width: min(1280px, calc(100% - 96px));
+  width: min(1280px, 100%);
+  max-width: 1280px;
   margin: 0 auto;
+  padding-left: 48px;
+  padding-right: 48px;
+  box-sizing: border-box;
 }
 
 .heroSection {
-  padding: 80px 48px 72px;
+  padding-top: 80px;
+  padding-bottom: 72px;
   border-bottom: 1px solid var(--color-border);
   display: grid;
   gap: 48px;
@@ -41,8 +46,8 @@
 }
 
 .primaryButton {
-  min-height: 44px;
   width: fit-content;
+  min-height: 44px;
   padding: 13px 26px;
   border-radius: var(--radius-btn);
   background: var(--color-primary);
@@ -52,11 +57,16 @@
   align-items: center;
   justify-content: center;
   font-weight: 600;
+  transition: background 0.15s ease;
+}
+
+.primaryButton:hover {
+  background: var(--color-primary-dark);
 }
 
 .accessNote {
-  font-size: 12px;
-  color: var(--color-text-muted);
+  font-size: 13px;
+  color: var(--color-text-body);
 }
 
 .browserFrame {
@@ -166,17 +176,59 @@
   font-size: 11px;
 }
 
+/* Full-bleed section backgrounds */
 .rolesSection,
-.notesSection {
-  padding: 72px 48px;
+.stepsSection {
+  padding-top: 72px;
+  padding-bottom: 72px;
   border-bottom: 1px solid var(--color-border);
-  background: var(--color-surface-warm);
+  background: #ffffff;
+  position: relative;
+}
+
+.rolesSection::before,
+.stepsSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background: #ffffff;
+  z-index: -1;
 }
 
 .knowledgeSection,
-.stepsSection {
-  padding: 72px 48px;
+.notesSection {
+  padding-top: 72px;
+  padding-bottom: 72px;
   border-bottom: 1px solid var(--color-border);
+  background: #fafaf8;
+  position: relative;
+}
+
+.knowledgeSection::before,
+.notesSection::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%; right: 50%; bottom: 0;
+  margin-left: -50vw; margin-right: -50vw;
+  background: #fafaf8;
+  z-index: -1;
+}
+
+.rolesGrid {
+  display: grid;
+  gap: 0;
+  border: 3px solid var(--color-border-strong);
+}
+
+.rolesGrid > * {
+  border-right: 3px solid var(--color-border-strong);
+  border-bottom: 3px solid var(--color-border-strong);
+  padding: 40px;
 }
 
 .grid4,
@@ -210,24 +262,26 @@
 }
 
 .knowledgeTitle {
-  font-size: 14px;
+  font-size: 17px;
   font-weight: 700;
   color: var(--color-text-heading);
 }
 
 .knowledgeDescription {
-  font-size: 13px;
+  font-size: 17px;
   color: var(--color-text-body);
   line-height: 1.7;
 }
 
 .subtext {
-  font-size: 16px;
+  font-size: 17px;
   color: var(--color-text-body);
+  line-height: 1.7;
   max-width: 820px;
 }
 
 .stepsList {
+  margin-top: 28px;
   border-top: 1px solid var(--color-border);
 }
 
@@ -248,7 +302,7 @@
   font-size: 64px;
   line-height: 0.95;
   font-weight: 700;
-  color: #f0f0f0;
+  color: rgba(0, 0, 0, 0.04);
   letter-spacing: -3px;
   margin: 0;
 }
@@ -259,7 +313,7 @@
 }
 
 .stepDescription {
-  font-size: 15px;
+  font-size: 17px;
   color: var(--color-text-body);
   line-height: 1.7;
   margin: 0;
@@ -299,6 +353,18 @@
     order: 1;
   }
 
+  .rolesGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .rolesGrid > *:nth-child(2n) {
+    border-right: 0;
+  }
+
+  .rolesGrid > *:nth-last-child(-n+2) {
+    border-bottom: 0;
+  }
+
   .grid4,
   .knowledgeGrid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -307,4 +373,28 @@
   .notesGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+}
+
+@media (max-width: 767px) {
+  .heroSection,
+  .rolesSection,
+  .knowledgeSection,
+  .stepsSection,
+  .notesSection {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .rolesGrid > * {
+    padding: 24px;
+  }
+
+  .heroSection { padding-top: 44px; padding-bottom: 40px; }
+  .knowledgeSection,
+  .stepsSection { padding-top: 44px; padding-bottom: 44px; }
+  .rolesSection,
+  .notesSection { padding-top: 44px; padding-bottom: 44px; }
+
+  .step { padding: 36px 0; gap: 24px; }
+  .grid4 { grid-template-columns: repeat(2, 1fr); }
 }

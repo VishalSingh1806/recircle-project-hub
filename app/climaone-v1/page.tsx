@@ -1,67 +1,43 @@
-﻿import {
-  Award,
-  BarChart2,
-  Bell,
-  FileText,
-  LayoutDashboard,
-  Truck
-} from "lucide-react";
-
+﻿import { AccentBar } from "@/components/AccentBar/AccentBar";
 import { AutomationItem } from "@/components/AutomationItem/AutomationItem";
-import { AccentBar } from "@/components/AccentBar/AccentBar";
 import { BackLink } from "@/components/BackLink/BackLink";
 import { CapabilityBlock } from "@/components/CapabilityBlock/CapabilityBlock";
+import { ExploreMore } from "@/components/ExploreMore/ExploreMore";
 import { FooterStrip } from "@/components/FooterStrip/FooterStrip";
-import { LearnMoreStrip } from "@/components/LearnMoreStrip/LearnMoreStrip";
 import { OutcomeTile } from "@/components/OutcomeTile/OutcomeTile";
 import { RoleCard } from "@/components/RoleCard/RoleCard";
 import { climaOneV1Page } from "@/lib/content";
 
 import styles from "./page.module.css";
 
-const capabilities = [
+const problemCards = [
   {
-    number: "01",
-    title: "Role-based dashboard",
-    description:
-      "Log in and see exactly what matters to your role, PO status, certificate progress, vehicle movement, partner counts, and material recovery, all at a glance.",
-    icon: LayoutDashboard
+    title: "POs lived in spreadsheets",
+    description: "Purchase orders were tracked in Excel and assigned over WhatsApp. No single source of truth.",
   },
   {
-    number: "02",
-    title: "Purchase order lifecycle",
-    description:
-      "Create, allocate, accept, and close purchase orders across your entire partner network. Every PO is tracked from creation to fulfilment with a full audit trail.",
-    icon: FileText
+    title: "Vehicle updates needed phone calls",
+    description: "Finding out if a vehicle was dispatched meant calling the driver or partner directly.",
   },
   {
-    number: "03",
-    title: "Vehicle & dispatch tracking",
-    description:
-      "Track every vehicle, driver details, e-way bills, dispatch and receipt dates, geo-tagged images, and weightbridge slips all tied to a single trip.",
-    icon: Truck
+    title: "Certificates took days",
+    description: "Compliance certificates were manually assembled from data scattered across email threads and files.",
+  },
+];
+
+const exploreItems = [
+  {
+    href: "/climaone-v2/",
+    category: "EPR Compliance",
+    name: "ClimaOne V2",
+    description: "Full material traceability from collection to converter.",
   },
   {
-    number: "04",
-    title: "Certificates & compliance",
-    description:
-      "Issue, track, and query EPR certificates end to end. Raise queries, resolve disputes, and maintain a clean compliance record, all within the platform.",
-    icon: Award
+    href: "/chatbot/",
+    category: "AI Assistant",
+    name: "EPR Chatbot",
+    description: "Instant answers to any EPR compliance question.",
   },
-  {
-    number: "05",
-    title: "Reports & data",
-    description:
-      "Generate monthly material movement reports, state-wise breakdowns, and PO dispatch summaries, automatically compiled and delivered to your inbox.",
-    icon: BarChart2
-  },
-  {
-    number: "06",
-    title: "Notifications & alerts",
-    description:
-      "Never miss a critical update. ClimaOne sends SMS, email, and push notifications for PO alerts, approvals, and status changes across all user types.",
-    icon: Bell
-  }
 ];
 
 export default function ClimaOneV1Page() {
@@ -83,9 +59,11 @@ export default function ClimaOneV1Page() {
             <a className={styles.primaryButton} href={climaOneV1Page.primaryAction.href} target="_blank" rel="noreferrer">
               {climaOneV1Page.primaryAction.label}
             </a>
-            <a className={styles.ghostLink} href={climaOneV1Page.secondaryAction?.href} target="_blank" rel="noreferrer">
-              {climaOneV1Page.secondaryAction?.label}
-            </a>
+            {climaOneV1Page.secondaryAction && (
+              <a className={styles.ghostLink} href={climaOneV1Page.secondaryAction.href}>
+                {climaOneV1Page.secondaryAction.label}
+              </a>
+            )}
           </div>
           <p className={styles.accessNote}>{climaOneV1Page.accessNote}</p>
         </div>
@@ -131,23 +109,36 @@ export default function ClimaOneV1Page() {
       </section>
 
       <section className={styles.problemSection}>
-        <p className={styles.quote}>
-          EPR compliance was managed across WhatsApp groups, spreadsheets, and phone calls.
-          ClimaOne V1 put the entire lifecycle in one place.
-        </p>
+        <div className={styles.sectionHead}>
+          <p className={styles.sectionEyebrow}>Before ClimaOne® V1</p>
+          <h2>What the team was dealing with</h2>
+        </div>
         <div className={styles.problemGrid}>
-          {climaOneV1Page.problemTiles.map((tile) => (
-            <article key={tile.title} className={styles.problemTile}>
-              <h3>{tile.title}</h3>
-              <p>{tile.description}</p>
+          {problemCards.map((card) => (
+            <article key={card.title} className={styles.problemCard}>
+              <h3>{card.title}</h3>
+              <p>{card.description}</p>
             </article>
           ))}
         </div>
       </section>
 
-      <section className={styles.journeySection}>
+      <section className={styles.rolesSection}>
         <div className={styles.sectionHead}>
-          <p className={styles.sectionEyebrow}>How it works</p>
+          <p className={styles.sectionEyebrow}>{climaOneV1Page.rolesEyebrow}</p>
+          <h2>{climaOneV1Page.rolesTitle}</h2>
+          <p className={styles.journeyIntro}>ClimaOne® V1 gives every stakeholder in the EPR compliance chain a dedicated dashboard built around their responsibilities.</p>
+        </div>
+        <div className={styles.rolesGrid}>
+          {climaOneV1Page.roles.map((role) => (
+            <RoleCard key={role.name} {...role} />
+          ))}
+        </div>
+      </section>
+
+      <section id="how-it-works" className={styles.journeySection}>
+        <div className={styles.sectionHead}>
+          <p className={styles.sectionEyebrow}>How It Works</p>
           <h2>5 steps. Every one tracked.</h2>
           <p className={styles.journeyIntro}>{climaOneV1Page.journeyIntro}</p>
         </div>
@@ -175,25 +166,13 @@ export default function ClimaOneV1Page() {
         </div>
       </section>
 
-      <section className={styles.rolesSection}>
-        <div className={styles.sectionHead}>
-          <p className={styles.sectionEyebrow}>{climaOneV1Page.rolesEyebrow}</p>
-          <h2>{climaOneV1Page.rolesTitle}</h2>
-        </div>
-        <div className={styles.rolesGrid}>
-          {climaOneV1Page.roles.map((role) => (
-            <RoleCard key={role.name} {...role} />
-          ))}
-        </div>
-      </section>
-
       <section className={styles.capabilitiesSection}>
         <div className={styles.sectionHead}>
           <p className={styles.sectionEyebrow}>Capabilities</p>
-          <h2>What you can do inside ClimaOne V1</h2>
+          <h2>Advanced capabilities across every portal</h2>
         </div>
         <div className={styles.capabilitiesGrid}>
-          {capabilities.map((cap) => (
+          {climaOneV1Page.capabilities.map((cap) => (
             <div key={cap.number} className={styles.capabilityCell}>
               <CapabilityBlock {...cap} />
             </div>
@@ -203,8 +182,8 @@ export default function ClimaOneV1Page() {
 
       <section className={styles.automationSection}>
         <div className={styles.sectionHead}>
-          <p className={styles.sectionEyebrow}>Built-in automation</p>
-          <h2>Five things that happen without anyone touching them</h2>
+          <p className={styles.sectionEyebrow}>Built-in Automation</p>
+          <h2>Five things that run without anyone touching them</h2>
         </div>
         <div className={styles.automationList}>
           {climaOneV1Page.automation.map((item) => (
@@ -216,24 +195,18 @@ export default function ClimaOneV1Page() {
       <section className={styles.outcomeSection}>
         <div className={styles.sectionHead}>
           <p className={styles.sectionEyebrow}>The outcome</p>
-          <h2>What changes when the whole team is on ClimaOne</h2>
+          <h2>Monitor compliance progress and deliver on your SDGs</h2>
         </div>
         <div className={styles.outcomeGrid}>
           {climaOneV1Page.outcomes.map((item) => (
-            <OutcomeTile key={item.title} {...item} />
+            <div key={item.title} className={styles.outcomeCell}>
+              <OutcomeTile {...item} />
+            </div>
           ))}
         </div>
       </section>
 
-      <section className={styles.dashboardSection}>
-        <div className={styles.sectionHead}>
-          <p className={styles.sectionEyebrow}>Compliance</p>
-          <h2>Everything a compliance manager needs to see</h2>
-        </div>
-        <p className={styles.dashboardNote}>{climaOneV1Page.dashboardNote}</p>
-      </section>
-
-      <LearnMoreStrip {...climaOneV1Page.learnMore} />
+      <ExploreMore items={exploreItems} />
 
       <FooterStrip />
     </main>

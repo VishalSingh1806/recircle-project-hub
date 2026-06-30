@@ -13,6 +13,7 @@ import {
 
 import { AccentBar } from "@/components/AccentBar/AccentBar";
 import { BackLink } from "@/components/BackLink/BackLink";
+import { ExploreMore } from "@/components/ExploreMore/ExploreMore";
 import { FooterStrip } from "@/components/FooterStrip/FooterStrip";
 import { RoleCard } from "@/components/RoleCard/RoleCard";
 
@@ -132,6 +133,21 @@ const notes = [
   }
 ] as const;
 
+const exploreItems = [
+  {
+    href: "/ocr-epr/",
+    category: "Document OCR",
+    name: "OCR for EPR",
+    description: "Extract data from shipment documents automatically.",
+  },
+  {
+    href: "/chatbot/",
+    category: "AI Assistant",
+    name: "EPR Chatbot",
+    description: "Get instant answers on EPR compliance questions.",
+  },
+];
+
 export default function OcrBizCardPage() {
   return (
     <main>
@@ -140,20 +156,20 @@ export default function OcrBizCardPage() {
 
       <section className={styles.heroSection}>
         <div className={styles.heroText}>
-          <p className={styles.eyebrow}>Product 04 | OCR for Business Cards</p>
+          <p className={styles.eyebrow}>Document OCR</p>
           <h1 className={styles.title}>
-            A stack of business cards. <span>Contacts in seconds.</span>
+            A stack of cards. <span>A clean contact list. Done in seconds.</span>
           </h1>
           <p>
-            Upload a folder of business card images or PDFs and the system reads every card,
-            extracts the contact details, and gives you an editable table ready to save, export, or
-            use for outreach. No typing. No manual entry.
+            Upload a folder of business card images or PDFs. The system reads every card, extracts
+            contact details, and gives you an editable table ready to save, export, or use for
+            outreach.
           </p>
           <a className={styles.primaryButton} href="https://ocr.recircle.in/" target="_blank" rel="noreferrer">
             Open Business Card OCR
           </a>
           <p className={styles.accessNote}>
-            Works on Chrome and Edge | Desktop | Upload images or PDFs | Up to 300 cards per batch
+            Works on Chrome and Edge | Desktop | Up to 300 cards per batch
           </p>
         </div>
 
@@ -196,7 +212,7 @@ export default function OcrBizCardPage() {
           <p className={styles.sectionEyebrow}>Who is this for</p>
           <h2>For everyone who collects contacts</h2>
         </div>
-        <div className={styles.grid4}>
+        <div className={styles.rolesGrid}>
           {roles.map((role) => (
             <RoleCard key={role.name} {...role} />
           ))}
@@ -271,6 +287,8 @@ export default function OcrBizCardPage() {
           ))}
         </div>
       </section>
+
+      <ExploreMore items={exploreItems} />
 
       <FooterStrip />
     </main>

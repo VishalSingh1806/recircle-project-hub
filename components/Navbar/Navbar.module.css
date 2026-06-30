@@ -19,7 +19,7 @@
 
 .inner {
   width: min(1280px, calc(100% - 96px));
-  min-height: 64px;
+  min-height: 88px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -35,7 +35,7 @@
 }
 
 .logo {
-  height: 35px;
+  height: 80px;
   margin-bottom:2px;
   width: auto;
   flex-shrink: 0;
@@ -45,20 +45,22 @@
 .brandText {
   font-size: 21px;
   font-weight: 600;
-  color: #042c8c;
+  color: var(--color-primary);
 }
 
 .helpLink {
   display: inline-flex;
   align-items: center;
+  gap: 6px;
   min-height: 36px;
   padding: 0 18px;
-  border: 1.5px solid var(--color-primary);
-  border-radius: 999px;
+  border: 1px solid var(--color-primary);
+  border-radius: 0;
   color: var(--color-primary);
   text-decoration: none;
   font-size: 13px;
   font-weight: 600;
+  white-space: nowrap;
   transition: background 0.15s ease, color 0.15s ease;
 }
 
@@ -67,6 +69,57 @@
   color: #ffffff;
 }
 
+/* ── Tool navigation strip ──────────────────────── */
+
+.toolNav {
+  border-top: 1px solid #e8f0fe;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.toolNav::-webkit-scrollbar {
+  display: none;
+}
+
+.toolNavInner {
+  width: min(1280px, calc(100% - 96px));
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  padding-left: 0;
+}
+
+.toolNavLink {
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 16px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-text-body);
+  text-decoration: none;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+  flex-shrink: 0;
+}
+
+.toolNavLink:first-child {
+  padding-left: 0;
+}
+
+.toolNavLink:hover {
+  color: var(--color-primary);
+}
+
+.toolNavActive {
+  color: var(--color-primary);
+  font-weight: 600;
+  border-bottom-color: var(--color-primary);
+}
+
+/* ── Responsive ─────────────────────────────────── */
+
 @media (max-width: 767px) {
   .inner {
     width: min(100%, calc(100% - 32px));
@@ -74,6 +127,16 @@
   }
 
   .brandText {
-    font-size: 13px;
+    display: none;
+  }
+
+  .helpLink {
+    padding: 0 12px;
+    font-size: 12px;
+  }
+
+  .toolNavInner {
+    width: 100%;
+    padding: 0 16px;
   }
 }

@@ -72,12 +72,12 @@
 
 .live {
   background: #eef1fb;
-  color: #042c8c;
+  color: var(--color-primary);
 }
 
 .comingSoon {
-  background: var(--color-amber-light);
-  color: var(--color-amber-dark);
+  background: #f3f4f6;
+  color: #4b5563;
 }
 
 .desc {
@@ -107,7 +107,7 @@
   padding: 7px 14px;
   background: var(--color-primary);
   color: #ffffff;
-  border-radius: 999px;
+  border-radius: 0;
   font-size: 12px;
   font-weight: 600;
   white-space: nowrap;

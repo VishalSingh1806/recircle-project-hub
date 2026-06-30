@@ -72,8 +72,8 @@
 }
 
 .accessNote {
-  font-size: 12px;
-  color: var(--color-text-muted);
+  font-size: 13px;
+  color: var(--color-text-body);
 }
 
 .rolesSection {
@@ -101,5 +101,23 @@
 @media (min-width: 900px) {
   .rolesGrid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .heroSection,
+  .rolesSection,
+  .stepsSection {
+    width: min(100%, calc(100% - 32px));
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .heroSection { padding-top: 44px; padding-bottom: 40px; }
+  .rolesSection,
+  .stepsSection { padding-top: 44px; padding-bottom: 44px; }
+
+  .rolesGrid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }

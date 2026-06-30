@@ -3,6 +3,7 @@ import { Download, Edit2, FileCheck, FileSearch, FolderOpen, Github, Scale, Spar
 import { AccentBar } from "@/components/AccentBar/AccentBar";
 import { BackLink } from "@/components/BackLink/BackLink";
 import { CapabilityBlock } from "@/components/CapabilityBlock/CapabilityBlock";
+import { ExploreMore } from "@/components/ExploreMore/ExploreMore";
 import { FooterStrip } from "@/components/FooterStrip/FooterStrip";
 import { RoleCard } from "@/components/RoleCard/RoleCard";
 
@@ -94,7 +95,7 @@ const capabilities = [
   {
     number: "06",
     title: "Export to Excel, CSV, or PDF",
-    description: "Download structured results in three formats. Each transaction subfolder becomes one row. Export before closing the tab,session data clears after 3 minutes of inactivity.",
+    description: "Download structured results in three formats. Each transaction subfolder becomes one row. Session persists until you upload a new folder.",
     icon: Download
   }
 ];
@@ -106,9 +107,9 @@ const notes = [
       "The tool is designed for folder upload. Each subfolder = one transaction. Root-level loose files must be PDFs."
   },
   {
-    title: "Session clears after 3 minutes",
+    title: "Session persists until new files are added",
     description:
-      "Extracted data is held in your session for 3 minutes of inactivity. Always export before closing your tab."
+      "Extracted data stays in your session until you upload a new folder. Export any time before starting a fresh batch."
   },
   {
     title: "Edits stay in the browser",
@@ -122,6 +123,21 @@ const notes = [
   }
 ] as const;
 
+const exploreItems = [
+  {
+    href: "/ocr-bizcard/",
+    category: "Document OCR",
+    name: "OCR for Business Cards",
+    description: "Turn a stack of business cards into a contact list in seconds.",
+  },
+  {
+    href: "/climaone-v1/",
+    category: "EPR Compliance",
+    name: "ClimaOne V1",
+    description: "Manage your full EPR compliance cycle end to end.",
+  },
+];
+
 export default function OcrEprPage() {
   return (
     <main>
@@ -130,19 +146,21 @@ export default function OcrEprPage() {
 
       <section className={styles.heroSection}>
         <div className={styles.heroText}>
-          <p className={styles.eyebrow}>Product 03 | OCR for EPR</p>
+          <p className={styles.eyebrow}>Document OCR</p>
           <h1 className={styles.title}>
-            Your shipment documents. Structured. <span>In seconds.</span>
+            Upload a folder of shipment documents. <span>Get structured data in seconds.</span>
           </h1>
           <p>
-            Upload an entire folder of shipment documents - invoices, e-way bills, weighbridge
-            slips, LR copies - and the system classifies, extracts, and groups them into a clean
-            transaction row automatically. No manual typing. No spreadsheet reconciliation.
+            The system reads invoices, e-way bills, weighbridge slips, and LR copies, classifies
+            each document, extracts the key fields, and groups everything into a clean, exportable
+            table.
           </p>
-          <a className={styles.githubButton} href="https://github.com/VishalSingh1806/OCR" target="_blank" rel="noreferrer">
-            <Github size={18} />
-            View on GitHub
-          </a>
+          <div className={styles.heroActions}>
+            <a className={styles.githubButton} href="https://github.com/VishalSingh1806/OCR" target="_blank" rel="noreferrer">
+              <Github size={18} />
+              View on GitHub
+            </a>
+          </div>
           <p className={styles.accessNote}>
             Works on Chrome and Edge | Desktop only | Upload folders, not individual files
           </p>
@@ -179,7 +197,7 @@ export default function OcrEprPage() {
           <p className={styles.sectionEyebrow}>Who is this for</p>
           <h2>Built for teams processing shipment paperwork</h2>
         </div>
-        <div className={styles.grid3}>
+        <div className={styles.rolesGrid}>
           {roles.map((role) => (
             <RoleCard key={role.name} {...role} />
           ))}
@@ -219,7 +237,7 @@ export default function OcrEprPage() {
               number: "04",
               title: "Export your structured data",
               description:
-                "Download as Excel, CSV, or PDF. Every transaction subfolder becomes one clean row. Export before the tab is closed,session data clears after 3 minutes of inactivity."
+                "Download as Excel, CSV, or PDF. Every transaction subfolder becomes one clean row. Session persists until you upload a new folder."
             }
           ].map((step, index) => (
             <article
@@ -292,6 +310,8 @@ export default function OcrEprPage() {
           ))}
         </div>
       </section>
+
+      <ExploreMore items={exploreItems} />
 
       <FooterStrip />
     </main>

@@ -1,10 +1,12 @@
 {
+  "name": "recircle-project-hub",
+  "compatibility_date": "2026-06-29",
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "recircle-project-hub",
-  "compatibility_date": "2026-06-15",
   "assets": {
     "directory": "./out",
     "not_found_handling": "404-page",
     "html_handling": "force-trailing-slash"
+
   }
 }

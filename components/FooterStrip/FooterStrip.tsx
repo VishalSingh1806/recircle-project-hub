@@ -19,7 +19,7 @@ export function FooterStrip() {
       </div>
       <div className={styles.bottomBar}>
         <div className={styles.bottomInner}>
-          Built by ReCircle Tech &nbsp;·&nbsp; Recover. Recycle. Rethink.
+          Built by ReCircle Tech &nbsp;·&nbsp; Internal tools for the team
         </div>
       </div>
     </footer>
