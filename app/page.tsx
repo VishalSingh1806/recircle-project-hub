@@ -161,10 +161,9 @@ export default function HomePage() {
         {categories.map((cat, index) => {
           const alignmentClass =
             index % 2 === 1 ? styles.categoryBlockRight : styles.categoryBlockLeft;
-          const toneClass = [styles.toneGreen, styles.toneRed, styles.toneLime][index];
 
           return (
-            <div key={cat.label} className={`${styles.categoryBlock} ${alignmentClass} ${toneClass}`}>
+            <div key={cat.label} className={`${styles.categoryBlock} ${alignmentClass}`}>
               <div className={styles.categoryInner}>
                 <div className={styles.categoryIntro}>
                   <p className={styles.categoryKicker}>{cat.kicker}</p>
@@ -174,7 +173,7 @@ export default function HomePage() {
                 </div>
                 <div className={styles.toolGrid}>
                   {cat.tools.map((tool) => (
-                    <article key={tool.href} className={styles.toolCard}>
+                    <Link key={tool.href} href={tool.href} className={styles.toolCard}>
                       <div className={styles.cardTop}>
                         <span className={styles.cardIcon}>
                           <tool.icon size={20} />
@@ -183,11 +182,11 @@ export default function HomePage() {
                       </div>
                       <h3 className={styles.cardName}>{tool.name}</h3>
                       <p className={styles.cardDesc}>{tool.description}</p>
-                      <Link href={tool.href} className={styles.cardCta}>
+                      <span className={styles.cardCta}>
                         Open tool
                         <ArrowRight size={16} />
-                      </Link>
-                    </article>
+                      </span>
+                    </Link>
                   ))}
                 </div>
               </div>

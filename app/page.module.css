@@ -266,28 +266,18 @@
 }
 
 .categoryInner {
-  width: min(980px, 100%);
+  width: min(1080px, 100%);
   display: grid;
-  grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.6fr);
-  gap: 22px;
-  align-items: stretch;
+  gap: 20px;
 }
 
 .categoryIntro {
-  min-height: 100%;
-  padding: 28px;
-  border-left: 5px solid var(--color-green);
-  border-radius: 8px;
-  background: #ffffff;
-  box-shadow: 0 18px 42px rgba(1, 21, 76, 0.08);
-}
-
-.toneRed .categoryIntro {
-  border-left-color: #e7182a;
-}
-
-.toneLime .categoryIntro {
-  border-left-color: #dceb4b;
+  padding: 0 0 18px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: 28px;
+  align-items: end;
+  border-bottom: 1px solid rgba(1, 41, 138, 0.12);
 }
 
 .categoryIntro h2 {
@@ -299,6 +289,7 @@
 }
 
 .categoryIntro > p:not(.categoryKicker) {
+  max-width: 640px;
   margin-top: 16px;
   color: #647083;
   font-size: 15px;
@@ -306,16 +297,17 @@
 }
 
 .categoryIntro span {
-  margin-top: 24px;
   min-height: 34px;
   padding: 0 12px;
   display: inline-flex;
   align-items: center;
+  border: 1px solid rgba(1, 41, 138, 0.16);
   border-radius: 999px;
-  background: #eef1fb;
+  background: #ffffff;
   color: var(--color-primary);
   font-size: 12px;
   font-weight: 800;
+  white-space: nowrap;
 }
 
 .toolGrid {
@@ -335,6 +327,8 @@
   border-radius: 8px;
   background: #ffffff;
   box-shadow: 0 12px 28px rgba(16, 24, 40, 0.06);
+  color: inherit;
+  text-decoration: none;
   overflow: hidden;
   transition:
     transform 0.15s ease,
@@ -354,6 +348,11 @@
   transform: translateY(-4px);
   border-color: rgba(1, 41, 138, 0.22);
   box-shadow: 0 22px 46px rgba(16, 24, 40, 0.1);
+}
+
+.toolCard:focus-visible {
+  outline: 3px solid rgba(1, 41, 138, 0.28);
+  outline-offset: 3px;
 }
 
 .cardTop {
@@ -417,7 +416,7 @@
   font-weight: 800;
 }
 
-.cardCta:hover {
+.toolCard:hover .cardCta {
   color: var(--color-primary-dark);
 }
 
@@ -493,9 +492,19 @@
     margin-bottom: 24px;
   }
 
-  .categoryIntro,
   .toolCard {
     padding: 22px;
+  }
+
+  .categoryIntro {
+    padding: 0 0 16px;
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .categoryIntro span {
+    width: fit-content;
+    margin-top: 16px;
   }
 
   .toolGrid {
