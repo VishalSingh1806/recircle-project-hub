@@ -99,7 +99,7 @@ export const overviewTools = [
     name: "ClimaOne® V1",
     tagline:
       "Manage EPR compliance, track plastic credits, and stay CPCB-integrated in real time. One platform for brands, processors, and collectors.",
-    status: "Live",
+    status: "Available by request",
     statusTone: "live" as const,
     href: "/climaone-v1/",
     ctaLabel: "Open tool",
@@ -177,7 +177,7 @@ export const overviewTools = [
     name: "Drive Automation",
     tagline:
       "Simplify Google Drive administration by auditing file access, transferring ownership, and managing shared permissions securely at scale.",
-    status: "Live - HR team",
+    status: "Available by request",
     statusTone: "live" as const,
     href: "/drive-automation/",
     ctaLabel: "Open tool",
@@ -1014,7 +1014,7 @@ export const placeholderToolPages = {
       label: "Learn more about EPR compliance",
       href: "https://recircle.in/epr/"
     },
-    accessNote: "Available on desktop and mobile | Login with your ReCircle account | Contact tech team for access",
+    accessNote: "Desktop workflow | Contact tech team to activate",
     rolesEyebrow: "Who is this for",
     rolesTitle: "Built for everyone who touches compliance documents",
     roles: ocrEprRoles,
@@ -1138,7 +1138,7 @@ export const placeholderToolPages = {
       href: "#",
       tone: "primary" as const
     },
-    accessNote: "Available to HR team | Login with your ReCircle Google account | Contact tech team for access",
+    accessNote: "Google Workspace admin access required | Contact tech team to activate",
     rolesEyebrow: "Who is this for",
     rolesTitle: "Built for the HR team and everyone they support",
     roles: driveRoles,

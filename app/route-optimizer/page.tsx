@@ -2,7 +2,6 @@
   BarChart2,
   Calendar,
   Clock,
-  Github,
   Map,
   MapPin,
   Navigation,
@@ -11,6 +10,7 @@
   Upload,
   Users
 } from "lucide-react";
+import Link from "next/link";
 
 import { AccentBar } from "@/components/AccentBar/AccentBar";
 import { BackLink } from "@/components/BackLink/BackLink";
@@ -165,13 +165,12 @@ export default function RouteOptimizerPage() {
             data.
           </p>
           <div className={styles.heroActions}>
-            <a className={styles.githubButton} href="https://github.com/VishalSingh1806/best-route" target="_blank" rel="noreferrer">
-              <Github size={18} />
-              View on GitHub
-            </a>
+            <Link className={styles.githubButton} href="/contact/">
+              Available by request
+            </Link>
           </div>
           <p className={styles.accessNote}>
-            Available at route.recircle.in | Desktop | Upload a CSV to get started
+            Desktop workflow | Upload a CSV after activation
           </p>
         </div>
 

@@ -2,12 +2,12 @@
   BarChart2,
   FileSearch,
   FolderSync,
-  Github,
   RefreshCw,
   Share2,
   ShieldCheck,
   Users
 } from "lucide-react";
+import Link from "next/link";
 
 import { AccentBar } from "@/components/AccentBar/AccentBar";
 import { BackLink } from "@/components/BackLink/BackLink";
@@ -116,12 +116,11 @@ export default function DriveAutomationPage() {
             folder and file ownership in bulk, and replace shared permissions across the org —
             without touching each file manually.
           </p>
-          <a className={styles.githubButton} href="https://github.com/VishalSingh1806/backup-automation" target="_blank" rel="noreferrer">
-            <Github size={18} />
-            View on GitHub
-          </a>
+          <Link className={styles.githubButton} href="/contact/">
+            Available by request
+          </Link>
           <p className={styles.accessNote}>
-            Runs as a Google Sheets sidebar | Admin access required | Contact the tech team to set up
+            Google Workspace admin access required | Contact the tech team to activate
           </p>
         </div>
       </section>
