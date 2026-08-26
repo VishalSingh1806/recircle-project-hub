@@ -114,7 +114,7 @@ export default function HomePage() {
         <div className={styles.heroInner}>
           <span className={styles.chip}>
             <Sparkles size={14} />
-            Internal Product Hub
+            Internal Lab
           </span>
           <h1 className={styles.heroTitle}>
             The fastest way into ReCircle&apos;s operating tools.
