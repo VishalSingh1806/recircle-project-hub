@@ -374,7 +374,7 @@
 }
 
 .cardBadge {
-  max-width: 150px;
+  width: fit-content;
   padding: 4px 9px;
   border-radius: 999px;
   background: #f4f6f8;
@@ -384,8 +384,6 @@
   letter-spacing: 0.5px;
   text-transform: uppercase;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .cardName {
@@ -509,9 +507,5 @@
 
   .toolGrid {
     grid-template-columns: 1fr;
-  }
-
-  .cardBadge {
-    max-width: 132px;
   }
 }
