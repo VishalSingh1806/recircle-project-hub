@@ -1,4 +1,4 @@
-# ReCircle Product Hub
+# ReCircle Lab
 
 Static-exported Next.js 14 portal for internal ReCircle tools.
 

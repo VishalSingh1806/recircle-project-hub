@@ -1189,6 +1189,6 @@ export const faqItems = [
   {
     question: "How do I get trained on a tool?",
     answer:
-      "Each tool has a dedicated page on this hub with a full explanation of what it does, who it is for, and how to use it step by step. Start there. If you need a walkthrough or have questions after reading, contact the tech team, they can arrange a quick demo or a screen-share session."
+      "Each tool has a dedicated page on ReCircle Lab with a full explanation of what it does, who it is for, and how to use it step by step. Start there. If you need a walkthrough or have questions after reading, contact the tech team, they can arrange a quick demo or a screen-share session."
   }
 ];

@@ -4,7 +4,7 @@ import "@/styles/globals.css";
 import { Navbar } from "@/components/Navbar/Navbar";
 
 export const metadata: Metadata = {
-  title: "ReCircle Product Hub",
+  title: "ReCircle Lab",
   description: "Internal tools built by the ReCircle tech team for EPR compliance, logistics, and operations."
 };
 
